@@ -49,4 +49,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_right") and not facing_right:
 		facing_right = true
 		scale.x = -1
+		
+	# Animations
+	if abs(lineal_vel.x) > 10:
+		playback.travel("Run")
+	else:
+		playback.travel("Idle")
 
