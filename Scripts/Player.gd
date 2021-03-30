@@ -2,7 +2,8 @@ extends KinematicBody2D
 class_name Player
 
 var lineal_vel = Vector2()
-var speed = 400
+var speed_x = 300
+var speed_y = 500
 var gravity = 20
 
 var max_jumps = 2
@@ -32,16 +33,16 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump") and jumps < max_jumps:
 		if on_floor or airborne_time < max_airborne_time:
-			lineal_vel.y = -speed
+			lineal_vel.y = -speed_y
 			jumps += 1
 	
 	if Input.is_action_just_pressed("dash"):
-		lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed
+		lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed_x
 	
 	if on_floor:
-		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed, 0.5)
+		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.5)
 	else:
-		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed, 0.1)
+		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.1)
 	
 	if Input.is_action_just_pressed("move_left") and facing_right:
 		facing_right = false
@@ -50,9 +51,16 @@ func _physics_process(delta: float) -> void:
 		facing_right = true
 		scale.x = -1
 		
+		
 	# Animations
-	if abs(lineal_vel.x) > 10:
-		playback.travel("Run")
+	if on_floor:
+		if abs(lineal_vel.x) > 10:
+			playback.travel("Walk")
+		else:
+			playback.travel("Idle")
 	else:
-		playback.travel("Idle")
+		if lineal_vel.y < 0:
+			playback.travel("Jump_Up")
+		else:
+			playback.travel("Jump_Down")
 
