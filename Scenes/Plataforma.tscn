@@ -10,6 +10,8 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+one_way_collision = true
+one_way_collision_margin = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.87451, 0.32549, 0.709804, 1 )
