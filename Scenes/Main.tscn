@@ -10,22 +10,23 @@
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
-position = Vector2( 530.457, 144.229 )
+position = Vector2( 512.257, 298.583 )
+scale = Vector2( 4.25141, 3.40197 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 447.108, 180.344 )
 
 [node name="Plataforma" parent="." instance=ExtResource( 3 )]
-position = Vector2( 367.452, 320 )
+position = Vector2( 492.655, 503.964 )
 
 [node name="Plataforma2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 701.452, 320 )
+position = Vector2( 693.443, 185.181 )
 
 [node name="Platjoint" parent="." instance=ExtResource( 4 )]
-position = Vector2( 540, 320 )
+position = Vector2( 399.842, 329.344 )
 
 [node name="Wall" parent="." instance=ExtResource( 5 )]
-position = Vector2( 165.111, 164.111 )
+position = Vector2( 113.052, 408.387 )
 
 [node name="Wall2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 903.608, 162.193 )
+position = Vector2( 886.255, 411.808 )
