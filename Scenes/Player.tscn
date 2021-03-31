@@ -26,7 +26,7 @@
 radius = 27.1584
 height = 40.3602
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=2]
 resource_name = "End_Jump"
 length = 0.1
 tracks/0/type = "value"
@@ -42,8 +42,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 21 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -59,7 +58,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=4]
 resource_name = "Jump_Down"
 length = 0.2
 loop = true
@@ -76,7 +75,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 17 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
 resource_name = "Jump_Up"
 length = 0.2
 loop = true
@@ -94,8 +93,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 20 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Run"
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 step = 0.05
@@ -112,7 +110,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 9 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=7]
 resource_name = "Start_Jump"
 length = 0.2
 tracks/0/type = "value"
@@ -128,7 +126,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 18 ), ExtResource( 19 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "Walk"
 length = 0.9
 loop = true
@@ -146,67 +144,67 @@ tracks/0/keys = {
 "values": [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "End_Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Jump_Down"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Jump_Up"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Start_Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=26]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
-
-[sub_resource type="AnimationNodeStateMachine" id=8]
-states/End_Jump/node = SubResource( 18 )
+[sub_resource type="AnimationNodeStateMachine" id=26]
+states/End_Jump/node = SubResource( 9 )
 states/End_Jump/position = Vector2( 308, 262 )
-states/Idle/node = SubResource( 4 )
+states/Idle/node = SubResource( 10 )
 states/Idle/position = Vector2( -27, 100 )
-states/Jump_Down/node = SubResource( 19 )
+states/Jump_Down/node = SubResource( 11 )
 states/Jump_Down/position = Vector2( 362, 176 )
-states/Jump_Up/node = SubResource( 20 )
+states/Jump_Up/node = SubResource( 12 )
 states/Jump_Up/position = Vector2( 328, 60 )
-states/Start_Jump/node = SubResource( 21 )
+states/Start_Jump/node = SubResource( 13 )
 states/Start_Jump/position = Vector2( 152, 60 )
-states/Walk/node = SubResource( 12 )
+states/Walk/node = SubResource( 14 )
 states/Walk/position = Vector2( -27, 201 )
-transitions = [ "Idle", "Walk", SubResource( 13 ), "Walk", "Idle", SubResource( 14 ), "Idle", "Start_Jump", SubResource( 22 ), "Walk", "Start_Jump", SubResource( 23 ), "Start_Jump", "Jump_Up", SubResource( 24 ), "Jump_Up", "Jump_Down", SubResource( 25 ), "Jump_Down", "End_Jump", SubResource( 26 ), "End_Jump", "Idle", SubResource( 27 ), "End_Jump", "Walk", SubResource( 28 ), "End_Jump", "Start_Jump", SubResource( 30 ), "Jump_Down", "Jump_Up", SubResource( 31 ) ]
+transitions = [ "Idle", "Walk", SubResource( 15 ), "Walk", "Idle", SubResource( 16 ), "Idle", "Start_Jump", SubResource( 17 ), "Walk", "Start_Jump", SubResource( 18 ), "Start_Jump", "Jump_Up", SubResource( 19 ), "Jump_Up", "Jump_Down", SubResource( 20 ), "Jump_Down", "End_Jump", SubResource( 21 ), "End_Jump", "Idle", SubResource( 22 ), "End_Jump", "Walk", SubResource( 23 ), "End_Jump", "Start_Jump", SubResource( 24 ), "Jump_Down", "Jump_Up", SubResource( 25 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -109.185, -9.26701 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 10 )
@@ -216,20 +214,21 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 10.4454 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/End_Jump = SubResource( 15 )
-anims/Idle = SubResource( 2 )
-anims/Jump_Down = SubResource( 16 )
-anims/Jump_Up = SubResource( 10 )
-anims/Run = SubResource( 3 )
-anims/Start_Jump = SubResource( 17 )
-anims/Walk = SubResource( 11 )
+anims/End_Jump = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Jump_Down = SubResource( 4 )
+anims/Jump_Up = SubResource( 5 )
+anims/Run = SubResource( 6 )
+anims/Start_Jump = SubResource( 7 )
+anims/Walk = SubResource( 8 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 8 )
+tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 9 )
+parameters/playback = SubResource( 27 )
