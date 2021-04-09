@@ -1,7 +1,7 @@
-
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Plataforma.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Platjoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=5]
@@ -10,11 +10,8 @@
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
-position = Vector2( 512.257, 298.583 )
+position = Vector2( 514.157, 298.62 )
 scale = Vector2( 4.25141, 3.40197 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 447.108, 180.344 )
 
 [node name="Plataforma" parent="." instance=ExtResource( 3 )]
 position = Vector2( 492.655, 503.964 )
@@ -30,3 +27,9 @@ position = Vector2( 113.052, 408.387 )
 
 [node name="Wall2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 886.255, 411.808 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 407.215, 235.155 )
+
+[node name="Hellhound" parent="." instance=ExtResource( 2 )]
+position = Vector2( 665.728, 123.235 )
