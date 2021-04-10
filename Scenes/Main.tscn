@@ -1,44 +1,65 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Plataforma.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Platjoint.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Stage/wall1.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Stage/wall2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Stage/layers/middleground-no-fungus.png" type="Texture" id=8]
 
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
 self_modulate = Color( 0.376471, 0.0509804, 0.0196078, 1 )
-position = Vector2( 515.157, 300.301 )
-scale = Vector2( 4.25141, 3.40197 )
+position = Vector2( 514.168, 301.557 )
+scale = Vector2( 4.27947, 3.41473 )
 
-[node name="Wall2" parent="Background" instance=ExtResource( 5 )]
-position = Vector2( -6.46518, -17.6473 )
-scale = Vector2( 0.235216, 0.293947 )
+[node name="middleground" type="Sprite" parent="Background"]
+self_modulate = Color( 0.376471, 0.0509804, 0.0196078, 1 )
+position = Vector2( 0.12619, 0.278835 )
+scale = Vector2( 0.888635, 1.01508 )
+texture = ExtResource( 8 )
 
-[node name="Wall" parent="Background" instance=ExtResource( 5 )]
-position = Vector2( -14.6737, 36.468 )
+[node name="Wall1" type="Sprite" parent="Background"]
+self_modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
+position = Vector2( 7.24417, -32.0031 )
+scale = Vector2( 0.341421, 0.352694 )
+texture = ExtResource( 5 )
+
+[node name="Wall2" type="Sprite" parent="Background"]
+self_modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
+position = Vector2( -1.20288, 11.686 )
 scale = Vector2( 0.235216, 0.293947 )
+texture = ExtResource( 5 )
+
+[node name="Wall 2" type="Sprite" parent="Background"]
+self_modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
+position = Vector2( -42.6312, 22.9841 )
+scale = Vector2( 0.35518, 0.445415 )
+texture = ExtResource( 7 )
 
 [node name="Plataforma" parent="." groups=[
 "Platform",
 ] instance=ExtResource( 3 )]
-position = Vector2( 552.359, 501.441 )
+modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
+position = Vector2( 327.599, 489.549 )
 
 [node name="Plataforma2" parent="." groups=[
 "Platform",
 ] instance=ExtResource( 3 )]
-position = Vector2( 572.354, 149.863 )
+position = Vector2( 392.784, 161.755 )
 
 [node name="Platjoint" parent="." groups=[
 "Platform",
 ] instance=ExtResource( 4 )]
-position = Vector2( 399.842, 329.344 )
+position = Vector2( 723.565, 316.263 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 407.215, 235.155 )
+position = Vector2( 599.867, 203.046 )
 
 [node name="Hellhound" parent="." instance=ExtResource( 2 )]
-position = Vector2( 640.502, 65.2132 )
+position = Vector2( 428.823, 80.6729 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
