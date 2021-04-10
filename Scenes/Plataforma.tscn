@@ -3,14 +3,16 @@
 [ext_resource path="res://Assets/Stage/pltfrm1.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 260, 75 )
+extents = Vector2( 112.32, 0.224285 )
 
 [node name="Plataforma" type="StaticBody2D"]
+modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.77542, -43.4182 )
+scale = Vector2( 2.5, 50 )
 shape = SubResource( 1 )
-one_way_collision = true
 one_way_collision_margin = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
