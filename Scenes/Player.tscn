@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 27.1584
+radius = 20.0247
 height = 37.4738
 
 [sub_resource type="Animation" id=2]
@@ -360,13 +360,8 @@ graph_offset = Vector2( -569.009, 8.82199 )
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 10 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 3, 3 )
-texture = ExtResource( 2 )
-hframes = 3
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 12 )
+position = Vector2( 0, 17 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -383,3 +378,8 @@ tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 27 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+hframes = 3

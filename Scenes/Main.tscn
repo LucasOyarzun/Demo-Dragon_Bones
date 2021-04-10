@@ -10,26 +10,35 @@
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
-position = Vector2( 514.157, 298.62 )
+self_modulate = Color( 0.376471, 0.0509804, 0.0196078, 1 )
+position = Vector2( 515.157, 300.301 )
 scale = Vector2( 4.25141, 3.40197 )
 
-[node name="Plataforma" parent="." instance=ExtResource( 3 )]
-position = Vector2( 492.655, 503.964 )
+[node name="Wall2" parent="Background" instance=ExtResource( 5 )]
+position = Vector2( -6.46518, -17.6473 )
+scale = Vector2( 0.235216, 0.293947 )
 
-[node name="Plataforma2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 693.443, 185.181 )
+[node name="Wall" parent="Background" instance=ExtResource( 5 )]
+position = Vector2( -14.6737, 36.468 )
+scale = Vector2( 0.235216, 0.293947 )
 
-[node name="Platjoint" parent="." instance=ExtResource( 4 )]
+[node name="Plataforma" parent="." groups=[
+"Platform",
+] instance=ExtResource( 3 )]
+position = Vector2( 552.359, 501.441 )
+
+[node name="Plataforma2" parent="." groups=[
+"Platform",
+] instance=ExtResource( 3 )]
+position = Vector2( 572.354, 149.863 )
+
+[node name="Platjoint" parent="." groups=[
+"Platform",
+] instance=ExtResource( 4 )]
 position = Vector2( 399.842, 329.344 )
-
-[node name="Wall" parent="." instance=ExtResource( 5 )]
-position = Vector2( 113.052, 408.387 )
-
-[node name="Wall2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 886.255, 411.808 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 407.215, 235.155 )
 
 [node name="Hellhound" parent="." instance=ExtResource( 2 )]
-position = Vector2( 665.728, 123.235 )
+position = Vector2( 640.502, 65.2132 )

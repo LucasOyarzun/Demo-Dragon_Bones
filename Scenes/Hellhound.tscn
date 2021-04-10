@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Hell-Hound-Files/PNG/hell-hound-walk.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Hell-Hound-Files/PNG/hell-hound-idle.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Hellhound.gd" type="Script" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 10.2245
-height = 9.63244
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 8.53539, 14.1852 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8.84524, 13.9752 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -98,17 +101,20 @@ animation = "Walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=6]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
 [sub_resource type="AnimationNodeStateMachine" id=7]
 states/Idle/node = SubResource( 4 )
-states/Idle/position = Vector2( 266, 103 )
+states/Idle/position = Vector2( 272, 103 )
 states/Walk/node = SubResource( 5 )
 states/Walk/position = Vector2( 470, 103 )
-transitions = [ "Idle", "Walk", SubResource( 6 ) ]
-start_node = "Walk"
+transitions = [ "Idle", "Walk", SubResource( 6 ), "Walk", "Idle", SubResource( 11 ) ]
+start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=8]
 
 [node name="Hellhound" type="KinematicBody2D"]
+script = ExtResource( 3 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -116,21 +122,22 @@ __meta__ = {
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 7 )
+position = Vector2( 0, 10 )
 rotation = 1.5708
-scale = Vector2( 1.5, 1.5 )
-shape = SubResource( 1 )
+scale = Vector2( 2, 2 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 7 )
+position = Vector2( 0, 10 )
 rotation = 1.5708
-scale = Vector2( 1.5, 1.5 )
-shape = SubResource( 1 )
+scale = Vector2( 2, 2 )
+shape = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 2 )
-hframes = 6
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+hframes = 12
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )
@@ -141,3 +148,8 @@ tree_root = SubResource( 7 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 8 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -20, 0 )
+enabled = true
+cast_to = Vector2( 0, 35 )
