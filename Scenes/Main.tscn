@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
@@ -8,58 +8,166 @@
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Stage/wall2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Stage/layers/middleground-no-fungus.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Stage/layers/tilesets.png" type="Texture" id=9]
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 32, 32, 16, 32, 16, 16, 32, 16 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "tilesets.png 0"
+0/texture = ExtResource( 9 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 32, 48, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
 
 [node name="Main" type="Node2D"]
 
-[node name="Background" parent="." instance=ExtResource( 6 )]
-self_modulate = Color( 0.376471, 0.0509804, 0.0196078, 1 )
-position = Vector2( 514.168, 301.557 )
-scale = Vector2( 4.27947, 3.41473 )
+[node name="Screen 1" type="Node2D" parent="."]
 
-[node name="middleground" type="Sprite" parent="Background"]
+[node name="Background" parent="Screen 1" instance=ExtResource( 6 )]
 self_modulate = Color( 0.376471, 0.0509804, 0.0196078, 1 )
-position = Vector2( 0.12619, 0.278835 )
-scale = Vector2( 0.888635, 1.01508 )
+position = Vector2( 680, 440 )
+scale = Vector2( 5, 5 )
+
+[node name="middleground" type="Sprite" parent="Screen 1/Background"]
+self_modulate = Color( 0.376471, 0.0509804, 0.0196078, 1 )
 texture = ExtResource( 8 )
 
-[node name="Wall1" type="Sprite" parent="Background"]
+[node name="Wall1" type="Sprite" parent="Screen 1/Background"]
 self_modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
-position = Vector2( 7.24417, -32.0031 )
-scale = Vector2( 0.341421, 0.352694 )
+position = Vector2( -65.8141, -64.1881 )
+scale = Vector2( 0.160076, 0.161747 )
 texture = ExtResource( 5 )
 
-[node name="Wall2" type="Sprite" parent="Background"]
+[node name="Wall 2" type="Sprite" parent="Screen 1/Background"]
 self_modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
-position = Vector2( -1.20288, 11.686 )
-scale = Vector2( 0.235216, 0.293947 )
-texture = ExtResource( 5 )
-
-[node name="Wall 2" type="Sprite" parent="Background"]
-self_modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
-position = Vector2( -42.6312, 22.9841 )
-scale = Vector2( 0.35518, 0.445415 )
+position = Vector2( -71.3923, -37.5994 )
+scale = Vector2( 0.158995, 0.17443 )
 texture = ExtResource( 7 )
 
-[node name="Plataforma" parent="." groups=[
+[node name="Plataforma" parent="Screen 1" groups=[
 "Platform",
 ] instance=ExtResource( 3 )]
-modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
-position = Vector2( 327.599, 489.549 )
+position = Vector2( 206.957, 489.549 )
 
-[node name="Plataforma2" parent="." groups=[
+[node name="Plataforma2" parent="Screen 1" groups=[
 "Platform",
 ] instance=ExtResource( 3 )]
 position = Vector2( 392.784, 161.755 )
 
-[node name="Platjoint" parent="." groups=[
+[node name="Plataforma3" parent="Screen 1" groups=[
+"Platform",
+] instance=ExtResource( 3 )]
+position = Vector2( 1185.18, 184.007 )
+
+[node name="Plataforma4" parent="Screen 1" groups=[
+"Platform",
+] instance=ExtResource( 3 )]
+position = Vector2( 1105.04, 394.645 )
+
+[node name="Platjoint" parent="Screen 1" groups=[
 "Platform",
 ] instance=ExtResource( 4 )]
 position = Vector2( 723.565, 316.263 )
 
+[node name="Platjoint2" parent="Screen 1" groups=[
+"Platform",
+] instance=ExtResource( 4 )]
+position = Vector2( 871.89, 528.156 )
+
+[node name="Hellhound" parent="Screen 1" instance=ExtResource( 2 )]
+position = Vector2( 428.823, 80.6729 )
+
+[node name="Screen 2" type="Node2D" parent="."]
+position = Vector2( 1360, 0 )
+
+[node name="Background" parent="Screen 2" instance=ExtResource( 6 )]
+self_modulate = Color( 0.376471, 0.0509804, 0.0196078, 1 )
+position = Vector2( 680, 440 )
+scale = Vector2( 5, 5 )
+
+[node name="middleground" type="Sprite" parent="Screen 2/Background"]
+self_modulate = Color( 0.376471, 0.0509804, 0.0196078, 1 )
+position = Vector2( 0.67276, 0 )
+texture = ExtResource( 8 )
+
+[node name="Wall1" type="Sprite" parent="Screen 2/Background"]
+self_modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
+position = Vector2( -65.8141, -64.1881 )
+scale = Vector2( 0.160076, 0.161747 )
+texture = ExtResource( 5 )
+
+[node name="Wall 2" type="Sprite" parent="Screen 2/Background"]
+self_modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
+position = Vector2( -71.3923, -37.5994 )
+scale = Vector2( 0.158995, 0.17443 )
+texture = ExtResource( 7 )
+
+[node name="Plataforma" parent="Screen 2" groups=[
+"Platform",
+] instance=ExtResource( 3 )]
+position = Vector2( 206.957, 489.549 )
+
+[node name="Plataforma2" parent="Screen 2" groups=[
+"Platform",
+] instance=ExtResource( 3 )]
+position = Vector2( 392.784, 161.755 )
+
+[node name="Plataforma3" parent="Screen 2" groups=[
+"Platform",
+] instance=ExtResource( 3 )]
+position = Vector2( 1185.18, 184.007 )
+
+[node name="Plataforma4" parent="Screen 2" groups=[
+"Platform",
+] instance=ExtResource( 3 )]
+position = Vector2( 1105.04, 394.645 )
+
+[node name="Platjoint" parent="Screen 2" groups=[
+"Platform",
+] instance=ExtResource( 4 )]
+position = Vector2( 723.565, 316.263 )
+
+[node name="Platjoint2" parent="Screen 2" groups=[
+"Platform",
+] instance=ExtResource( 4 )]
+position = Vector2( 871.89, 528.156 )
+
+[node name="Hellhound" parent="Screen 2" instance=ExtResource( 2 )]
+position = Vector2( 428.823, 80.6729 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 3.1748, -438.123 )
+scale = Vector2( 2, 2 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 599.867, 203.046 )
 
-[node name="Hellhound" parent="." instance=ExtResource( 2 )]
-position = Vector2( 428.823, 80.6729 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Cam" type="Camera2D" parent="Player"]
+position = Vector2( 15.2422, 3.48701 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.05
+drag_margin_right = 0.05
+editor_draw_screen = false

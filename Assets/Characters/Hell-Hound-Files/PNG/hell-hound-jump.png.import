@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hell-hound-idle.png-06dae7edefb9290791d277803f6d4cf2.stex"
+path="res://.import/hell-hound-jump.png-fe1f340d51dca6421d3b03eb6919943b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hell-Hound-Files/PNG/hell-hound-idle.png"
-dest_files=[ "res://.import/hell-hound-idle.png-06dae7edefb9290791d277803f6d4cf2.stex" ]
+source_file="res://Assets/Characters/Hell-Hound-Files/PNG/hell-hound-jump.png"
+dest_files=[ "res://.import/hell-hound-jump.png-fe1f340d51dca6421d3b03eb6919943b.stex" ]
 
 [params]
 

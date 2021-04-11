@@ -43,7 +43,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		if(waiting_before_turn_back<0):
 			waiting_before_turn_back= 1
-			print("hola")
 			facing_right = !(facing_right)
 			scale.x = -1
 			target_vel = -target_vel

@@ -12,7 +12,7 @@
 radius = 20.0247
 height = 37.4738
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=2]
 resource_name = "Bend_End"
 length = 0.2
 step = 0.05
@@ -77,7 +77,7 @@ tracks/4/keys = {
 "values": [ 3, 2, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=3]
 resource_name = "Bend_Walk"
 length = 0.5
 loop = true
@@ -142,8 +142,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 0.7 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "End_Jump"
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -206,7 +205,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 17 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 0.6
 loop = true
 step = 0.2
@@ -271,7 +270,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 17 ) ]
 }
 
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=6]
 resource_name = "Idle_Bend"
 length = 5.0
 loop = true
@@ -336,8 +335,7 @@ tracks/4/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Jump_Down"
+[sub_resource type="Animation" id=7]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -401,8 +399,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 17 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Jump_Up"
+[sub_resource type="Animation" id=8]
 length = 0.2
 loop = true
 step = 0.05
@@ -467,7 +464,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 17 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=9]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -531,7 +528,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 17 ) ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=10]
 resource_name = "Start_Bend"
 length = 0.1
 step = 0.025
@@ -596,8 +593,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 17 ), Vector2( 0, 19 ), Vector2( 0, 24 ), Vector2( 0, 28 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Start_Jump"
+[sub_resource type="Animation" id=11]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -660,10 +656,10 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 17 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Walk"
-length = 0.5
+[sub_resource type="Animation" id=12]
+length = 0.75
 loop = true
+step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -695,10 +691,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
+"values": [ 0, 1, 2, 4, 3 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("CollisionShape2D:scale")
@@ -725,111 +721,111 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 17 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=31]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Bend_End"
 
-[sub_resource type="AnimationNodeAnimation" id=32]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "Bend_Walk"
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "End_Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=46]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "Idle_Bend"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "Jump_Down"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "Jump_Up"
 
-[sub_resource type="AnimationNodeAnimation" id=40]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "Start_Bend"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "Start_Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=22]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=43]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=44]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=47]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=48]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=49]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=50]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=52]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=53]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id=26]
-states/Bend_End/node = SubResource( 31 )
+[sub_resource type="AnimationNodeStateMachine" id=44]
+states/Bend_End/node = SubResource( 13 )
 states/Bend_End/position = Vector2( -291.009, 320.822 )
-states/Bend_Walk/node = SubResource( 32 )
+states/Bend_Walk/node = SubResource( 14 )
 states/Bend_Walk/position = Vector2( -373.009, 249.822 )
-states/End_Jump/node = SubResource( 9 )
+states/End_Jump/node = SubResource( 15 )
 states/End_Jump/position = Vector2( 308, 262 )
-states/Idle/node = SubResource( 10 )
+states/Idle/node = SubResource( 16 )
 states/Idle/position = Vector2( -27, 100 )
-states/Idle_Bend/node = SubResource( 46 )
+states/Idle_Bend/node = SubResource( 17 )
 states/Idle_Bend/position = Vector2( -387.009, 155.822 )
-states/Jump_Down/node = SubResource( 11 )
+states/Jump_Down/node = SubResource( 18 )
 states/Jump_Down/position = Vector2( 362, 176 )
-states/Jump_Up/node = SubResource( 12 )
+states/Jump_Up/node = SubResource( 19 )
 states/Jump_Up/position = Vector2( 328, 60 )
-states/Start_Bend/node = SubResource( 40 )
+states/Start_Bend/node = SubResource( 20 )
 states/Start_Bend/position = Vector2( -276.009, 84 )
-states/Start_Jump/node = SubResource( 13 )
+states/Start_Jump/node = SubResource( 21 )
 states/Start_Jump/position = Vector2( 152, 60 )
-states/Walk/node = SubResource( 14 )
+states/Walk/node = SubResource( 22 )
 states/Walk/position = Vector2( -27, 274 )
-transitions = [ "Idle", "Walk", SubResource( 15 ), "Walk", "Idle", SubResource( 16 ), "Idle", "Start_Jump", SubResource( 17 ), "Walk", "Start_Jump", SubResource( 18 ), "Start_Jump", "Jump_Up", SubResource( 19 ), "Jump_Up", "Jump_Down", SubResource( 20 ), "Jump_Down", "End_Jump", SubResource( 21 ), "End_Jump", "Idle", SubResource( 22 ), "End_Jump", "Walk", SubResource( 23 ), "End_Jump", "Start_Jump", SubResource( 24 ), "Jump_Down", "Jump_Up", SubResource( 25 ), "Bend_Walk", "Bend_End", SubResource( 38 ), "Idle", "Start_Bend", SubResource( 41 ), "Walk", "Start_Bend", SubResource( 43 ), "End_Jump", "Start_Bend", SubResource( 44 ), "Start_Bend", "Idle_Bend", SubResource( 47 ), "Idle_Bend", "Bend_Walk", SubResource( 48 ), "Start_Bend", "Bend_Walk", SubResource( 49 ), "Bend_Walk", "Idle_Bend", SubResource( 50 ), "Bend_End", "Idle", SubResource( 52 ), "Bend_End", "Walk", SubResource( 53 ) ]
+transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ), "Idle", "Start_Jump", SubResource( 25 ), "Walk", "Start_Jump", SubResource( 26 ), "Start_Jump", "Jump_Up", SubResource( 27 ), "Jump_Up", "Jump_Down", SubResource( 28 ), "Jump_Down", "End_Jump", SubResource( 29 ), "End_Jump", "Idle", SubResource( 30 ), "End_Jump", "Walk", SubResource( 31 ), "End_Jump", "Start_Jump", SubResource( 32 ), "Jump_Down", "Jump_Up", SubResource( 33 ), "Bend_Walk", "Bend_End", SubResource( 34 ), "Idle", "Start_Bend", SubResource( 35 ), "Walk", "Start_Bend", SubResource( 36 ), "End_Jump", "Start_Bend", SubResource( 37 ), "Start_Bend", "Idle_Bend", SubResource( 38 ), "Idle_Bend", "Bend_Walk", SubResource( 39 ), "Start_Bend", "Bend_Walk", SubResource( 40 ), "Bend_Walk", "Idle_Bend", SubResource( 41 ), "Bend_End", "Idle", SubResource( 42 ), "Bend_End", "Walk", SubResource( 43 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -569.009, 8.82199 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=27]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=45]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 10 )
@@ -839,26 +835,25 @@ position = Vector2( 0, 17 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Bend_End = SubResource( 28 )
-anims/Bend_Walk = SubResource( 29 )
-anims/End_Jump = SubResource( 2 )
-anims/Idle = SubResource( 3 )
-anims/Idle_Bend = SubResource( 45 )
-anims/Jump_Down = SubResource( 4 )
-anims/Jump_Up = SubResource( 5 )
-anims/Run = SubResource( 6 )
-anims/Start_Bend = SubResource( 30 )
-anims/Start_Jump = SubResource( 7 )
-anims/Walk = SubResource( 8 )
+anims/Bend_End = SubResource( 2 )
+anims/Bend_Walk = SubResource( 3 )
+anims/End_Jump = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Idle_Bend = SubResource( 6 )
+anims/Jump_Down = SubResource( 7 )
+anims/Jump_Up = SubResource( 8 )
+anims/Run = SubResource( 9 )
+anims/Start_Bend = SubResource( 10 )
+anims/Start_Jump = SubResource( 11 )
+anims/Walk = SubResource( 12 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 26 )
+tree_root = SubResource( 44 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 27 )
+parameters/playback = SubResource( 45 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
