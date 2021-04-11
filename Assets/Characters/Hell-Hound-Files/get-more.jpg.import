@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/get-more.jpg-829692fbf03129aca8ba7b4c2577b87f.stex"
+path="res://.import/get-more.jpg-6305c24b64eb26e2f33096dfff368513.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hell-Hound-Files/get-more.jpg"
-dest_files=[ "res://.import/get-more.jpg-829692fbf03129aca8ba7b4c2577b87f.stex" ]
+source_file="res://Assets/Characters/Hell-Hound-Files/get-more.jpg"
+dest_files=[ "res://.import/get-more.jpg-6305c24b64eb26e2f33096dfff368513.stex" ]
 
 [params]
 
