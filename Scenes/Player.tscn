@@ -655,7 +655,6 @@ parameters/playback = SubResource( 45 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
-
 texture = ExtResource( 2 )
 hframes = 3
 frame = 2
