@@ -10,7 +10,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.0
-height = 38.0
+height = 2.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "Bend_End"
@@ -628,7 +628,7 @@ tracks/1/keys = {
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 15 )
+position = Vector2( 0, 16 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -654,10 +654,10 @@ active = true
 parameters/playback = SubResource( 48 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 3, 3 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 1
+frame = 2
 __meta__ = {
 "_edit_lock_": true
 }
@@ -665,17 +665,16 @@ __meta__ = {
 [node name="CeilingCheck" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="CeilingCheck"]
-position = Vector2( -20, -12 )
+position = Vector2( -20, 0 )
 rotation = -3.14159
 cast_to = Vector2( 0, 12 )
 
 [node name="RayCast2D2" type="RayCast2D" parent="CeilingCheck"]
-position = Vector2( 20, -12 )
+position = Vector2( 20, 0 )
 rotation = -3.14159
 cast_to = Vector2( 0, 12 )
 
 [node name="RayCast2D3" type="RayCast2D" parent="CeilingCheck"]
-position = Vector2( 0, -12 )
 rotation = -3.14159
 cast_to = Vector2( 0, 12 )
 

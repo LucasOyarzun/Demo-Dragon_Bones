@@ -3,7 +3,7 @@ class_name Player
 
 var lineal_vel = Vector2()
 var speed_x = 300
-var speed_y = 650
+var speed_y = 400
 var gravity = 25
 
 var max_jumps = 2
@@ -81,11 +81,11 @@ func _physics_process(delta: float) -> void:
 	
 	if crouched != last_crouched:
 		if crouched:
-			$CollisionShape2D.position.y = 24
-			($CollisionShape2D.shape as CapsuleShape2D).height = 20
+			$CollisionShape2D.position.y = 16
+			($CollisionShape2D.shape as CapsuleShape2D).height = 2
 		else:
-			$CollisionShape2D.position.y = 15
-			($CollisionShape2D.shape as CapsuleShape2D).height = 38
+			$CollisionShape2D.position.y = 9
+			($CollisionShape2D.shape as CapsuleShape2D).height = 16
 		
 #		if crouched:
 #			$APCollisionShape.play("crouched")
