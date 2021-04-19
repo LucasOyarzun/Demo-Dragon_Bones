@@ -13,12 +13,16 @@ var max_airborne_time = 10
 var airborne_time = 0
 
 var facing_right = true
+var limite_pantalla
 
 
 var crouched = false
 var crouched_factor = 0.6
 
 onready var playback = $AnimationTree.get("parameters/playback")
+
+func _ready():
+	limite_pantalla = get_viewport_rect().size
 	
 func _physics_process(delta: float) -> void:
 	
@@ -27,7 +31,6 @@ func _physics_process(delta: float) -> void:
 	
 	var on_floor = is_on_floor()
 	var target_vel = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	
 	# Airborne_Time
 	if on_floor:
 		airborne_time = 0
@@ -44,6 +47,8 @@ func _physics_process(delta: float) -> void:
 	# Dash
 	if Input.is_action_just_pressed("dash"):
 		lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed_x
+		
+	
 		
 	# Movement
 	
@@ -93,12 +98,9 @@ func _physics_process(delta: float) -> void:
 	if on_floor:
 		if abs(lineal_vel.x) > 30:
 			if crouched:
-
 				playback.travel("Bend_Walk")
-			else: 
+			else:
 				playback.travel("Walk")
-		elif Input.is_action_pressed("ui_down"):
-			playback.travel("Idle_Bend")
 		else:
 			if crouched:
 				playback.travel("Idle_Bend")
