@@ -52,8 +52,16 @@ func _physics_process(delta: float) -> void:
 		
 	# Movement
 	
+	
+	var ceiling = false
+	
+	for child in $CeilingCheck.get_children():
+		if child.is_colliding():
+			ceiling = true
+			break
+	
 	var last_crouched = crouched
-	crouched = on_floor and Input.is_action_pressed("ui_down")
+	crouched = on_floor and Input.is_action_pressed("ui_down") or ceiling
 	
 	if on_floor:
 		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x * (crouched_factor if crouched else 1.0), 0.5)
@@ -68,8 +76,7 @@ func _physics_process(delta: float) -> void:
 		scale.x = -1
 	
 	
-	print(lineal_vel.x)
-	print(on_floor)
+
 	
 	
 	if crouched != last_crouched:
@@ -79,16 +86,23 @@ func _physics_process(delta: float) -> void:
 		else:
 			$CollisionShape2D.position.y = 15
 			($CollisionShape2D.shape as CapsuleShape2D).height = 38
+		
+#		if crouched:
+#			$APCollisionShape.play("crouched")
+#		else:
+#			$APCollisionShape.play("standing")
+		for child in $CeilingCheck.get_children():
+			child.enabled = crouched
 	
 	# Animations
 	if on_floor:
 		if abs(lineal_vel.x) > 30:
-			if Input.is_action_pressed("ui_down"):
+			if crouched:
 				playback.travel("Bend_Walk")
 			else:
 				playback.travel("Walk")
 		else:
-			if Input.is_action_pressed("ui_down"):
+			if crouched:
 				playback.travel("Idle_Bend")
 			else:
 				playback.travel("Idle")
