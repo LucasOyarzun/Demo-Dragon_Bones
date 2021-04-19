@@ -13,12 +13,8 @@ var max_airborne_time = 10
 var airborne_time = 0
 
 var facing_right = true
-var limite_pantalla
 
 onready var playback = $AnimationTree.get("parameters/playback")
-
-func _ready():
-	limite_pantalla = get_viewport_rect().size
 	
 func _physics_process(delta: float) -> void:
 	
@@ -27,6 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 	var on_floor = is_on_floor()
 	var target_vel = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	
 	# Airborne_Time
 	if on_floor:
 		airborne_time = 0
@@ -43,8 +40,6 @@ func _physics_process(delta: float) -> void:
 	# Dash
 	if Input.is_action_just_pressed("dash"):
 		lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed_x
-		
-	
 		
 	# Movement
 	if on_floor:
@@ -64,16 +59,15 @@ func _physics_process(delta: float) -> void:
 		
 	# Animations
 	if on_floor:
-		if abs(lineal_vel.x) > 30:
+		if abs(lineal_vel.x) > 10:
 			if Input.is_action_pressed("ui_down"):
 				playback.travel("Bend_Walk")
-			else:
+			else: 
 				playback.travel("Walk")
+		elif Input.is_action_pressed("ui_down"):
+			playback.travel("Idle_Bend")
 		else:
-			if Input.is_action_pressed("ui_down"):
-				playback.travel("Idle_Bend")
-			else:
-				playback.travel("Idle")
+			playback.travel("Idle")
 	else:
 		if lineal_vel.y < 0:
 			playback.travel("Jump_Up")
