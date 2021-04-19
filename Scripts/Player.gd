@@ -14,6 +14,10 @@ var airborne_time = 0
 
 var facing_right = true
 
+
+var crouched = false
+var crouched_factor = 0.6
+
 onready var playback = $AnimationTree.get("parameters/playback")
 	
 func _physics_process(delta: float) -> void:
@@ -42,11 +46,20 @@ func _physics_process(delta: float) -> void:
 		lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed_x
 		
 	# Movement
+	
+	
+	var ceiling = false
+	
+	for child in $CeilingCheck.get_children():
+		if child.is_colliding():
+			ceiling = true
+			break
+	
+	var last_crouched = crouched
+	crouched = on_floor and Input.is_action_pressed("ui_down") or ceiling
+	
 	if on_floor:
-		if Input.is_action_pressed("ui_down"): # If skeleton is crouched
-			lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.5)*0.6
-		else:	
-			lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.5)
+		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x * (crouched_factor if crouched else 1.0), 0.5)
 	else:
 		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.1)
 		
@@ -56,18 +69,41 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_right") and not facing_right:
 		facing_right = true
 		scale.x = -1
+	
+	
+
+	
+	
+	if crouched != last_crouched:
+		if crouched:
+			$CollisionShape2D.position.y = 24
+			($CollisionShape2D.shape as CapsuleShape2D).height = 20
+		else:
+			$CollisionShape2D.position.y = 15
+			($CollisionShape2D.shape as CapsuleShape2D).height = 38
 		
+#		if crouched:
+#			$APCollisionShape.play("crouched")
+#		else:
+#			$APCollisionShape.play("standing")
+		for child in $CeilingCheck.get_children():
+			child.enabled = crouched
+	
 	# Animations
 	if on_floor:
-		if abs(lineal_vel.x) > 10:
-			if Input.is_action_pressed("ui_down"):
+		if abs(lineal_vel.x) > 30:
+			if crouched:
+
 				playback.travel("Bend_Walk")
 			else: 
 				playback.travel("Walk")
 		elif Input.is_action_pressed("ui_down"):
 			playback.travel("Idle_Bend")
 		else:
-			playback.travel("Idle")
+			if crouched:
+				playback.travel("Idle_Bend")
+			else:
+				playback.travel("Idle")
 	else:
 		if lineal_vel.y < 0:
 			playback.travel("Jump_Up")
