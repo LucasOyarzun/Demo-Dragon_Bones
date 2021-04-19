@@ -15,6 +15,10 @@ var airborne_time = 0
 var facing_right = true
 var limite_pantalla
 
+
+var crouched = false
+var crouched_factor = 0.6
+
 onready var playback = $AnimationTree.get("parameters/playback")
 
 func _ready():
@@ -47,11 +51,12 @@ func _physics_process(delta: float) -> void:
 	
 		
 	# Movement
+	
+	var last_crouched = crouched
+	crouched = on_floor and Input.is_action_pressed("ui_down")
+	
 	if on_floor:
-		if Input.is_action_pressed("ui_down"): # If skeleton is crouched
-			lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.5)*0.6
-		else:	
-			lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.5)
+		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x * (crouched_factor if crouched else 1.0), 0.5)
 	else:
 		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.1)
 		
@@ -61,7 +66,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_right") and not facing_right:
 		facing_right = true
 		scale.x = -1
-		
+	
+	
+	print(lineal_vel.x)
+	print(on_floor)
+	
+	
+	if crouched != last_crouched:
+		if crouched:
+			$CollisionShape2D.position.y = 24
+			($CollisionShape2D.shape as CapsuleShape2D).height = 20
+		else:
+			$CollisionShape2D.position.y = 15
+			($CollisionShape2D.shape as CapsuleShape2D).height = 38
+	
 	# Animations
 	if on_floor:
 		if abs(lineal_vel.x) > 30:
