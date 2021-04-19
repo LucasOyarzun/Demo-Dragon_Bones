@@ -6,7 +6,7 @@ var speed_y = 500
 var gravity = 20
 
 var facing_right = false
-var waiting_before_turn_back = 2.5
+var waiting_before_turn_back = 0
 
 onready var playback = $AnimationTree.get("parameters/playback")
 var target_vel = -1
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		pass
 	else:
 		if(waiting_before_turn_back<0):
-			waiting_before_turn_back= 1
+			waiting_before_turn_back= 0.5
 			facing_right = !(facing_right)
 			scale.x = -1
 			target_vel = -target_vel

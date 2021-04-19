@@ -536,14 +536,14 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=43]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=46]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=47]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=48]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=44]
+[sub_resource type="AnimationNodeStateMachine" id=47]
 states/Bend_End/node = SubResource( 13 )
 states/Bend_End/position = Vector2( -291.009, 320.822 )
 states/Bend_Walk/node = SubResource( 14 )
@@ -564,11 +564,11 @@ states/Start_Jump/node = SubResource( 21 )
 states/Start_Jump/position = Vector2( 152, 60 )
 states/Walk/node = SubResource( 22 )
 states/Walk/position = Vector2( -27, 274 )
-transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ), "Idle", "Start_Jump", SubResource( 25 ), "Walk", "Start_Jump", SubResource( 26 ), "Start_Jump", "Jump_Up", SubResource( 27 ), "Jump_Up", "Jump_Down", SubResource( 28 ), "Jump_Down", "End_Jump", SubResource( 29 ), "End_Jump", "Idle", SubResource( 30 ), "End_Jump", "Walk", SubResource( 31 ), "End_Jump", "Start_Jump", SubResource( 32 ), "Jump_Down", "Jump_Up", SubResource( 33 ), "Bend_Walk", "Bend_End", SubResource( 34 ), "Idle", "Start_Bend", SubResource( 35 ), "Walk", "Start_Bend", SubResource( 36 ), "End_Jump", "Start_Bend", SubResource( 37 ), "Start_Bend", "Idle_Bend", SubResource( 38 ), "Idle_Bend", "Bend_Walk", SubResource( 39 ), "Start_Bend", "Bend_Walk", SubResource( 40 ), "Bend_Walk", "Idle_Bend", SubResource( 41 ), "Bend_End", "Idle", SubResource( 42 ), "Bend_End", "Walk", SubResource( 43 ), "Idle_Bend", "Start_Jump", SubResource( 46 ), "Bend_Walk", "Start_Jump", SubResource( 47 ), "Start_Jump", "Jump_Down", SubResource( 48 ) ]
+transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ), "Idle", "Start_Jump", SubResource( 25 ), "Walk", "Start_Jump", SubResource( 26 ), "Start_Jump", "Jump_Up", SubResource( 27 ), "Jump_Up", "Jump_Down", SubResource( 28 ), "Jump_Down", "End_Jump", SubResource( 29 ), "End_Jump", "Idle", SubResource( 30 ), "End_Jump", "Walk", SubResource( 31 ), "End_Jump", "Start_Jump", SubResource( 32 ), "Jump_Down", "Jump_Up", SubResource( 33 ), "Bend_Walk", "Bend_End", SubResource( 34 ), "Idle", "Start_Bend", SubResource( 35 ), "Walk", "Start_Bend", SubResource( 36 ), "End_Jump", "Start_Bend", SubResource( 37 ), "Start_Bend", "Idle_Bend", SubResource( 38 ), "Idle_Bend", "Bend_Walk", SubResource( 39 ), "Start_Bend", "Bend_Walk", SubResource( 40 ), "Bend_Walk", "Idle_Bend", SubResource( 41 ), "Bend_End", "Idle", SubResource( 42 ), "Bend_End", "Walk", SubResource( 43 ), "Idle_Bend", "Start_Jump", SubResource( 44 ), "Bend_Walk", "Start_Jump", SubResource( 45 ), "Start_Jump", "Jump_Down", SubResource( 46 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -416.009, 35.822 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=45]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
 [sub_resource type="Animation" id=49]
 resource_name = "crouched"
@@ -648,16 +648,16 @@ anims/Start_Jump = SubResource( 11 )
 anims/Walk = SubResource( 12 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 44 )
+tree_root = SubResource( 47 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 45 )
+parameters/playback = SubResource( 48 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
+frame = 1
 __meta__ = {
 "_edit_lock_": true
 }

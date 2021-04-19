@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Starry_Night/Tileset.png" type="Texture" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Worm.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/background.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/mid-layer-01.png" type="Texture" id=14]
 
@@ -254,62 +255,219 @@ extents = Vector2( 172.653, 68.8308 )
 
 [node name="Main" type="Node2D"]
 
-[node name="Screen 1" type="Node2D" parent="."]
-modulate = Color( 0.952941, 0.560784, 0.560784, 1 )
+[node name="Background 1" type="Node2D" parent="."]
+modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="background" type="Sprite" parent="Screen 1"]
+[node name="background" type="Sprite" parent="Background 1"]
 position = Vector2( 290, 260 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 13 )
 offset = Vector2( -48, 33.6451 )
 
-[node name="background2" type="Sprite" parent="Screen 1"]
-position = Vector2( 580, 260 )
+[node name="background2" type="Sprite" parent="Background 1"]
+position = Vector2( 570, 260 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 13 )
 offset = Vector2( -48, 33.6451 )
 
-[node name="background3" type="Sprite" parent="Screen 1"]
-position = Vector2( 868.318, 260 )
+[node name="background3" type="Sprite" parent="Background 1"]
+position = Vector2( 850, 260 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 13 )
 offset = Vector2( -48, 33.6451 )
 
-[node name="background4" type="Sprite" parent="Screen 1"]
-position = Vector2( 1160, 240 )
+[node name="background4" type="Sprite" parent="Background 1"]
+position = Vector2( 1050, 240 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 13 )
 offset = Vector2( -48, 33.6451 )
 
-[node name="background5" type="Sprite" parent="Screen 1"]
-position = Vector2( 1450, 260 )
+[node name="background5" type="Sprite" parent="Background 1"]
+position = Vector2( 1330, 260 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 13 )
 offset = Vector2( -48, 33.6451 )
 
-[node name="mid-layer-01" type="Sprite" parent="Screen 1"]
+[node name="mid-layer-01" type="Sprite" parent="Background 1"]
 position = Vector2( 310, 360 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 
-[node name="mid-layer-02" type="Sprite" parent="Screen 1"]
+[node name="mid-layer-02" type="Sprite" parent="Background 1"]
 position = Vector2( 930, 360 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 
-[node name="TileMap" type="TileMap" parent="Screen 1"]
+[node name="Background 2" type="Node2D" parent="."]
+modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
+position = Vector2( 1240, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="background" type="Sprite" parent="Background 2"]
+position = Vector2( 290, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background2" type="Sprite" parent="Background 2"]
+position = Vector2( 570, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background3" type="Sprite" parent="Background 2"]
+position = Vector2( 850, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background4" type="Sprite" parent="Background 2"]
+position = Vector2( 1050, 240 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background5" type="Sprite" parent="Background 2"]
+position = Vector2( 1330, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="mid-layer-01" type="Sprite" parent="Background 2"]
+position = Vector2( 310, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+
+[node name="mid-layer-02" type="Sprite" parent="Background 2"]
+position = Vector2( 930, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+
+[node name="Background 4" type="Node2D" parent="."]
+modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
+position = Vector2( 0, -700 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="background" type="Sprite" parent="Background 4"]
+position = Vector2( 290, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background2" type="Sprite" parent="Background 4"]
+position = Vector2( 570, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background3" type="Sprite" parent="Background 4"]
+position = Vector2( 850, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background4" type="Sprite" parent="Background 4"]
+position = Vector2( 1050, 240 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background5" type="Sprite" parent="Background 4"]
+position = Vector2( 1330, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="mid-layer-01" type="Sprite" parent="Background 4"]
+position = Vector2( 310, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+
+[node name="mid-layer-02" type="Sprite" parent="Background 4"]
+position = Vector2( 930, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+
+[node name="Background 3" type="Node2D" parent="."]
+modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
+position = Vector2( 1240, -700 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="background" type="Sprite" parent="Background 3"]
+position = Vector2( 290, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background2" type="Sprite" parent="Background 3"]
+position = Vector2( 570, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background3" type="Sprite" parent="Background 3"]
+position = Vector2( 850, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background4" type="Sprite" parent="Background 3"]
+position = Vector2( 1050, 240 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background5" type="Sprite" parent="Background 3"]
+position = Vector2( 1330, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="mid-layer-01" type="Sprite" parent="Background 3"]
+position = Vector2( 310, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+
+[node name="mid-layer-02" type="Sprite" parent="Background 3"]
+position = Vector2( 930, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 0.607843, 0.180392, 0.180392, 1 )
 scale = Vector2( 3, 3 )
 tile_set = SubResource( 25 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 720897, 0, 65536, 720898, 0, 65537, 720899, 0, 65537, 720900, 0, 65537, 720901, 0, 65538, 786433, 0, 131072, 786434, 0, 196618, 786435, 0, 196618, 786436, 0, 196618, 786437, 0, 131074, 851969, 0, 196608, 851970, 0, 196609, 851971, 0, 196609, 851972, 0, 196609, 851973, 0, 196610, 917512, 0, 196618, 983061, 0, 65536, 983062, 0, 65538, 1048597, 0, 131072, 1048598, 0, 131074, 1179645, 0, 65536, 1179646, 0, 65537, 1179647, 0, 65537, 1114112, 0, 65537, 1114113, 0, 65537, 1114114, 0, 65537, 1114115, 0, 65537, 1114116, 0, 65537, 1114117, 0, 65537, 1114118, 0, 65537, 1114119, 0, 65537, 1114120, 0, 65537, 1114121, 0, 65537, 1114122, 0, 65537, 1114123, 0, 65537, 1114124, 0, 65537, 1114125, 0, 65537, 1114126, 0, 65537, 1114127, 0, 65537, 1114128, 0, 65537, 1114129, 0, 65537, 1114130, 0, 65537, 1114131, 0, 65537, 1114132, 0, 65537, 1114133, 0, 196614, 1114134, 0, 196612, 1114135, 0, 65537, 1114136, 0, 65537, 1114137, 0, 65537, 1114138, 0, 65537, 1114139, 0, 65538, 1245181, 0, 196608, 1245182, 0, 196609, 1245183, 0, 196609, 1179648, 0, 196609, 1179649, 0, 196609, 1179650, 0, 196609, 1179651, 0, 196609, 1179652, 0, 196609, 1179653, 0, 196609, 1179654, 0, 196609, 1179655, 0, 196609, 1179656, 0, 196609, 1179657, 0, 196609, 1179658, 0, 196609, 1179659, 0, 196609, 1179660, 0, 196609, 1179661, 0, 196609, 1179662, 0, 196609, 1179663, 0, 196609, 1179664, 0, 196609, 1179665, 0, 196609, 1179666, 0, 196609, 1179667, 0, 196609, 1179668, 0, 196609, 1179669, 0, 196609, 1179670, 0, 196609, 1179671, 0, 196609, 1179672, 0, 196609, 1179673, 0, 196609, 1179674, 0, 196609, 1179675, 0, 196610, 1310722, -1073741824, 0, 1310723, -1073741824, 0 )
+tile_data = PoolIntArray( -1179634, 0, 196618, -917505, 0, 10, -851969, 0, 65546, -786433, 0, 65546, -851919, 0, 196616, -851918, 0, 196620, -851917, 0, 196621, -720897, 0, 65546, -786396, 0, 196618, -655361, 0, 65546, -720858, 0, 196618, -720851, 0, 196616, -720850, 0, 196620, -720849, 0, 196621, -589825, 0, 65546, -655333, 0, 196616, -655332, 0, 196620, -655331, 0, 196621, -655317, 0, 196616, -655316, 0, 196621, -524289, 0, 65546, -589808, 0, 196616, -589807, 0, 196620, -589806, 0, 196621, -589783, 0, 196618, -589776, 0, 196616, -589775, 0, 196620, -589774, 0, 196620, -589773, 0, 196621, -458753, 0, 65546, -524243, 0, 196616, -524242, 0, 196620, -524241, 0, 196621, -393217, 0, 65546, -458729, 0, 196616, -458728, 0, 196620, -458727, 0, 196620, -458726, 0, 196621, -458720, 0, 196616, -458719, 0, 196621, -458710, 0, 196616, -458709, 0, 196620, -458708, 0, 196621, -327681, 0, 65546, -262145, 0, 65546, -196609, 0, 65546, -262128, 0, 196616, -262127, 0, 196620, -262126, 0, 196620, -262125, 0, 196620, -262124, 0, 196621, -262111, 0, 196616, -262110, 0, 196620, -262109, 0, 196620, -262108, 0, 196620, -262107, 0, 196621, -131073, 0, 65546, -65537, 0, 65546, -131061, 0, 65536, -131060, 0, 65538, -1, 0, 65546, -65525, 0, 131072, -65524, 0, 131074, -65489, 0, 196618, 65535, 0, 65546, 8, 0, 196616, 9, 0, 196620, 10, 0, 196620, 11, 0, 196618, 12, 0, 196610, 131071, 0, 65546, 196607, 0, 65546, 131103, 0, 196616, 131104, 0, 196620, 131105, 0, 196621, 131120, 0, 196616, 131121, 0, 196620, 131122, 0, 196620, 131123, 0, 196621, 262143, 0, 65546, 327679, 0, 65546, 262147, 0, 65536, 262148, 0, 65537, 262149, 0, 65538, 262171, 0, 196616, 262172, 0, 196620, 262173, 0, 196621, 393215, 0, 65546, 327683, 0, 196608, 327684, 0, 196609, 327685, 0, 196610, 327722, 0, 196618, 327723, 0, 196620, 327724, 0, 196620, 327725, 0, 196620, 327726, 0, 196620, 327727, 0, 196620, 327728, 0, 196621, 458751, 0, 65546, 393258, 0, 65546, 524287, 0, 65546, 458764, 0, 196616, 458765, 0, 196620, 458766, 0, 196620, 458767, 0, 196620, 458768, 0, 196621, 458775, 0, 196616, 458776, 0, 196620, 458777, 0, 196620, 458778, 0, 196620, 458779, 0, 196621, 458794, 0, 65546, 589823, 0, 65546, 524330, 0, 196618, 524331, 0, 196621, 524339, 0, 196616, 524340, 0, 196621, 655359, 0, 65546, 720895, 0, 65546, 655377, 0, 196616, 655378, 0, 196620, 655379, 0, 196620, 655380, 0, 196620, 655381, 0, 196621, 655388, 0, 196616, 655389, 0, 196620, 655390, 0, 196620, 655391, 0, 196620, 655392, 0, 196620, 655393, 0, 196621, 786431, 0, 65546, 720933, 0, 196616, 720934, 0, 196620, 720935, 0, 196620, 720936, 0, 196621, 720945, 0, 196616, 720946, 0, 196620, 720947, 0, 196620, 720948, 0, 196621, 851967, 0, 65546, 786444, 0, 196616, 786445, 0, 196620, 786446, 0, 196620, 786447, 0, 196621, 917503, 0, 196618, 851968, 0, 65537, 851969, 0, 65537, 851970, 0, 65537, 851971, 0, 65537, 851972, 0, 65537, 851973, 0, 65538, 851976, 0, 65536, 851977, 0, 65537, 851978, 0, 65538, 851991, 0, 196616, 851992, 0, 196620, 851993, 0, 196620, 851994, 0, 196621, 852010, 0, 196616, 852011, 0, 196620, 852012, 0, 196620, 852013, 0, 196621, 983039, 0, 196608, 917504, 0, 196609, 917505, 0, 196609, 917506, 0, 196609, 917507, 0, 196609, 917508, 0, 196609, 917509, 0, 196610, 917512, 0, 196608, 917513, 0, 196609, 917514, 0, 196610, 917533, 0, 196616, 917534, 0, 196620, 917535, 0, 196620, 917536, 0, 196621, 917540, 0, 196616, 917541, 0, 196620, 917542, 0, 196621, 917551, 0, 196616, 917552, 0, 196620, 917553, 0, 196620, 917554, 0, 196621, 1310722, -1073741824, 0, 1310723, -1073741824, 0 )
 
 [node name="Hellhound" parent="." instance=ExtResource( 2 )]
-position = Vector2( 967.915, 195.2 )
+position = Vector2( 958.164, 416.681 )
+
+[node name="Hellhound2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 713.337, 62.8183 )
+
+[node name="Hellhound3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1208.57, 557.661 )
+
+[node name="Hellhound4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1568.57, 408.354 )
+
+[node name="Hellhound5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1229.91, 159.207 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 219.943, 458.804 )
@@ -318,6 +476,7 @@ position = Vector2( 219.943, 458.804 )
 position = Vector2( -2.07756, 8.01167 )
 current = true
 limit_left = 0
+limit_bottom = 700
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
@@ -325,8 +484,17 @@ drag_margin_left = 0.05
 drag_margin_right = 0.05
 editor_draw_screen = false
 
+[node name="Worm" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1578.04, 8.95401 )
+
+[node name="Worm2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2094.38, 178.472 )
+
+[node name="Worm3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1897.72, 450.598 )
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 620.033, 676.097 )
+position = Vector2( 1230.86, 864.258 )
 __meta__ = {
 "_edit_group_": true
 }

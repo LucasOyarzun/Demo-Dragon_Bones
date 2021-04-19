@@ -3,8 +3,8 @@ class_name Player
 
 var lineal_vel = Vector2()
 var speed_x = 300
-var speed_y = 500
-var gravity = 20
+var speed_y = 650
+var gravity = 25
 
 var max_jumps = 2
 var jumps = 0
