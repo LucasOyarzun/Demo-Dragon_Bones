@@ -112,3 +112,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			playback.travel("Jump_Down")
 
+
+func _input(event: InputEvent)-> void:
+	var just_pressed = event.is_pressed() and not event.is_echo()
+	if event.is_action_pressed("menu") and just_pressed:
+		$PauseMenu.toggle()

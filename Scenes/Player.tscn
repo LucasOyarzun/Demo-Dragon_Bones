@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Assets/Skeleton/walk.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Skeleton/ready.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Skeleton/jump.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Skeleton/bend.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Skeleton/start_bend.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -657,7 +658,7 @@ parameters/playback = SubResource( 48 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
+frame = 1
 __meta__ = {
 "_edit_lock_": true
 }
@@ -681,3 +682,5 @@ cast_to = Vector2( 0, 12 )
 [node name="APCollisionShape" type="AnimationPlayer" parent="."]
 anims/crouched = SubResource( 49 )
 anims/standing = SubResource( 50 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 7 )]
