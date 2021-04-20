@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Worm.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fire Worm/Sprites/Worm/Idle.png" type="Texture" id=2]
@@ -7,8 +7,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.1818, 8.57504 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.9329, 13.4915 )
+
+[sub_resource type="Animation" id=3]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -48,8 +50,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Walk"
+[sub_resource type="Animation" id=4]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -89,25 +90,25 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=7]
 
-[sub_resource type="AnimationNodeStateMachine" id=8]
-states/Idle/node = SubResource( 4 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/Idle/node = SubResource( 5 )
 states/Idle/position = Vector2( 247, 83 )
-states/Walk/node = SubResource( 5 )
+states/Walk/node = SubResource( 6 )
 states/Walk/position = Vector2( 460, 83 )
-transitions = [ "Idle", "Walk", SubResource( 6 ), "Walk", "Idle", SubResource( 7 ) ]
+transitions = [ "Idle", "Walk", SubResource( 7 ), "Walk", "Idle", SubResource( 8 ) ]
 start_node = "Walk"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
 [node name="Worm" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -120,17 +121,25 @@ shape = SubResource( 1 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 hframes = 9
-frame = 8
+frame = 1
+
+[node name="Hitbox" type="Area2D" parent="Sprite" groups=[
+"enemyHurtBox",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2( 1, -1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 2 )
-anims/Walk = SubResource( 3 )
+anims/Idle = SubResource( 3 )
+anims/Walk = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 8 )
+tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 9 )
+parameters/playback = SubResource( 10 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( -15, 0 )

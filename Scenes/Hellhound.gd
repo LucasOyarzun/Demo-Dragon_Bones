@@ -54,4 +54,7 @@ func _physics_process(delta: float) -> void:
 			playback.travel("Walk")
 		else:
 			playback.travel("Idle")
+
+func takeDamage():
+	print("auch")
 	

@@ -8,13 +8,15 @@ var gravity = 25
 
 var max_jumps = 2
 var jumps = 0
+var doubleJump = false
 
-var max_airborne_time = 10
+var max_airborne_time = 0.2
 var airborne_time = 0
 
 var facing_right = true
 var limite_pantalla
 
+var attacking = false
 
 var crouched = false
 var crouched_factor = 0.6
@@ -31,8 +33,10 @@ func _physics_process(delta: float) -> void:
 	
 	var on_floor = is_on_floor()
 	var target_vel = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	
 	# Airborne_Time
 	if on_floor:
+		doubleJump = false
 		airborne_time = 0
 		jumps = 0
 	else:
@@ -42,17 +46,21 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and jumps < max_jumps:
 		if on_floor or airborne_time < max_airborne_time:
 			lineal_vel.y = -speed_y
-			jumps += 1
-	
-	# Dash
+		if jumps == 1:
+			lineal_vel.y = -speed_y
+			doubleJump = true
+		jumps += 1
+			
+	#Ataque
+	if Input.is_action_just_pressed("attack"):
+		attacking = true
+		
+	# Dash 
+	# hay que cambiar 
 	if Input.is_action_just_pressed("dash"):
 		lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed_x
 		
-	
-		
 	# Movement
-	
-	
 	var ceiling = false
 	
 	for child in $CeilingCheck.get_children():
@@ -76,9 +84,6 @@ func _physics_process(delta: float) -> void:
 		scale.x = -1
 	
 	
-
-	
-	
 	if crouched != last_crouched:
 		if crouched:
 			$CollisionShape2D.position.y = 16
@@ -94,26 +99,45 @@ func _physics_process(delta: float) -> void:
 		for child in $CeilingCheck.get_children():
 			child.enabled = crouched
 	
+	#print(attacking)
 	# Animations
-	if on_floor:
-		if abs(lineal_vel.x) > 30:
-			if crouched:
-				playback.travel("Bend_Walk")
-			else:
-				playback.travel("Walk")
-		else:
-			if crouched:
-				playback.travel("Idle_Bend")
-			else:
-				playback.travel("Idle")
+	if attacking:
+		playback.travel("MeleeAttack")
 	else:
-		if lineal_vel.y < 0:
-			playback.travel("Jump_Up")
+		if on_floor:
+			if abs(lineal_vel.x) > 30:
+				if crouched:
+					playback.travel("Bend_Walk")
+				else:
+					playback.travel("Walk")
+			else:
+				if crouched:
+					playback.travel("Idle_Bend")
+				else:
+					playback.travel("Idle")
 		else:
-			playback.travel("Jump_Down")
+			if lineal_vel.y < 0:
+				if doubleJump:
+					playback.travel("DoubleJump")
+				else:
+					playback.travel("Jump_Up")
+			else:
+				playback.travel("Jump_Down")
 
 
 func _input(event: InputEvent)-> void:
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	if event.is_action_pressed("menu") and just_pressed:
 		$PauseMenu.toggle()
+
+
+func _on_MeleeHit_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemyHurtBox"):
+		area.takeDamage()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	if anim_name == "MeleeAttack":
+		print("termino tatakae")
+		attacking = false
+	print("termino animacion")
