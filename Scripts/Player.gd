@@ -4,7 +4,7 @@ class_name Player
 var lineal_vel = Vector2()
 var speed_x = 300
 var speed_y = 400
-var gravity = 25
+var gravity = 25*60
 
 var max_jumps = 2
 var jumps = 0
@@ -21,6 +21,11 @@ var attacking = false
 var crouched = false
 var crouched_factor = 0.6
 
+var on_floor = false
+
+# Snap for diagonals
+var snap = Vector2.DOWN*20 
+
 onready var playback = $AnimationTree.get("parameters/playback")
 
 func _ready():
@@ -28,10 +33,13 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	
-	lineal_vel = move_and_slide(lineal_vel, Vector2.UP)
-	lineal_vel.y += gravity
+	lineal_vel = move_and_slide_with_snap(lineal_vel, snap, Vector2.UP)
+	lineal_vel.y += gravity*delta
 	
-	var on_floor = is_on_floor()
+	on_floor = is_on_floor()
+	
+	if on_floor:
+		snap = Vector2.DOWN*20 
 	var target_vel = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	
 	# Airborne_Time
@@ -46,10 +54,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and jumps < max_jumps:
 		if on_floor or airborne_time < max_airborne_time:
 			lineal_vel.y = -speed_y
+			snap = Vector2.ZERO
 		if jumps == 1:
 			lineal_vel.y = -speed_y
 			doubleJump = true
+			snap = Vector2.ZERO
 		jumps += 1
+			
 			
 	#Ataque
 	if Input.is_action_just_pressed("attack"):
@@ -92,14 +103,8 @@ func _physics_process(delta: float) -> void:
 			$CollisionShape2D.position.y = 9
 			($CollisionShape2D.shape as CapsuleShape2D).height = 16
 		
-#		if crouched:
-#			$APCollisionShape.play("crouched")
-#		else:
-#			$APCollisionShape.play("standing")
 		for child in $CeilingCheck.get_children():
 			child.enabled = crouched
-	
-	#print(attacking)
 	# Animations
 	if attacking:
 		playback.travel("MeleeAttack")
@@ -123,6 +128,12 @@ func _physics_process(delta: float) -> void:
 					playback.travel("Jump_Up")
 			else:
 				playback.travel("Jump_Down")
+		
+
+# Funcion de muerte funcionando XD -> Falta ponerle animacion
+func die():
+	get_tree().reload_current_scene()
+
 
 
 func _input(event: InputEvent)-> void:
@@ -133,11 +144,10 @@ func _input(event: InputEvent)-> void:
 
 func _on_MeleeHit_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemyHurtBox"):
-		area.takeDamage()
+		if(area.has_method("takeDamage")):
+			area.takeDamage()
 
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "MeleeAttack":
-		print("termino tatakae")
 		attacking = false
-	print("termino animacion")

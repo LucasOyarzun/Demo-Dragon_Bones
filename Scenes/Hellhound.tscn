@@ -7,10 +7,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.08095, 11.728 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14.6705, 9.57598 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 1.46
 loop = true
 step = 0.12
@@ -51,7 +51,7 @@ tracks/2/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -91,27 +91,28 @@ tracks/2/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=7]
 
-[sub_resource type="AnimationNodeStateMachine" id=8]
-states/Idle/node = SubResource( 4 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/Idle/node = SubResource( 5 )
 states/Idle/position = Vector2( 272, 103 )
-states/Walk/node = SubResource( 5 )
+states/Walk/node = SubResource( 6 )
 states/Walk/position = Vector2( 470, 103 )
-transitions = [ "Idle", "Walk", SubResource( 6 ), "Walk", "Idle", SubResource( 7 ) ]
+transitions = [ "Idle", "Walk", SubResource( 7 ), "Walk", "Idle", SubResource( 8 ) ]
 start_node = "Idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
 [node name="Hellhound" type="KinematicBody2D"]
+collision_mask = 2
 script = ExtResource( 3 )
 __meta__ = {
 "_editor_description_": ""
@@ -127,7 +128,7 @@ shape = SubResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 hframes = 6
-frame = 5
+frame = 4
 
 [node name="hitBox" type="Area2D" parent="Sprite" groups=[
 "enemyHurtBox",
@@ -135,24 +136,26 @@ frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/hitBox"]
 position = Vector2( -5.33333, 6.66667 )
-shape = SubResource( 10 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 2 )
-anims/Walk = SubResource( 3 )
+anims/Idle = SubResource( 3 )
+anims/Walk = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 8 )
+tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 9 )
+parameters/playback = SubResource( 10 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( -28, 0 )
 enabled = true
 cast_to = Vector2( 0, 30 )
+collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2( -20, 0 )
 enabled = true
 cast_to = Vector2( -15, 0 )
+collision_mask = 2

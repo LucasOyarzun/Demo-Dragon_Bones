@@ -770,6 +770,7 @@ tracks/1/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 3
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -804,7 +805,6 @@ parameters/playback = SubResource( 60 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )
@@ -820,20 +820,24 @@ disabled = true
 position = Vector2( -20, 0 )
 rotation = -3.14159
 cast_to = Vector2( 0, 12 )
+collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="CeilingCheck"]
 position = Vector2( 20, 0 )
 rotation = -3.14159
 cast_to = Vector2( 0, 12 )
+collision_mask = 3
 
 [node name="RayCast2D3" type="RayCast2D" parent="CeilingCheck"]
 rotation = -3.14159
 cast_to = Vector2( 0, 12 )
+collision_mask = 3
 
 [node name="APCollisionShape" type="AnimationPlayer" parent="."]
 anims/crouched = SubResource( 62 )
 anims/standing = SubResource( 63 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 7 )]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Sprite/MeleeHit" to="." method="_on_MeleeHit_area_entered"]
