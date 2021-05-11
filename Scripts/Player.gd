@@ -23,6 +23,8 @@ var crouched_factor = 0.6
 
 var on_floor = false
 
+
+
 # Snap for diagonals
 var snap = Vector2.DOWN*20 
 
