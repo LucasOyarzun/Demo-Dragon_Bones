@@ -57,7 +57,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Bend_Walk"
-length = 0.8
+length = 0.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -769,7 +769,9 @@ tracks/1/keys = {
 "values": [ 38.0 ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 collision_mask = 3
 script = ExtResource( 10 )
 
@@ -805,6 +807,7 @@ parameters/playback = SubResource( 60 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
+frame = 2
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )

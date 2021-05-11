@@ -13,7 +13,6 @@ var target_vel = -1
 var moving = false
 var timer_moving = 0
 var moving_lapse = rand_range(1, 6)
-
 var stay_lapse = 1.2
 	
 func _physics_process(delta: float) -> void:

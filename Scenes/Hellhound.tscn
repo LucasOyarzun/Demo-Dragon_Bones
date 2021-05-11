@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Characters/Hell-Hound-Files/PNG/hell-hound-walk.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Characters/Hell-Hound-Files/PNG/hell-hound-idle.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Hellhound.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Hellhound.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.08095, 11.728 )
@@ -128,7 +128,7 @@ shape = SubResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 hframes = 6
-frame = 4
+frame = 5
 
 [node name="hitBox" type="Area2D" parent="Sprite" groups=[
 "enemyHurtBox",
@@ -152,10 +152,8 @@ parameters/playback = SubResource( 10 )
 position = Vector2( -28, 0 )
 enabled = true
 cast_to = Vector2( 0, 30 )
-collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2( -20, 0 )
 enabled = true
 cast_to = Vector2( -15, 0 )
-collision_mask = 2

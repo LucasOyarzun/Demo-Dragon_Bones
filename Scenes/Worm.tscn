@@ -122,7 +122,7 @@ shape = SubResource( 1 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 hframes = 9
-frame = 5
+frame = 8
 
 [node name="Hitbox" type="Area2D" parent="Sprite" groups=[
 "enemyHurtBox",
@@ -146,9 +146,7 @@ parameters/playback = SubResource( 10 )
 position = Vector2( -15, 0 )
 enabled = true
 cast_to = Vector2( 0, 15 )
-collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( -20, 0 )
-collision_mask = 2
