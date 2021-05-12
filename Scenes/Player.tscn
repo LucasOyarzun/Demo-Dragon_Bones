@@ -1,7 +1,8 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Assets/Skeleton/walk.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Skeleton/ready.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Hp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Skeleton/jump.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Skeleton/bend.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Skeleton/start_bend.png" type="Texture" id=6]
@@ -774,6 +775,7 @@ tracks/1/keys = {
 ]]
 collision_mask = 3
 script = ExtResource( 10 )
+sprite_hp = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 10 )
@@ -807,7 +809,7 @@ parameters/playback = SubResource( 60 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
+frame = 1
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )
@@ -841,6 +843,9 @@ anims/crouched = SubResource( 62 )
 anims/standing = SubResource( 63 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 7 )]
+
+[node name="Invulnerability" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Sprite/MeleeHit" to="." method="_on_MeleeHit_area_entered"]

@@ -23,7 +23,11 @@ var crouched_factor = 0.6
 
 var on_floor = false
 
-
+var hp = 3
+var offset_lifes = 80
+var lifes_list = []                 # Lista de vidas
+export (PackedScene) var sprite_hp  # Sprite de vidas
+var can_take_damage = true
 
 # Snap for diagonals
 var snap = Vector2.DOWN*20 
@@ -31,7 +35,9 @@ var snap = Vector2.DOWN*20
 onready var playback = $AnimationTree.get("parameters/playback")
 
 func _ready():
+	$Invulnerability.connect("timeout", self, "on_timeout")
 	limite_pantalla = get_viewport_rect().size
+	create_lifes()
 	
 func _physics_process(delta: float) -> void:
 	
@@ -131,8 +137,33 @@ func _physics_process(delta: float) -> void:
 			else:
 				playback.travel("Jump_Down")
 		
+# Vida
+func create_lifes():
+	for i in hp: # Creamos las vidas iniciales
+		var newLife = sprite_hp.instance()
+		get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
+		newLife.global_position.x +=offset_lifes * i
+		lifes_list.append(newLife)
+func take_damage(damage):
+	if not can_take_damage:
+		return
+	self.hp -= damage         # Disminuye la vida
+	if hp == 0:
+		die()
+	lifes_list[hp].queue_free() # Quita la lutima vida
+	can_take_damage = false
+	$Invulnerability.start()
 
-# Funcion de muerte funcionando XD -> Falta ponerle animacion
+func on_timeout():
+	can_take_damage = true
+
+func add_life():
+	hp += 1         # Aumentamos la vida
+	var newLife = sprite_hp.instance()
+	get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
+	newLife.global_position.x += offset_lifes * (hp - 1)
+	lifes_list[hp-1].append(newLife)
+		
 func die():
 	get_tree().reload_current_scene()
 

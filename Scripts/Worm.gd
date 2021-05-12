@@ -12,7 +12,7 @@ onready var playback = $AnimationTree.get("parameters/playback")
 var target_vel = -1
 var moving = false                  # Variable de si se mueve o no
 var timer_moving = 0                # Tiempo que lleva moviendose o quieto
-var moving_lapse = rand_range(1, 6) # Tiempo que se mueve
+var moving_lapse = rand_range(1, 4) # Tiempo que se mueve
 var stay_lapse = 1.2                # Tiempo que se queda quieto
 
 var fireball_lapse = 0.4            # Tiempo que se demorará en lanzar la bola de fuego
@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		moving = true
 		timer_moving = 0
 	elif(timer_moving> moving_lapse and moving ==true): # Cuando decide quedarse quieto
+		moving_lapse = rand_range(1, 4)
 		moving = false
 		timer_moving = 0
 		fireball_created = false
@@ -76,7 +77,5 @@ func _physics_process(delta: float) -> void:
 			playback.travel("Walk")
 		else:
 			playback.travel("Idle")
-			
-func takeDamage():
-	print("auch")
+
 	
