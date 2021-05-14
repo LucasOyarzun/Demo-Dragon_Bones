@@ -1,9 +1,11 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Starry_Night/Tileset.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Gotas_Lava.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Worm.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Area2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/lava.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=9]
@@ -604,6 +606,12 @@ position = Vector2( 930, 360 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 
+[node name="Gotas_Lava" parent="." instance=ExtResource( 4 )]
+position = Vector2( 96.5522, -692.816 )
+
+[node name="Gotas_Lava2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 96.5522, -692.816 )
+
 [node name="Platforms" type="TileMap" parent="." groups=[
 "map",
 ]]
@@ -724,3 +732,6 @@ texture = ExtResource( 7 )
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "gui",
 ]]
+
+[node name="Area2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1316.47, 1255.43 )
