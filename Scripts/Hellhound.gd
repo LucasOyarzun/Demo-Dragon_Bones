@@ -9,6 +9,7 @@ var facing_right = false
 var waiting_before_turn_back = 0
 
 onready var playback = $AnimationTree.get("parameters/playback")
+onready var area = $Area2D.connect("body_entered", self, "on_body_entered")
 var target_vel = -1
 var moving = false
 var timer_moving = 0
@@ -36,9 +37,7 @@ func _physics_process(delta: float) -> void:
 		moving = false
 		timer_moving = 0
 		
-		
 	# Para que de vueltas en la plataforma
-	
 	if !$RayCast2D.is_colliding() or $RayCast2D2.is_colliding():
 		if(waiting_before_turn_back<0):
 			waiting_before_turn_back= 0.5
@@ -54,6 +53,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			playback.travel("Idle")
 
-func takeDamage():
-	print("auch")
+func on_body_entered(body: Node):
+	if body.is_in_group("player"): # Si choca con el jugador
+		var player: Player = body
+		var knockdir = player.transform.origin - transform.origin # Knockback
+		player.knockback(knockdir)
+		player.take_damage(1)
+		
 	

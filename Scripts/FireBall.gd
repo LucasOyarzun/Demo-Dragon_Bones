@@ -13,6 +13,8 @@ func _ready():
 func on_body_entered(body: Node):
 	if body.is_in_group("player"): # Si choca con el jugador
 		var player: Player = body
+		var knockdir = player.transform.origin - transform.origin # Knockback
+		player.knockback(knockdir)
 		player.take_damage(1)
 		sprite.play("explosion")
 		$Timer.start()

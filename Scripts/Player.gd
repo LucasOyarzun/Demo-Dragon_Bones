@@ -153,6 +153,13 @@ func take_damage(damage):
 	lifes_list[hp].queue_free() # Quita la lutima vida
 	can_take_damage = false
 	$Invulnerability.start()
+	$FramesInv.play("flashes") # Frames de invulnerabilidad
+
+func knockback(knockdir):
+	if can_take_damage:
+		knockdir.y = knockdir.y * 0.5
+		lineal_vel = knockdir * 20
+	
 
 func on_timeout():
 	can_take_damage = true

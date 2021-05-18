@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Assets/Skeleton/walk.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Skeleton/ready.png" type="Texture" id=2]
@@ -13,7 +13,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.0
-height = 16.0
+height = 24.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "Bend_End"
@@ -715,6 +715,37 @@ graph_offset = Vector2( -490.009, 212.822 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=60]
 
+[sub_resource type="Shader" id=65]
+code = "shader_type canvas_item;
+
+uniform vec4 color : hint_color;
+
+void fragment(){
+	
+	vec4 image = texture(TEXTURE, UV);
+	
+	COLOR = vec4(color.rgb,image.a);
+	}"
+
+[sub_resource type="ShaderMaterial" id=66]
+shader = SubResource( 65 )
+shader_param/color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=64]
+resource_name = "flashes"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 66 ), null, SubResource( 66 ), null, SubResource( 66 ), null, SubResource( 66 ), null, SubResource( 66 ), null ]
+}
+
 [sub_resource type="RectangleShape2D" id=61]
 extents = Vector2( 13.4372, 27.7148 )
 
@@ -778,7 +809,7 @@ script = ExtResource( 10 )
 sprite_hp = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 10 )
+position = Vector2( 0, 20 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -805,11 +836,14 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 60 )
 
+[node name="FramesInv" type="AnimationPlayer" parent="."]
+anims/flashes = SubResource( 64 )
+
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 1
+frame = 2
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )

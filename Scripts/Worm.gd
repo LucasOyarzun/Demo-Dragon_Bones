@@ -17,7 +17,8 @@ var stay_lapse = 1.2                # Tiempo que se queda quieto
 
 var fireball_lapse = 0.4            # Tiempo que se demorará en lanzar la bola de fuego
 var fireball_created = false        # Si es que ya lanzo la bola de fuego
-	
+
+onready var area = $Area2D.connect("body_entered", self, "on_body_entered")
 # Guardamos bala como una variable
 var Fireball = preload("res://Scenes/FireBall.tscn")
 
@@ -56,12 +57,6 @@ func _physics_process(delta: float) -> void:
 		timer_moving = 0
 		fireball_created = false
 		
-		
-		
-		
-		
-#	if Input.is_action_just_pressed("additional_ability1"):
-	
 	# Para que de vueltas en la plataforma
 	if !$RayCast2D.is_colliding() or $RayCast2D2.is_colliding():
 		if(waiting_before_turn_back<0):
@@ -78,4 +73,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			playback.travel("Idle")
 
-	
+func on_body_entered(body: Node):
+	if body.is_in_group("player"): # Si choca con el jugador
+		var player: Player = body
+		var knockdir = player.transform.origin - transform.origin # Knockback
+		player.knockback(knockdir)
+		player.take_damage(1)
+		
