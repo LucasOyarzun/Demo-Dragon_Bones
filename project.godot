@@ -31,6 +31,10 @@ window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
+[global]
+
+snap=false
+
 [importer_defaults]
 
 texture={
@@ -121,4 +125,5 @@ menu={
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"

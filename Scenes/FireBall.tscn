@@ -83,6 +83,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 15 )
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="."]

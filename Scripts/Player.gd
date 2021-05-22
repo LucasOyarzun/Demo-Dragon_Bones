@@ -34,13 +34,18 @@ var snap = Vector2.DOWN*20
 
 onready var playback = $AnimationTree.get("parameters/playback")
 
+# Lava position
+var lava_subiendo_pos
+
 func _ready():
 	$Invulnerability.connect("timeout", self, "on_timeout")
 	limite_pantalla = get_viewport_rect().size
 	create_lifes()
 	
-func _physics_process(delta: float) -> void:
 	
+func _physics_process(delta: float) -> void:
+	lava_subiendo_pos = get_parent().get_node("Lava_subiendo").position
+	print(get_parent().get_node("Lava_subiendo").position)
 	lineal_vel = move_and_slide_with_snap(lineal_vel, snap, Vector2.UP)
 	lineal_vel.y += gravity*delta
 	
