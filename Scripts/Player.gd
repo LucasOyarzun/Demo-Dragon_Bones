@@ -113,9 +113,14 @@ func _physics_process(delta: float) -> void:
 		
 		for child in $CeilingCheck.get_children():
 			child.enabled = crouched
+			
 	# Animations
 	if attacking:
-		playback.travel("MeleeAttack")
+		print(playback.get_current_node())
+		if playback.get_current_node() in ["Bend_Walk","Idle_Bend"]:
+			playback.travel("Bend_Attack")
+		else:
+			playback.travel("MeleeAttack")
 	else:
 		if on_floor:
 			if abs(lineal_vel.x) > 30:
@@ -164,6 +169,7 @@ func knockback(knockdir):
 
 func on_timeout():
 	can_take_damage = true
+	
 
 func add_life():
 	hp += 1         # Aumentamos la vida
@@ -171,6 +177,7 @@ func add_life():
 	get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
 	newLife.global_position.x += offset_lifes * (hp - 1)
 	lifes_list[hp-1].append(newLife)
+		
 		
 func die():
 	get_tree().reload_current_scene()
@@ -183,7 +190,7 @@ func _input(event: InputEvent)-> void:
 
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	if anim_name == "MeleeAttack":
+	if anim_name in ["MeleeAttack","Bend_Attack"]:
 		attacking = false
 
 

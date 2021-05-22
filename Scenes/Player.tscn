@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Assets/Skeleton/walk.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Skeleton/ready.png" type="Texture" id=2]
@@ -11,10 +11,77 @@
 [ext_resource path="res://Assets/Skeleton/attack.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Skeleton/new_bend.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Skeleton/bend_attack.png" type="Texture" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.0
 height = 16.0
+
+[sub_resource type="Animation" id=67]
+resource_name = "Bend_Attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 12 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/MeleeHit:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Bend_Attack" ],
+"method": "_on_AnimationPlayer_animation_finished"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Bend_End"
@@ -575,6 +642,9 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=71]
+animation = "Bend_Attack"
+
 [sub_resource type="AnimationNodeAnimation" id=15]
 animation = "Bend_End"
 
@@ -685,11 +755,26 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=58]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=80]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id=59]
+states/Bend_Attack/node = SubResource( 71 )
+states/Bend_Attack/position = Vector2( -673.009, 317 )
 states/Bend_End/node = SubResource( 15 )
-states/Bend_End/position = Vector2( -291.009, 320.822 )
+states/Bend_End/position = Vector2( -279.009, 404.822 )
 states/Bend_Walk/node = SubResource( 16 )
-states/Bend_Walk/position = Vector2( -373.009, 249.822 )
+states/Bend_Walk/position = Vector2( -387.009, 287.822 )
 states/DoubleJump/node = SubResource( 17 )
 states/DoubleJump/position = Vector2( 637.991, 176 )
 states/End_Jump/node = SubResource( 18 )
@@ -697,26 +782,26 @@ states/End_Jump/position = Vector2( 308, 262 )
 states/Idle/node = SubResource( 19 )
 states/Idle/position = Vector2( -27, 100 )
 states/Idle_Bend/node = SubResource( 20 )
-states/Idle_Bend/position = Vector2( -387.009, 155.822 )
+states/Idle_Bend/position = Vector2( -450.009, -1.17799 )
 states/Jump_Down/node = SubResource( 21 )
 states/Jump_Down/position = Vector2( 362, 176 )
 states/Jump_Up/node = SubResource( 22 )
 states/Jump_Up/position = Vector2( 328, 60 )
 states/MeleeAttack/node = SubResource( 23 )
-states/MeleeAttack/position = Vector2( 214.991, 387.822 )
+states/MeleeAttack/position = Vector2( 219.991, 367.822 )
 states/Start_Bend/node = SubResource( 24 )
-states/Start_Bend/position = Vector2( -276.009, 84 )
+states/Start_Bend/position = Vector2( -265.009, 119 )
 states/Start_Jump/node = SubResource( 25 )
 states/Start_Jump/position = Vector2( 152, 60 )
 states/Walk/node = SubResource( 26 )
 states/Walk/position = Vector2( -44, 331 )
-transitions = [ "Idle", "Walk", SubResource( 27 ), "Walk", "Idle", SubResource( 28 ), "Idle", "Start_Jump", SubResource( 29 ), "Walk", "Start_Jump", SubResource( 30 ), "Start_Jump", "Jump_Up", SubResource( 31 ), "Jump_Down", "End_Jump", SubResource( 32 ), "End_Jump", "Idle", SubResource( 33 ), "End_Jump", "Walk", SubResource( 34 ), "End_Jump", "Start_Jump", SubResource( 35 ), "Bend_Walk", "Bend_End", SubResource( 36 ), "Idle", "Start_Bend", SubResource( 37 ), "Walk", "Start_Bend", SubResource( 38 ), "End_Jump", "Start_Bend", SubResource( 39 ), "Start_Bend", "Idle_Bend", SubResource( 40 ), "Idle_Bend", "Bend_Walk", SubResource( 41 ), "Start_Bend", "Bend_Walk", SubResource( 42 ), "Bend_Walk", "Idle_Bend", SubResource( 43 ), "Bend_End", "Idle", SubResource( 44 ), "Bend_End", "Walk", SubResource( 45 ), "Idle_Bend", "Start_Jump", SubResource( 46 ), "Bend_Walk", "Start_Jump", SubResource( 47 ), "Start_Jump", "Jump_Down", SubResource( 48 ), "Jump_Up", "DoubleJump", SubResource( 49 ), "Jump_Down", "DoubleJump", SubResource( 50 ), "Start_Jump", "DoubleJump", SubResource( 51 ), "End_Jump", "DoubleJump", SubResource( 52 ), "Idle", "MeleeAttack", SubResource( 53 ), "MeleeAttack", "Idle", SubResource( 54 ), "Walk", "MeleeAttack", SubResource( 55 ), "MeleeAttack", "Walk", SubResource( 56 ), "DoubleJump", "Jump_Down", SubResource( 57 ), "Jump_Up", "Jump_Down", SubResource( 58 ) ]
+transitions = [ "Idle", "Walk", SubResource( 27 ), "Walk", "Idle", SubResource( 28 ), "Idle", "Start_Jump", SubResource( 29 ), "Walk", "Start_Jump", SubResource( 30 ), "Start_Jump", "Jump_Up", SubResource( 31 ), "Jump_Down", "End_Jump", SubResource( 32 ), "End_Jump", "Idle", SubResource( 33 ), "End_Jump", "Walk", SubResource( 34 ), "End_Jump", "Start_Jump", SubResource( 35 ), "Bend_Walk", "Bend_End", SubResource( 36 ), "Idle", "Start_Bend", SubResource( 37 ), "Walk", "Start_Bend", SubResource( 38 ), "End_Jump", "Start_Bend", SubResource( 39 ), "Start_Bend", "Idle_Bend", SubResource( 40 ), "Idle_Bend", "Bend_Walk", SubResource( 41 ), "Start_Bend", "Bend_Walk", SubResource( 42 ), "Bend_Walk", "Idle_Bend", SubResource( 43 ), "Bend_End", "Idle", SubResource( 44 ), "Bend_End", "Walk", SubResource( 45 ), "Idle_Bend", "Start_Jump", SubResource( 46 ), "Bend_Walk", "Start_Jump", SubResource( 47 ), "Start_Jump", "Jump_Down", SubResource( 48 ), "Jump_Up", "DoubleJump", SubResource( 49 ), "Jump_Down", "DoubleJump", SubResource( 50 ), "Start_Jump", "DoubleJump", SubResource( 51 ), "End_Jump", "DoubleJump", SubResource( 52 ), "Idle", "MeleeAttack", SubResource( 53 ), "MeleeAttack", "Idle", SubResource( 54 ), "Walk", "MeleeAttack", SubResource( 55 ), "MeleeAttack", "Walk", SubResource( 56 ), "DoubleJump", "Jump_Down", SubResource( 57 ), "Jump_Up", "Jump_Down", SubResource( 58 ), "Idle_Bend", "Bend_Attack", SubResource( 72 ), "Bend_Walk", "Bend_Attack", SubResource( 74 ), "Start_Bend", "Bend_Attack", SubResource( 76 ), "Bend_Attack", "Start_Bend", SubResource( 77 ), "Bend_End", "Bend_Attack", SubResource( 78 ), "Bend_Attack", "Bend_Walk", SubResource( 80 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -490.009, 212.822 )
+graph_offset = Vector2( -748.009, -15.178 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=60]
 
-[sub_resource type="Shader" id=61]
+[sub_resource type="Shader" id=68]
 code = "shader_type canvas_item;
 
 uniform vec4 color : hint_color;
@@ -728,11 +813,11 @@ void fragment(){
 	COLOR = vec4(color.rgb,image.a);
 	}"
 
-[sub_resource type="ShaderMaterial" id=62]
-shader = SubResource( 61 )
+[sub_resource type="ShaderMaterial" id=69]
+shader = SubResource( 68 )
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=70]
 resource_name = "flashes"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material")
@@ -744,7 +829,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 62 ), null, SubResource( 62 ), null, SubResource( 62 ), null, SubResource( 62 ), null, SubResource( 62 ), null ]
+"values": [ SubResource( 69 ), null, SubResource( 69 ), null, SubResource( 69 ), null, SubResource( 69 ), null, SubResource( 69 ), null ]
 }
 
 [sub_resource type="RectangleShape2D" id=64]
@@ -817,6 +902,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Bend_Attack = SubResource( 67 )
 anims/Bend_End = SubResource( 2 )
 anims/Bend_Walk = SubResource( 3 )
 anims/DoubleJump = SubResource( 4 )
@@ -838,7 +924,7 @@ active = true
 parameters/playback = SubResource( 60 )
 
 [node name="FramesInv" type="AnimationPlayer" parent="."]
-anims/flashes = SubResource( 63 )
+anims/flashes = SubResource( 70 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
