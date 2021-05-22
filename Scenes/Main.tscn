@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/DoubleJump.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/lava.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Bat.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/background.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/mid-layer-01.png" type="Texture" id=14]
 
@@ -777,6 +778,47 @@ collision_mask = 1
 position = Vector2( 2229.4, 491.357 )
 collision_layer = 4
 collision_mask = 1
+
+[node name="Bat" parent="Enemies" groups=[
+"enemy",
+] instance=ExtResource( 10 )]
+position = Vector2( 1008, 656 )
+collision_layer = 4
+
+[node name="Bat2" parent="Enemies" groups=[
+"enemy",
+] instance=ExtResource( 10 )]
+position = Vector2( 1016, 392 )
+collision_layer = 4
+speed_x = 150
+
+[node name="Bat3" parent="Enemies" groups=[
+"enemy",
+] instance=ExtResource( 10 )]
+position = Vector2( 1096, 72 )
+collision_layer = 4
+speed_x = 150
+
+[node name="Bat4" parent="Enemies" groups=[
+"enemy",
+] instance=ExtResource( 10 )]
+position = Vector2( 2224, 184 )
+collision_layer = 4
+speed_x = 200
+
+[node name="Bat5" parent="Enemies" groups=[
+"enemy",
+] instance=ExtResource( 10 )]
+position = Vector2( 768, -320 )
+collision_layer = 4
+speed_x = 150
+
+[node name="Bat6" parent="Enemies" groups=[
+"enemy",
+] instance=ExtResource( 10 )]
+position = Vector2( 2312, -464 )
+collision_layer = 4
+speed_x = 200
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 104, 264 )
