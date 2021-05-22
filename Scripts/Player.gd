@@ -6,7 +6,7 @@ var speed_x = 300
 var speed_y = 400
 var gravity = 25*60
 
-var max_jumps = 2
+var max_jumps = 1
 var jumps = 0
 var doubleJump = false
 
@@ -185,6 +185,8 @@ func add_life():
 func die():
 	get_tree().reload_current_scene()
 
+func set_jumps_number(number):
+	max_jumps = number
 
 func _input(event: InputEvent)-> void:
 	var just_pressed = event.is_pressed() and not event.is_echo()

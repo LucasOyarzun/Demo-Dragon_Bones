@@ -19,6 +19,7 @@ func on_body_entered(body: Node):
 		sprite.play("explosion")
 		$Timer.start()
 	if body.is_in_group("map"):    # Si choca con el mapa
+		speed = 40
 		sprite.play("explosion")
 		$Timer.start()
 func _physics_process(delta):
