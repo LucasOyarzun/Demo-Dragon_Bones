@@ -44,8 +44,6 @@ func _ready():
 	
 	
 func _physics_process(delta: float) -> void:
-	lava_subiendo_pos = get_parent().get_node("Lava_subiendo").position
-	print(get_parent().get_node("Lava_subiendo").position)
 	lineal_vel = move_and_slide_with_snap(lineal_vel, snap, Vector2.UP)
 	lineal_vel.y += gravity*delta
 	
@@ -121,7 +119,7 @@ func _physics_process(delta: float) -> void:
 			
 	# Animations
 	if attacking:
-		print(playback.get_current_node())
+		#print(playback.get_current_node())
 		if playback.get_current_node() in ["Bend_Walk","Idle_Bend"]:
 			playback.travel("Bend_Attack")
 		else:

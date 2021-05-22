@@ -219,9 +219,9 @@ frame = 1
 playing = true
 
 [node name="Stop" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 11.0
 one_shot = true
 
 [node name="Start" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 10.0
 one_shot = true
