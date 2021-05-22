@@ -144,6 +144,7 @@ func create_lifes():
 		get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
 		newLife.global_position.x +=offset_lifes * i
 		lifes_list.append(newLife)
+		
 func take_damage(damage):
 	if not can_take_damage:
 		return
@@ -175,19 +176,17 @@ func die():
 	get_tree().reload_current_scene()
 
 
-
 func _input(event: InputEvent)-> void:
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	if event.is_action_pressed("menu") and just_pressed:
 		$PauseMenu.toggle()
 
 
-func _on_MeleeHit_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemyHurtBox"):
-		if(area.has_method("takeDamage")):
-			area.takeDamage()
-
-
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "MeleeAttack":
 		attacking = false
+
+
+func _on_MeleeHit_body_entered(body: Node) -> void:
+	if body.is_in_group("enemy"): # Si choca con un enemigo
+		body.take_damage()

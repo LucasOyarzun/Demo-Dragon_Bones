@@ -130,7 +130,7 @@ shape = SubResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 hframes = 6
-frame = 2
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )

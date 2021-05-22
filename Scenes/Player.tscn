@@ -1,19 +1,20 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://Assets/Skeleton/walk.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Skeleton/ready.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Hp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Skeleton/jump.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Skeleton/bend.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Skeleton/start_bend.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Skeleton/new_start_bend.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Skeleton/new_attack.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Skeleton/dJump.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Skeleton/attack.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Skeleton/new_bend.png" type="Texture" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.0
-height = 24.0
+height = 16.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "Bend_End"
@@ -41,7 +42,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:frame")
@@ -70,7 +71,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 11 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -230,7 +231,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 11 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -339,7 +340,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=10]
 resource_name = "MeleeAttack"
-length = 0.65
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -350,7 +351,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 6 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -362,7 +363,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 6 ]
+"values": [ 5 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:frame")
@@ -371,36 +372,36 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
+"values": [ 0, 1, 2, 3 ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite/MeleeHit/CollisionShape2D:disabled")
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.6 ),
+"times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "MeleeAttack" ],
 "method": "_on_AnimationPlayer_animation_finished"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/MeleeHit:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -456,7 +457,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=12]
 length = 0.1
-step = 0.025
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -467,7 +468,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -488,10 +489,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.025, 0.05, 0.075 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.025, 0.05, 0.075, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1, 1, 3, 3 ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -715,7 +716,7 @@ graph_offset = Vector2( -490.009, 212.822 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=60]
 
-[sub_resource type="Shader" id=65]
+[sub_resource type="Shader" id=61]
 code = "shader_type canvas_item;
 
 uniform vec4 color : hint_color;
@@ -727,11 +728,11 @@ void fragment(){
 	COLOR = vec4(color.rgb,image.a);
 	}"
 
-[sub_resource type="ShaderMaterial" id=66]
-shader = SubResource( 65 )
+[sub_resource type="ShaderMaterial" id=62]
+shader = SubResource( 61 )
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=64]
+[sub_resource type="Animation" id=63]
 resource_name = "flashes"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material")
@@ -743,13 +744,13 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 66 ), null, SubResource( 66 ), null, SubResource( 66 ), null, SubResource( 66 ), null, SubResource( 66 ), null ]
+"values": [ SubResource( 62 ), null, SubResource( 62 ), null, SubResource( 62 ), null, SubResource( 62 ), null, SubResource( 62 ), null ]
 }
 
-[sub_resource type="RectangleShape2D" id=61]
+[sub_resource type="RectangleShape2D" id=64]
 extents = Vector2( 13.4372, 27.7148 )
 
-[sub_resource type="Animation" id=62]
+[sub_resource type="Animation" id=65]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:position")
 tracks/0/interp = 1
@@ -775,7 +776,7 @@ tracks/1/keys = {
 "values": [ 24.0 ]
 }
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=66]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:position")
 tracks/0/interp = 1
@@ -809,7 +810,7 @@ script = ExtResource( 10 )
 sprite_hp = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 20 )
+position = Vector2( 0, 9 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -837,21 +838,21 @@ active = true
 parameters/playback = SubResource( 60 )
 
 [node name="FramesInv" type="AnimationPlayer" parent="."]
-anims/flashes = SubResource( 64 )
+anims/flashes = SubResource( 63 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/MeleeHit"]
 position = Vector2( 35, 6 )
-shape = SubResource( 61 )
-disabled = true
+shape = SubResource( 64 )
 
 [node name="CeilingCheck" type="Node2D" parent="."]
 
@@ -873,8 +874,8 @@ cast_to = Vector2( 0, 12 )
 collision_mask = 3
 
 [node name="APCollisionShape" type="AnimationPlayer" parent="."]
-anims/crouched = SubResource( 62 )
-anims/standing = SubResource( 63 )
+anims/crouched = SubResource( 65 )
+anims/standing = SubResource( 66 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 7 )]
 
@@ -882,4 +883,4 @@ anims/standing = SubResource( 63 )
 one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="area_entered" from="Sprite/MeleeHit" to="." method="_on_MeleeHit_area_entered"]
+[connection signal="body_entered" from="Sprite/MeleeHit" to="." method="_on_MeleeHit_body_entered"]

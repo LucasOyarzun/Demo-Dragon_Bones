@@ -59,5 +59,7 @@ func on_body_entered(body: Node):
 		var knockdir = player.transform.origin - transform.origin # Knockback
 		player.knockback(knockdir)
 		player.take_damage(1)
-		
+
+func take_damage():
+	queue_free()
 	
