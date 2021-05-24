@@ -24,7 +24,7 @@ var crouched_factor = 0.6
 var on_floor = false
 
 var hp = 3
-var offset_lifes = 80
+var offset_lifes = 50
 var lifes_list = []                 # Lista de vidas
 export (PackedScene) var sprite_hp  # Sprite de vidas
 var can_take_damage = true
@@ -75,6 +75,10 @@ func _physics_process(delta: float) -> void:
 			
 	#Ataque
 	if Input.is_action_just_pressed("attack"):
+		self.hp -= 1         # Disminuye la vida
+		if hp == 0:
+			die()
+		lifes_list[hp].queue_free() # Quita la lutima vida
 		attacking = true
 		
 	# Dash 

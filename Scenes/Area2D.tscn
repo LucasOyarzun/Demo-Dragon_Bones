@@ -32,98 +32,97 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Arriba_der"]
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 95, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 190, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 285, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 380, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 475, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 570, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 665, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite9" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 760, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite10" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 855, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite11" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 950, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite12" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 1045, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite13" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 1140, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite14" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 1235, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite15" type="AnimatedSprite" parent="Arriba_der"]
 position = Vector2( 1330, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Arriba_der2" type="Node2D" parent="."]
@@ -132,90 +131,92 @@ playing = true
 position = Vector2( -190, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -95, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -285, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -380, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -475, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -570, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -665, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -760, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite9" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -855, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite10" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -950, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite11" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -1045, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite12" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -1140, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite13" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -1235, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite14" type="AnimatedSprite" parent="Arriba_der2"]
 position = Vector2( -1330, 0 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Stop" type="Timer" parent="."]

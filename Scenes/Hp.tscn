@@ -1,10 +1,13 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/ItemsMobA.png" type="Texture" id=1]
 
 [node name="Sprite_Bones" type="Sprite" groups=[
 "vida",
 ]]
-position = Vector2( 92, 94 )
-scale = Vector2( 1.125, 1.0625 )
+position = Vector2( 50.0253, 36.3392 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
+hframes = 15
+vframes = 2
+frame = 1
