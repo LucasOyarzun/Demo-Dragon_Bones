@@ -184,7 +184,7 @@ func add_life():
 	var newLife = sprite_hp.instance()
 	get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
 	newLife.global_position.x += offset_lifes * (hp - 1)
-	lifes_list[hp-1].append(newLife)
+	lifes_list.append(newLife)
 		
 		
 func die():
