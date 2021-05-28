@@ -4,19 +4,21 @@
 emission_shape = 2
 emission_box_extents = Vector3( 50, 1, 4 )
 flag_disable_z = true
-gravity = Vector3( 0, 98, 0 )
-initial_velocity_random = 1.0
+direction = Vector3( 0, -10, 0 )
+spread = 22.11
+gravity = Vector3( 0, 99.992, 0 )
+initial_velocity = 92.49
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale = 10.35
+scale = 4.0
 scale_random = 1.0
-color = Color( 0.545098, 0.290196, 0.0705882, 1 )
+color = Color( 1, 0.462745, 0, 1 )
 hue_variation = 0.03
 hue_variation_random = 1.0
 
 [node name="Gotas_Lava" type="Particles2D"]
-amount = 66
-lifetime = 20.0
+amount = 26
+lifetime = 2.0
 preprocess = 6.53
-visibility_rect = Rect2( -100, -100, 200, 1500 )
+visibility_rect = Rect2( -100, -100, 300, 200 )
 process_material = SubResource( 1 )

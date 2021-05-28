@@ -74,12 +74,13 @@ func _physics_process(delta: float) -> void:
 			
 			
 	#Ataque
-	if Input.is_action_just_pressed("attack"):
-		self.hp -= 1         # Disminuye la vida
-		if hp == 0:
-			die()
-		lifes_list[hp].queue_free() # Quita la lutima vida
-		attacking = true
+	if hp !=1:
+		if Input.is_action_just_pressed("attack"):
+			self.hp -= 1         # Disminuye la vida
+			if hp == 0:
+				die()
+			lifes_list[hp].queue_free() # Quita la lutima vida
+			attacking = true
 		
 	# Dash 
 	# hay que cambiar 
