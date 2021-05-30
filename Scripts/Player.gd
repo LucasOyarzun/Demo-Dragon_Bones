@@ -180,11 +180,11 @@ func on_timeout():
 	
 
 func add_life():
-	hp += 1         # Aumentamos la vida
 	var newLife = sprite_hp.instance()
 	get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
-	newLife.global_position.x += offset_lifes * (hp - 1)
+	newLife.global_position.x += offset_lifes * (hp)
 	lifes_list.append(newLife)
+	hp += 1         # Aumentamos la vida
 		
 		
 func die():
