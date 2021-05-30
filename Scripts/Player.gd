@@ -80,7 +80,9 @@ func _physics_process(delta: float) -> void:
 			if hp == 0:
 				die()
 			lifes_list[hp].queue_free() # Quita la lutima vida
+			lifes_list.pop_back()
 			attacking = true
+
 		
 	# Dash 
 	# hay que cambiar 
@@ -161,10 +163,11 @@ func create_lifes():
 func take_damage(damage):
 	if not can_take_damage:
 		return
-	self.hp -= damage         # Disminuye la vida
+	self.hp -= damage           # Disminuye la vida
 	if hp == 0:
 		die()
 	lifes_list[hp].queue_free() # Quita la lutima vida
+	lifes_list.pop_back()
 	can_take_damage = false
 	$Invulnerability.start()
 	$FramesInv.play("flashes") # Frames de invulnerabilidad
