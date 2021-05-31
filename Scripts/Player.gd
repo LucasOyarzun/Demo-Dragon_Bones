@@ -41,8 +41,13 @@ func _ready():
 	$Invulnerability.connect("timeout", self, "on_timeout")
 	limite_pantalla = get_viewport_rect().size
 	create_lifes()
-	
-	
+	var topleft = get_parent().get_node("Margen/Top_left")
+	var botright = get_parent().get_node("Margen/Bottom_right")
+	$Cam.limit_top = topleft.position.y
+	$Cam.limit_left = topleft.position.x
+	$Cam.limit_bottom = botright.position.y
+	$Cam.limit_right = botright.position.x
+
 func _physics_process(delta: float) -> void:
 	lineal_vel = move_and_slide_with_snap(lineal_vel, snap, Vector2.UP)
 	lineal_vel.y += gravity*delta
@@ -60,19 +65,7 @@ func _physics_process(delta: float) -> void:
 		jumps = 0
 	else:
 		airborne_time += delta
-	
-	# Jump
-	if Input.is_action_just_pressed("jump") and jumps < max_jumps:
-		if on_floor or airborne_time < max_airborne_time:
-			lineal_vel.y = -speed_y
-			snap = Vector2.ZERO
-		if jumps == 1:
-			lineal_vel.y = -speed_y
-			doubleJump = true
-			snap = Vector2.ZERO
-		jumps += 1
-			
-			
+		
 	#Ataque
 	if hp !=1:
 		if Input.is_action_just_pressed("attack"):
@@ -83,12 +76,23 @@ func _physics_process(delta: float) -> void:
 			lifes_list.pop_back()
 			attacking = true
 
-		
+	# Jump
+	if Input.is_action_just_pressed("jump") and jumps < max_jumps:
+		if on_floor or airborne_time < max_airborne_time:
+			lineal_vel.y = -speed_y
+			snap = Vector2.ZERO
+		if jumps == 1:
+			lineal_vel.y = -speed_y
+			doubleJump = true
+			snap = Vector2.ZERO
+		jumps += 1
+
 	# Dash 
 	# hay que cambiar 
 	if Input.is_action_just_pressed("dash"):
 		lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed_x
-		
+		snap = Vector2.ZERO
+
 	# Movement
 	var ceiling = false
 	
@@ -96,10 +100,10 @@ func _physics_process(delta: float) -> void:
 		if child.is_colliding():
 			ceiling = true
 			break
-	
+
 	var last_crouched = crouched
 	crouched = on_floor and Input.is_action_pressed("ui_down") or ceiling
-	
+
 	if on_floor:
 		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x * (crouched_factor if crouched else 1.0), 0.5)
 	else:
@@ -111,8 +115,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("move_right") and not facing_right:
 		facing_right = true
 		scale.x = -1
-	
-	
+
+
 	if crouched != last_crouched:
 		if crouched:
 			$CollisionShape2D.position.y = 16
@@ -120,10 +124,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			$CollisionShape2D.position.y = 9
 			($CollisionShape2D.shape as CapsuleShape2D).height = 16
-		
 		for child in $CeilingCheck.get_children():
 			child.enabled = crouched
-			
+
 	# Animations
 	if attacking:
 		#print(playback.get_current_node())
@@ -151,7 +154,7 @@ func _physics_process(delta: float) -> void:
 					playback.travel("Jump_Up")
 			else:
 				playback.travel("Jump_Down")
-		
+
 # Vida
 func create_lifes():
 	for i in hp: # Creamos las vidas iniciales
@@ -159,7 +162,7 @@ func create_lifes():
 		get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
 		newLife.global_position.x +=offset_lifes * i
 		lifes_list.append(newLife)
-		
+
 func take_damage(damage):
 	if not can_take_damage:
 		return
@@ -176,11 +179,9 @@ func knockback(knockdir):
 	if can_take_damage:
 		knockdir.y = knockdir.y * 0.5
 		lineal_vel = knockdir * 20
-	
 
 func on_timeout():
 	can_take_damage = true
-	
 
 func add_life():
 	var newLife = sprite_hp.instance()
@@ -188,8 +189,7 @@ func add_life():
 	newLife.global_position.x += offset_lifes * (hp)
 	lifes_list.append(newLife)
 	hp += 1         # Aumentamos la vida
-		
-		
+
 func die():
 	get_tree().reload_current_scene()
 

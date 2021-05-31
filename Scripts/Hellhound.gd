@@ -62,10 +62,14 @@ func on_body_entered(body: Node):
 		player.knockback(knockdir)
 		player.take_damage(1)
 
-func take_damage():
-	# Genera un nuevo Hueso
+func spawn_bone():
+		# Genera un nuevo Hueso
 	var cura = Cura.instance()           # Instanciamos la escena Cura
 	get_parent().add_child(cura)           # Lo agregamos como hijo de main para que no se mueva con el worm
-	cura.global_position = global_position
+	cura.global_position = global_position - Vector2(0,10)
+	cura.set_lineal_vel(100)
+
+func take_damage():
+	spawn_bone()
 	queue_free()
 	

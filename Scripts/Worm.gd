@@ -23,6 +23,8 @@ onready var area = $Area2D.connect("body_entered", self, "on_body_entered")
 var Fireball = preload("res://Scenes/FireBall.tscn")
 var Cura = preload("res://Scenes/Cura.tscn")
 
+var player_vassel = null
+
 func _physics_process(delta: float) -> void:
 	lineal_vel = move_and_slide(lineal_vel, Vector2.UP)
 	lineal_vel.y += gravity
@@ -77,13 +79,21 @@ func _physics_process(delta: float) -> void:
 func on_body_entered(body: Node):
 	if body.is_in_group("player"): # Si choca con el jugador
 		var player: Player = body
-		var knockdir = player.transform.origin - transform.origin # Knockback
+		var knockdir = (player.transform.origin - transform.origin).normalized() * 100 # Knockback
 		player.knockback(knockdir)
 		player.take_damage(1)
+		$Re_entered_timer.start()
+		player_vassel = player
 
 func take_damage():
-	# Genera un nuevo Hueso
-	var cura = Cura.instance()           # Instanciamos la escena Cura
-	get_parent().add_child(cura)           # Lo agregamos como hijo de main para que no se mueva con el worm
-	cura.global_position = global_position
 	queue_free()
+
+func _on_Re_entered_timeout() -> void:
+	if player_vassel != null:
+		player_vassel.take_damage(1)
+		var knockdir = (player_vassel.transform.origin - transform.origin).normalized() * 100 # Knockback
+		player_vassel.knockback(knockdir)
+
+func _on_player_body_exited(body: Node) -> void:
+	if body.is_in_group("player"): # Si choca con el jugador
+		player_vassel = null

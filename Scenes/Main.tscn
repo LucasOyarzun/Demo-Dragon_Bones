@@ -831,6 +831,7 @@ position = Vector2( -2.07756, 8.01167 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
 limit_left = 0
+limit_top = -8625
 limit_right = 2630
 limit_bottom = 720
 drag_margin_h_enabled = true
@@ -851,4 +852,13 @@ position = Vector2( 2511.01, 48 )
 position = Vector2( 1336, 920 )
 
 [node name="death_genericskeletonpack" parent="." instance=ExtResource( 4 )]
-position = Vector2( 212.47, 499.618 )
+position = Vector2( 212.47, 457.192 )
+collision_mask = 31
+
+[node name="Margen" type="Node" parent="."]
+
+[node name="Top_left" type="Position2D" parent="Margen"]
+position = Vector2( 0, -796 )
+
+[node name="Bottom_right" type="Position2D" parent="Margen"]
+position = Vector2( 2640, 796 )

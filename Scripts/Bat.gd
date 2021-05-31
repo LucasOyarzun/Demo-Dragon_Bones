@@ -45,8 +45,4 @@ func turn_back():
 	target_vel = -target_vel
 	
 func take_damage():
-	# Genera un nuevo Hueso
-	var cura = Cura.instance()           # Instanciamos la escena Cura
-	get_parent().add_child(cura)           # Lo agregamos como hijo de main para que no se mueva con el worm
-	cura.global_position = global_position - Vector2(0,10)
 	queue_free()
