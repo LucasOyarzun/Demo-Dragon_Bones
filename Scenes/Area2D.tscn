@@ -1,0 +1,295 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Area2D.gd" type="Script" id=1]
+[ext_resource path="res://Assets/free-dungeon-platformer-pixel-art-tileset/PNG/Tiles_lava/lava_tile4.png" type="Texture" id=2]
+[ext_resource path="res://Assets/free-dungeon-platformer-pixel-art-tileset/PNG/Tiles_lava/lava_tile3.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Gotas_Lava.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1377.25, 27.5691 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Lava_subiendo" type="Area2D"]
+position = Vector2( 13.2266, 0.70752 )
+z_index = 118
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 15 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Arriba_der" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Arriba_der"]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 95, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 190, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 285, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 380, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 475, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 570, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 665, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 760, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 855, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 950, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 1045, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 1140, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 1235, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="Arriba_der"]
+position = Vector2( 1330, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="Arriba_der2" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -190, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -95, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -285, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -380, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -475, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -570, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -665, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -760, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -855, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -950, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -1045, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -1140, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -1235, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="Arriba_der2"]
+position = Vector2( -1330, 0 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="Stop" type="Timer" parent="."]
+wait_time = 11.0
+one_shot = true
+
+[node name="Start" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Gotas_Lava15" parent="." instance=ExtResource( 4 )]
+position = Vector2( 165.09, 4.76221 )
+
+[node name="Gotas_Lava" parent="." instance=ExtResource( 4 )]
+position = Vector2( -79.6937, -3.54315 )
+
+[node name="Gotas_Lava21" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1047.6, 9.19247 )
+
+[node name="Gotas_Lava22" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1178.7, 5.44672 )
+
+[node name="Gotas_Lava19" parent="." instance=ExtResource( 4 )]
+position = Vector2( 69.3878, 0.202606 )
+
+[node name="Gotas_Lava20" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1.03262, -2.04485 )
+
+[node name="Gotas_Lava16" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1142.93, -2.79401 )
+
+[node name="Gotas_Lava17" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1079.15, 0.778473 )
+
+[node name="Gotas_Lava18" parent="." instance=ExtResource( 4 )]
+position = Vector2( 991.174, -0.635742 )
+
+[node name="Gotas_Lava2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -983.552, 3.56357 )
+
+[node name="Gotas_Lava3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -857.045, 3.5636 )
+
+[node name="Gotas_Lava4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 769.889, 1.5874 )
+
+[node name="Gotas_Lava5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 666.708, 1.58739 )
+
+[node name="Gotas_Lava6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 539.716, 3.96851 )
+
+[node name="Gotas_Lava7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 404.787, 6.34959 )
+
+[node name="Gotas_Lava8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 285.732, 9.5244 )
+
+[node name="Gotas_Lava9" parent="." instance=ExtResource( 4 )]
+position = Vector2( -743.697, 2.3811 )
+
+[node name="Gotas_Lava10" parent="." instance=ExtResource( 4 )]
+position = Vector2( -619.086, 3.96851 )
+
+[node name="Gotas_Lava11" parent="." instance=ExtResource( 4 )]
+position = Vector2( -464.315, 4.76219 )
+
+[node name="Gotas_Lava12" parent="." instance=ExtResource( 4 )]
+position = Vector2( -315.099, 2.3811 )
+
+[node name="Gotas_Lava13" parent="." instance=ExtResource( 4 )]
+position = Vector2( -158.74, -0.793701 )
+
+[node name="Gotas_Lava14" parent="." instance=ExtResource( 4 )]
+position = Vector2( 891.326, -2.3811 )
