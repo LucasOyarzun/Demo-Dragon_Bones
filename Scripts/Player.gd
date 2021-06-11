@@ -43,10 +43,10 @@ func _ready():
 	create_lifes()
 	var topleft = get_parent().get_node("Margen/Top_left")
 	var botright = get_parent().get_node("Margen/Bottom_right")
-	$Cam.limit_top = topleft.position.y
-	$Cam.limit_left = topleft.position.x
-	$Cam.limit_bottom = botright.position.y
-	$Cam.limit_right = botright.position.x
+	$Cam.limit_top = topleft.global_position.y
+	$Cam.limit_left = topleft.global_position.x
+	$Cam.limit_bottom = botright.global_position.y
+	$Cam.limit_right = botright.global_position.x
 
 func _physics_process(delta: float) -> void:
 	lineal_vel = move_and_slide_with_snap(lineal_vel, snap, Vector2.UP)

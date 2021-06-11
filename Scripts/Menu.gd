@@ -5,7 +5,7 @@ func _ready() -> void:
 	$Panel/VBoxContainer/Exit.connect("pressed",self,"_on_Exit_pressed")
 	
 func _on_start_pressed():
-	get_tree().change_scene("res://Scenes/Main.tscn")
+	get_tree().change_scene("res://Scenes/Level1_Tutorial.tscn")
 	
 func _on_Exit_pressed():
 	get_tree().quit()
