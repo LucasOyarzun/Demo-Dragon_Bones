@@ -114,7 +114,7 @@ extents = Vector2( 23.3406, 14.2073 )
 [node name="Hellhound" type="KinematicBody2D" groups=[
 "enemy",
 ]]
-collision_mask = 2
+collision_layer = 4
 script = ExtResource( 3 )
 __meta__ = {
 "_editor_description_": ""
@@ -130,6 +130,7 @@ shape = SubResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 hframes = 6
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )

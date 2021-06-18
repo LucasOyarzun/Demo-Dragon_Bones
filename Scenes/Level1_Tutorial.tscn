@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Plataforms.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Cam.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scenes/Area2D.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Worm.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Bat.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/background.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/mid-layer-01.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.9849, 47.7509 )
@@ -19,6 +21,197 @@ extents = Vector2( 18.9849, 47.7509 )
 position = Vector2( -13.4848, -0.749161 )
 
 [node name="Background" type="Node2D" parent="."]
+
+[node name="Background 1" type="Node2D" parent="Background"]
+modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="background" type="Sprite" parent="Background/Background 1"]
+position = Vector2( 290, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background2" type="Sprite" parent="Background/Background 1"]
+position = Vector2( 570, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background3" type="Sprite" parent="Background/Background 1"]
+position = Vector2( 850, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background4" type="Sprite" parent="Background/Background 1"]
+position = Vector2( 1050, 240 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background5" type="Sprite" parent="Background/Background 1"]
+position = Vector2( 1330, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="mid-layer-01" type="Sprite" parent="Background/Background 1"]
+position = Vector2( 310, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="mid-layer-02" type="Sprite" parent="Background/Background 1"]
+position = Vector2( 930, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="Background 2" type="Node2D" parent="Background"]
+modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
+position = Vector2( 1200, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="background" type="Sprite" parent="Background/Background 2"]
+position = Vector2( 290, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background2" type="Sprite" parent="Background/Background 2"]
+position = Vector2( 570, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background3" type="Sprite" parent="Background/Background 2"]
+position = Vector2( 850, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background4" type="Sprite" parent="Background/Background 2"]
+position = Vector2( 1050, 240 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background5" type="Sprite" parent="Background/Background 2"]
+position = Vector2( 1330, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="mid-layer-01" type="Sprite" parent="Background/Background 2"]
+position = Vector2( 310, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="mid-layer-02" type="Sprite" parent="Background/Background 2"]
+position = Vector2( 930, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="Background 3" type="Node2D" parent="Background"]
+modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
+position = Vector2( 2400, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="background" type="Sprite" parent="Background/Background 3"]
+position = Vector2( 290, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background2" type="Sprite" parent="Background/Background 3"]
+position = Vector2( 570, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background3" type="Sprite" parent="Background/Background 3"]
+position = Vector2( 850, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background4" type="Sprite" parent="Background/Background 3"]
+position = Vector2( 1050, 240 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background5" type="Sprite" parent="Background/Background 3"]
+position = Vector2( 1330, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="mid-layer-01" type="Sprite" parent="Background/Background 3"]
+position = Vector2( 310, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="mid-layer-02" type="Sprite" parent="Background/Background 3"]
+position = Vector2( 930, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="Background 4" type="Node2D" parent="Background"]
+modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
+position = Vector2( 3600, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="background" type="Sprite" parent="Background/Background 4"]
+position = Vector2( 290, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background2" type="Sprite" parent="Background/Background 4"]
+position = Vector2( 570, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background3" type="Sprite" parent="Background/Background 4"]
+position = Vector2( 850, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background4" type="Sprite" parent="Background/Background 4"]
+position = Vector2( 1050, 240 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="background5" type="Sprite" parent="Background/Background 4"]
+position = Vector2( 1330, 260 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+offset = Vector2( -48, 33.6451 )
+
+[node name="mid-layer-01" type="Sprite" parent="Background/Background 4"]
+position = Vector2( 310, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+
+[node name="mid-layer-02" type="Sprite" parent="Background/Background 4"]
+position = Vector2( 930, 360 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -70,6 +263,7 @@ position = Vector2( 3989.94, 713.725 )
 
 [node name="Cura" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1992, 645 )
+collision_mask = 27
 
 [node name="Cambio a main" type="Area2D" parent="."]
 position = Vector2( 4060, 529 )
