@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Laser_005.wav-dd4e557ef8c0578a72b282c62bf61b62.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Laser or Shoot/Laser_005.wav"
+dest_files=[ "res://.import/Laser_005.wav-dd4e557ef8c0578a72b282c62bf61b62.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

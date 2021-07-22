@@ -109,8 +109,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x, 0.1)
 		
-	if lineal_vel.x!=0:
-		scale.x = sign(lineal_vel.x)
+	if Input.is_action_just_pressed("move_left") and facing_right:
+		facing_right = false
+		scale.x = -1
+	if Input.is_action_just_pressed("move_right") and not facing_right:
+		facing_right = true
+		scale.x = -1
 
 
 	if crouched != last_crouched:

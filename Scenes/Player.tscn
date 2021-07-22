@@ -759,10 +759,10 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=64]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=65]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=66]
 switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
 
 [sub_resource type="AnimationNodeStateMachine" id=67]
 states/Bend_Attack/node = SubResource( 16 )
@@ -791,9 +791,9 @@ states/Start_Jump/node = SubResource( 27 )
 states/Start_Jump/position = Vector2( 152, 60 )
 states/Walk/node = SubResource( 28 )
 states/Walk/position = Vector2( -44, 331 )
-transitions = [ "Idle", "Walk", SubResource( 29 ), "Walk", "Idle", SubResource( 30 ), "Idle", "Start_Jump", SubResource( 31 ), "Walk", "Start_Jump", SubResource( 32 ), "Start_Jump", "Jump_Up", SubResource( 33 ), "Jump_Down", "End_Jump", SubResource( 34 ), "End_Jump", "Idle", SubResource( 35 ), "End_Jump", "Walk", SubResource( 36 ), "End_Jump", "Start_Jump", SubResource( 37 ), "Bend_Walk", "Bend_End", SubResource( 38 ), "Idle", "Start_Bend", SubResource( 39 ), "Walk", "Start_Bend", SubResource( 40 ), "End_Jump", "Start_Bend", SubResource( 41 ), "Start_Bend", "Idle_Bend", SubResource( 42 ), "Idle_Bend", "Bend_Walk", SubResource( 43 ), "Start_Bend", "Bend_Walk", SubResource( 44 ), "Bend_Walk", "Idle_Bend", SubResource( 45 ), "Bend_End", "Idle", SubResource( 46 ), "Bend_End", "Walk", SubResource( 47 ), "Idle_Bend", "Start_Jump", SubResource( 48 ), "Bend_Walk", "Start_Jump", SubResource( 49 ), "Start_Jump", "Jump_Down", SubResource( 50 ), "Jump_Up", "DoubleJump", SubResource( 51 ), "Jump_Down", "DoubleJump", SubResource( 52 ), "Start_Jump", "DoubleJump", SubResource( 53 ), "End_Jump", "DoubleJump", SubResource( 54 ), "Idle", "MeleeAttack", SubResource( 55 ), "MeleeAttack", "Idle", SubResource( 56 ), "Walk", "MeleeAttack", SubResource( 57 ), "MeleeAttack", "Walk", SubResource( 58 ), "DoubleJump", "Jump_Down", SubResource( 59 ), "Jump_Up", "Jump_Down", SubResource( 60 ), "Idle_Bend", "Bend_Attack", SubResource( 61 ), "Bend_Walk", "Bend_Attack", SubResource( 62 ), "Start_Bend", "Bend_Attack", SubResource( 63 ), "Bend_Attack", "Start_Bend", SubResource( 64 ), "Bend_End", "Bend_Attack", SubResource( 65 ), "Bend_Attack", "Bend_Walk", SubResource( 66 ) ]
+transitions = [ "Idle", "Walk", SubResource( 29 ), "Walk", "Idle", SubResource( 30 ), "Idle", "Start_Jump", SubResource( 31 ), "Walk", "Start_Jump", SubResource( 32 ), "Start_Jump", "Jump_Up", SubResource( 33 ), "Jump_Down", "End_Jump", SubResource( 34 ), "End_Jump", "Idle", SubResource( 35 ), "End_Jump", "Walk", SubResource( 36 ), "End_Jump", "Start_Jump", SubResource( 37 ), "Bend_Walk", "Bend_End", SubResource( 38 ), "Idle", "Start_Bend", SubResource( 39 ), "Walk", "Start_Bend", SubResource( 40 ), "End_Jump", "Start_Bend", SubResource( 41 ), "Start_Bend", "Idle_Bend", SubResource( 42 ), "Idle_Bend", "Bend_Walk", SubResource( 43 ), "Start_Bend", "Bend_Walk", SubResource( 44 ), "Bend_Walk", "Idle_Bend", SubResource( 45 ), "Bend_End", "Idle", SubResource( 46 ), "Bend_End", "Walk", SubResource( 47 ), "Idle_Bend", "Start_Jump", SubResource( 48 ), "Bend_Walk", "Start_Jump", SubResource( 49 ), "Start_Jump", "Jump_Down", SubResource( 50 ), "Jump_Up", "DoubleJump", SubResource( 51 ), "Jump_Down", "DoubleJump", SubResource( 52 ), "Start_Jump", "DoubleJump", SubResource( 53 ), "End_Jump", "DoubleJump", SubResource( 54 ), "Idle", "MeleeAttack", SubResource( 55 ), "MeleeAttack", "Idle", SubResource( 56 ), "Walk", "MeleeAttack", SubResource( 57 ), "MeleeAttack", "Walk", SubResource( 58 ), "DoubleJump", "Jump_Down", SubResource( 59 ), "Jump_Up", "Jump_Down", SubResource( 60 ), "Idle_Bend", "Bend_Attack", SubResource( 61 ), "Bend_Walk", "Bend_Attack", SubResource( 62 ), "Start_Bend", "Bend_Attack", SubResource( 63 ), "Bend_Attack", "Start_Bend", SubResource( 64 ), "Bend_Attack", "Bend_Walk", SubResource( 66 ), "Bend_Walk", "Walk", SubResource( 76 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -748.009, -15.178 )
+graph_offset = Vector2( -769.43, 69.0544 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=68]
 
@@ -926,6 +926,7 @@ anims/flashes = SubResource( 71 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
+frame = 1
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )
