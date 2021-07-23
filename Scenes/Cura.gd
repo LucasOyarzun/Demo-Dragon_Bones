@@ -25,7 +25,8 @@ func _physics_process(delta: float) -> void:
 func on_body_entered(body: Node):
 	if can_be_touched == false:
 		return
-	if body.is_in_group("player"): # Si choca con el jugador
+	if body.is_in_group("player"): # Si choca con el jugado
 		var player: Player = body
-		player.add_life()
+		player.get_position_in_parent()
+		player.add_life(true)
 		queue_free()

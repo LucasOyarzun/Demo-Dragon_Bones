@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/Cam.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scripts/cambiolvl1_2.gd" type="Script" id=17]
+[ext_resource path="res://Assets/Sounds/Main_background_sound.wav" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 128 )
@@ -344,19 +345,19 @@ position = Vector2( 528, -232 )
 position = Vector2( 2304, 696 )
 
 [node name="lava3" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1824, 696 )
+position = Vector2( 1832, 696 )
 
 [node name="lava4" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1728, 696 )
+position = Vector2( 1761, 696 )
 
 [node name="lava5" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1632, 696 )
+position = Vector2( 1656, 696 )
 
 [node name="lava6" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1536, 696 )
+position = Vector2( 1552, 696 )
 
 [node name="lava7" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1440, 696 )
+position = Vector2( 1448, 696 )
 
 [node name="lava8" parent="Lava" instance=ExtResource( 8 )]
 position = Vector2( 1344, 696 )
@@ -468,7 +469,7 @@ position = Vector2( 2312, -464 )
 speed_x = 200
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 91, 464 )
+position = Vector2( 27, 491.357 )
 
 [node name="Cam" parent="Player" instance=ExtResource( 15 )]
 position = Vector2( 4.76837e-07, 8.753 )
@@ -483,7 +484,7 @@ position = Vector2( 2511.01, 48 )
 position = Vector2( 1336, 920 )
 
 [node name="death_genericskeletonpack" parent="." instance=ExtResource( 4 )]
-position = Vector2( 212.47, 457.192 )
+position = Vector2( 212.47, 496 )
 collision_mask = 31
 
 [node name="Margen" parent="." instance=ExtResource( 12 )]
@@ -494,3 +495,8 @@ script = ExtResource( 17 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cambiolvl1_2"]
 position = Vector2( 2675, -448 )
 shape = SubResource( 1 )
+
+[node name="Background_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -7.511
+autoplay = true
