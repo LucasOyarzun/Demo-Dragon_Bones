@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/mid-layer-01.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/Cam.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/cambiolvl1_2.gd" type="Script" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 128 )
 
 [node name="Main" type="Node2D"]
 position = Vector2( -3, 0 )
@@ -312,7 +316,7 @@ texture = ExtResource( 14 )
 
 [node name="door" type="Sprite" parent="."]
 modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
-position = Vector2( 2632, -456 )
+position = Vector2( 2635, -456 )
 scale = Vector2( 1.46875, 1.96875 )
 texture = ExtResource( 11 )
 
@@ -335,12 +339,6 @@ position = Vector2( 432, -232 )
 
 [node name="lava15" parent="Lava" instance=ExtResource( 8 )]
 position = Vector2( 528, -232 )
-
-[node name="lava16" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 2688, -504 )
-
-[node name="lava17" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 2688, -432 )
 
 [node name="lava2" parent="Lava" instance=ExtResource( 8 )]
 position = Vector2( 2304, 696 )
@@ -470,9 +468,11 @@ position = Vector2( 2312, -464 )
 speed_x = 200
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -23.4532, 479.247 )
+position = Vector2( 91, 464 )
 
 [node name="Cam" parent="Player" instance=ExtResource( 15 )]
+position = Vector2( 4.76837e-07, 8.753 )
+smoothing_enabled = false
 
 [node name="Doublejump" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2511.01, 48 )
@@ -487,3 +487,10 @@ position = Vector2( 212.47, 457.192 )
 collision_mask = 31
 
 [node name="Margen" parent="." instance=ExtResource( 12 )]
+
+[node name="cambiolvl1_2" type="Area2D" parent="."]
+script = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cambiolvl1_2"]
+position = Vector2( 2675, -448 )
+shape = SubResource( 1 )

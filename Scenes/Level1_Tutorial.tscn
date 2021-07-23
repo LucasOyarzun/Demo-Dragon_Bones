@@ -15,7 +15,7 @@
 [ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/mid-layer-01.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 18.9849, 47.7509 )
+extents = Vector2( 32, 80 )
 
 [node name="Level1_Tutorial" type="Node2D"]
 position = Vector2( -13.4848, -0.749161 )
@@ -263,7 +263,6 @@ position = Vector2( 3989.94, 713.725 )
 
 [node name="Cura" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1992, 645 )
-collision_mask = 27
 
 [node name="Cambio a main" type="Area2D" parent="."]
 position = Vector2( 4060, 529 )

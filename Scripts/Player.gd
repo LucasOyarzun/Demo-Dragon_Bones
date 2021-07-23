@@ -193,6 +193,9 @@ func add_life():
 func die():
 	get_tree().reload_current_scene()
 
+func get_hp():
+	return self.hp
+
 func set_jumps_number(number):
 	max_jumps = number
 
