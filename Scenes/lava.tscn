@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Gotas_Lava.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 16 )
+extents = Vector2( 48, 16 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -23,8 +23,9 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 1.6, 1.5 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Gotas_Lava" parent="." instance=ExtResource( 4 )]

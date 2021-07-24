@@ -38,6 +38,7 @@ onready var playback = $AnimationTree.get("parameters/playback")
 var lava_subiendo_pos
 
 func _ready():
+	hp = 3
 	$Invulnerability.connect("timeout", self, "on_timeout")
 	limite_pantalla = get_viewport_rect().size
 	create_lifes()
@@ -72,7 +73,7 @@ func _physics_process(delta: float) -> void:
 			self.hp -= 1         # Disminuye la vida
 			if hp == 0:
 				die()
-			lifes_list[hp].queue_free() # Quita la lutima vida
+			lifes_list[hp].queue_free() # Quita la ultima vida
 			lifes_list.pop_back()
 			attacking = true
 
@@ -81,10 +82,13 @@ func _physics_process(delta: float) -> void:
 		if on_floor or airborne_time < max_airborne_time:
 			lineal_vel.y = -speed_y
 			snap = Vector2.ZERO
+			$Sounds/Jump.play()
 		if jumps == 1:
 			lineal_vel.y = -speed_y
 			doubleJump = true
 			snap = Vector2.ZERO
+			$Sounds/DoubleJump.play()
+		
 		jumps += 1
 
 	# Dash 
@@ -129,7 +133,7 @@ func _physics_process(delta: float) -> void:
 
 	# Animations
 	if attacking:
-		#print(playback.get_current_node())
+		
 		if playback.get_current_node() in ["Bend_Walk","Idle_Bend"]:
 			playback.travel("Bend_Attack")
 		else:
@@ -183,15 +187,19 @@ func knockback(knockdir):
 func on_timeout():
 	can_take_damage = true
 
-func add_life():
+func add_life(pickup=false):
 	var newLife = sprite_hp.instance()
 	get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
 	newLife.global_position.x += offset_lifes * (hp)
 	lifes_list.append(newLife)
 	hp += 1         # Aumentamos la vida
-
+	if pickup:
+		$Sounds/PickUp.play()
 func die():
 	get_tree().reload_current_scene()
+
+func get_hp():
+	return self.hp
 
 func set_jumps_number(number):
 	max_jumps = number
