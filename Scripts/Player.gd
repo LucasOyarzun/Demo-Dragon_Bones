@@ -38,6 +38,7 @@ onready var playback = $AnimationTree.get("parameters/playback")
 var lava_subiendo_pos
 
 func _ready():
+	hp = 3
 	$Invulnerability.connect("timeout", self, "on_timeout")
 	limite_pantalla = get_viewport_rect().size
 	create_lifes()

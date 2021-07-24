@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/cambiarcamara.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/CambioDeMargenes.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Nivel3_Esofago.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Sounds/BackGround.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/BackGround_music.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Scripts/Nivel3_Esofago.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/background.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/mid-layer-01.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Plataforms.tscn" type="PackedScene" id=12]
@@ -511,33 +513,23 @@ position = Vector2( -424, -360 )
 [node name="Hellhound2" parent="Enemies" instance=ExtResource( 19 )]
 position = Vector2( 184, 144 )
 
-[node name="Bat" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 17 )]
+[node name="Bat" parent="Enemies" instance=ExtResource( 17 )]
 position = Vector2( -456, -160 )
 
-[node name="Bat2" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 17 )]
+[node name="Bat2" parent="Enemies" instance=ExtResource( 17 )]
 position = Vector2( 744, 312 )
 
-[node name="Bat3" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 17 )]
+[node name="Bat3" parent="Enemies" instance=ExtResource( 17 )]
 position = Vector2( 272, -896 )
 
-[node name="Bat4" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 17 )]
+[node name="Bat4" parent="Enemies" instance=ExtResource( 17 )]
 position = Vector2( 392, -1120 )
 
-[node name="Bat5" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 17 )]
+[node name="Bat5" parent="Enemies" instance=ExtResource( 17 )]
 position = Vector2( 360, -1656 )
 
 [node name="Player" parent="." instance=ExtResource( 21 )]
-position = Vector2( 304.837, -2884.13 )
+position = Vector2( 24, 480 )
 
 [node name="Cam" parent="Player" instance=ExtResource( 20 )]
 
@@ -581,6 +573,14 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CambioDeMargenes"]
 shape = SubResource( 2 )
+
+[node name="Background_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="BackGround_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="body_entered" from="cambiarcamara" to="cambiarcamara" method="_on_cambiarcamara_body_entered"]
 [connection signal="body_entered" from="CambioDeMargenes" to="CambioDeMargenes" method="_on_CambioDeMargenes_body_entered"]

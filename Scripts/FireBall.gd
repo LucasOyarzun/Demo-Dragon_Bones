@@ -17,10 +17,15 @@ func on_body_entered(body: Node):
 		player.knockback(knockdir)
 		player.take_damage(1)
 		sprite.play("explosion")
+		$Fireball_sound.stop()
+		$Explosion.play()
+		
 		$Timer.start()
 	if body.is_in_group("map"):    # Si choca con el mapa
 		speed = 40
 		sprite.play("explosion")
+		$Fireball_sound.stop()
+		$Explosion.play()
 		$Timer.start()
 func _physics_process(delta):
 	position +=Vector2(cos(rotation), sin(rotation)) * speed * delta

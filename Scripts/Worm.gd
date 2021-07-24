@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			fireball.global_position = global_position+Vector2(-30, 0) # Posicion inicial la de este enemigo
 			fireball.rotation = PI
+		
 		fireball_created = true
 		
 	if(timer_moving> stay_lapse and moving == false):   # Cuando decide moverse

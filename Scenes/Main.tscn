@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scripts/cambiolvl1_2.gd" type="Script" id=17]
 [ext_resource path="res://Assets/Sounds/Main_background_sound.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/Sounds/BackGround.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Assets/Sounds/BackGround_music.mp3" type="AudioStream" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 128 )
@@ -327,7 +329,7 @@ tile_data = PoolIntArray( -1114113, 0, 65536, -1179648, 0, 65537, -1179647, 0, 6
 [node name="Lava" type="Node" parent="."]
 
 [node name="lava" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 816, 696 )
+position = Vector2( 812.292, 693.351 )
 
 [node name="lava12" parent="Lava" instance=ExtResource( 8 )]
 position = Vector2( 240, -232 )
@@ -345,25 +347,25 @@ position = Vector2( 528, -232 )
 position = Vector2( 2304, 696 )
 
 [node name="lava3" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1832, 696 )
+position = Vector2( 1824, 696 )
 
 [node name="lava4" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1761, 696 )
+position = Vector2( 1737.79, 696 )
 
 [node name="lava5" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1656, 696 )
+position = Vector2( 1640, 696 )
 
 [node name="lava6" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1552, 696 )
+position = Vector2( 1544, 696 )
 
 [node name="lava7" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1448, 696 )
+position = Vector2( 1442.7, 696 )
 
 [node name="lava8" parent="Lava" instance=ExtResource( 8 )]
 position = Vector2( 1344, 696 )
 
 [node name="lava9" parent="Lava" instance=ExtResource( 8 )]
-position = Vector2( 1008, 696 )
+position = Vector2( 1004.82, 693.351 )
 
 [node name="lava10" parent="Lava" instance=ExtResource( 8 )]
 position = Vector2( 2496, 696 )
@@ -433,38 +435,26 @@ position = Vector2( 1228.13, 298.187 )
 [node name="Hellhound6" parent="Enemies" instance=ExtResource( 2 )]
 position = Vector2( 2229.4, 491.357 )
 
-[node name="Bat" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 10 )]
+[node name="Bat" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 1008, 656 )
 
-[node name="Bat2" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 10 )]
+[node name="Bat2" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 1016, 392 )
 speed_x = 150
 
-[node name="Bat3" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 10 )]
+[node name="Bat3" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 1096, 72 )
 speed_x = 150
 
-[node name="Bat4" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 10 )]
+[node name="Bat4" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 2224, 184 )
 speed_x = 200
 
-[node name="Bat5" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 10 )]
+[node name="Bat5" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 768, -320 )
 speed_x = 150
 
-[node name="Bat6" parent="Enemies" groups=[
-"enemy",
-] instance=ExtResource( 10 )]
+[node name="Bat6" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 2312, -464 )
 speed_x = 200
 
@@ -481,7 +471,7 @@ position = Vector2( 2511.01, 48 )
 [node name="GUI" parent="." instance=ExtResource( 16 )]
 
 [node name="Lava_subiendo" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1336, 920 )
+position = Vector2( 1363, 917.985 )
 
 [node name="death_genericskeletonpack" parent="." instance=ExtResource( 4 )]
 position = Vector2( 212.47, 496 )
@@ -498,5 +488,12 @@ shape = SubResource( 1 )
 
 [node name="Background_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = -7.511
+autoplay = true
+
+[node name="Background_sound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+autoplay = true
+
+[node name="BackGround_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
 autoplay = true

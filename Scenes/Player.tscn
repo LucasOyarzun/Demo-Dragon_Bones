@@ -13,7 +13,7 @@
 [ext_resource path="res://Assets/Skeleton/new_bend.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Skeleton/bend_attack.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sounds/attack_sound.wav" type="AudioStream" id=13]
-[ext_resource path="res://Assets/Sounds/bones_pickup.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/Sounds/pickup.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Assets/Sounds/jump_sound.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Assets/Sounds/doublejump_sound.mp3" type="AudioStream" id=16]
 
@@ -1007,6 +1007,7 @@ anims/flashes = SubResource( 73 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
+frame = 1
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )
@@ -1055,6 +1056,7 @@ stream = ExtResource( 15 )
 
 [node name="PickUp" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 14 )
+volume_db = 7.505
 
 [node name="DoubleJump" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 16 )
