@@ -4,6 +4,7 @@ class_name Player
 var lineal_vel = Vector2()
 var speed_x = 300
 var speed_y = 400
+var speed_climb = 100
 var gravity = 25*60
 
 var max_jumps = 1
@@ -22,6 +23,9 @@ var crouched = false
 var crouched_factor = 0.6
 
 var on_floor = false
+
+var can_climb = false
+var climbing = false
 
 var hp = 3
 var offset_lifes = 50
@@ -51,13 +55,16 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	lineal_vel = move_and_slide_with_snap(lineal_vel, snap, Vector2.UP)
-	lineal_vel.y += gravity*delta
+	
+	if climbing == false:
+		lineal_vel.y += gravity*delta
 	
 	on_floor = is_on_floor()
 	
 	if on_floor:
 		snap = Vector2.DOWN*20 
 	var target_vel = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var climb_vel = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
 	# Airborne_Time
 	if on_floor:
@@ -66,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		jumps = 0
 	else:
 		airborne_time += delta
-		
+
 	#Ataque
 	if hp !=1:
 		if Input.is_action_just_pressed("attack"):
@@ -88,7 +95,6 @@ func _physics_process(delta: float) -> void:
 			doubleJump = true
 			snap = Vector2.ZERO
 			$Sounds/DoubleJump.play()
-		
 		jumps += 1
 
 	# Dash 
@@ -107,6 +113,12 @@ func _physics_process(delta: float) -> void:
 
 	var last_crouched = crouched
 	crouched = on_floor and Input.is_action_pressed("ui_down") or ceiling
+	
+	if climbing:
+		doubleJump = false
+		airborne_time = 0
+		jumps = 0
+		lineal_vel.y = lerp(lineal_vel.y, climb_vel * speed_climb, 0.8)
 
 	if on_floor:
 		lineal_vel.x = lerp(lineal_vel.x, target_vel * speed_x * (crouched_factor if crouched else 1.0), 0.5)
@@ -124,20 +136,26 @@ func _physics_process(delta: float) -> void:
 	if crouched != last_crouched:
 		if crouched:
 			$CollisionShape2D.position.y = 16
-			($CollisionShape2D.shape as CapsuleShape2D).height = 2
+			($CollisionShape2D.shape as CapsuleShape2D).height = 10
 		else:
 			$CollisionShape2D.position.y = 9
-			($CollisionShape2D.shape as CapsuleShape2D).height = 16
+			($CollisionShape2D.shape as CapsuleShape2D).height = 25
 		for child in $CeilingCheck.get_children():
 			child.enabled = crouched
 
 	# Animations
 	if attacking:
-		
 		if playback.get_current_node() in ["Bend_Walk","Idle_Bend"]:
 			playback.travel("Bend_Attack")
+		elif playback.get_current_node() in ["Climb_Ready","Climb_Up"]:
+			playback.travel("Climb_Attack")
 		else:
 			playback.travel("MeleeAttack")
+	elif climbing:
+		if abs(lineal_vel.y) > 50:
+			playback.travel("Climb_Up")
+		else:
+			playback.travel("Climb_Ready")
 	else:
 		if on_floor:
 			if abs(lineal_vel.x) > 30:
@@ -195,6 +213,7 @@ func add_life(pickup=false):
 	hp += 1         # Aumentamos la vida
 	if pickup:
 		$Sounds/PickUp.play()
+
 func die():
 	get_tree().reload_current_scene()
 
@@ -209,12 +228,22 @@ func _input(event: InputEvent)-> void:
 	if event.is_action_pressed("menu") and just_pressed:
 		$PauseMenu.toggle()
 
-
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	if anim_name in ["MeleeAttack","Bend_Attack"]:
+	if anim_name in ["MeleeAttack","Bend_Attack","Climb_Attack"]:
 		attacking = false
-
 
 func _on_MeleeHit_body_entered(body: Node) -> void:
 	if body.is_in_group("enemy"): # Si choca con un enemigo
 		body.take_damage()
+
+func _on_Climb_body_entered(body: Node) -> void:
+	if body.is_in_group("map") and on_floor == false and can_climb: #choca con el mapa
+		climbing = true
+
+func _on_Climb_body_exited(body: Node) -> void:
+	if body.is_in_group("map"): #choca con el mapa
+		if on_floor:
+			playback.travel("Idle")
+		else:
+			playback.travel("Jump_Down")
+		climbing = false
