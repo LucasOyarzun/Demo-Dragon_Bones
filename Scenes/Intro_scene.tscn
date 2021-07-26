@@ -1,58 +1,146 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=43 format=2]
 
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/run_2.png" type="Texture" id=1]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/walk_1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/jump_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/run_2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/walk_1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/jump_1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Dragon/Cabeza_arriba.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Dragon/cabeza_abajo_atras.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Dragon/Dragon Sprite Parts.png" type="Texture" id=6]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/run_1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/run_1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Dragon/Cabeza_abajo_frente.png" type="Texture" id=8]
 [ext_resource path="res://fonts/MinimalPixel v2.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/ready_2.png" type="Texture" id=10]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/walk_3.png" type="Texture" id=11]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/walk_5.png" type="Texture" id=12]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/run_5.png" type="Texture" id=13]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/attack1_2.png" type="Texture" id=14]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/walk_4.png" type="Texture" id=15]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/walk_2.png" type="Texture" id=16]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/attack1_5.png" type="Texture" id=17]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/attack1_1.png" type="Texture" id=18]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/run_4.png" type="Texture" id=19]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/ready_3.png" type="Texture" id=20]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/jump_5.png" type="Texture" id=21]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/run_3.png" type="Texture" id=22]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/jump_2.png" type="Texture" id=23]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/walk_6.png" type="Texture" id=24]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/attack1_6.png" type="Texture" id=25]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/ready_1.png" type="Texture" id=26]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/attack1_3.png" type="Texture" id=27]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/run_6.png" type="Texture" id=28]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/jump_4.png" type="Texture" id=29]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/attack1_4.png" type="Texture" id=30]
-[ext_resource path="res://Assets/pack_loreon_char_free/sword_1/jump_3.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/ready_2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/walk_3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/walk_5.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/run_5.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/attack1_2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/walk_4.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/walk_2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/attack1_5.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/attack1_1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/run_4.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/ready_3.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/jump_5.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/run_3.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/jump_2.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/walk_6.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/attack1_6.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/ready_1.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/attack1_3.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/run_6.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/jump_4.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/attack1_4.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Humano_vivo/sword_1/jump_3.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/background.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Stage/layers/tilesets.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/mid-layer-01.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/trees.png" type="Texture" id=35]
+[ext_resource path="res://Scenes/Intro_scene.gd" type="Script" id=36]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Abrir_boca"
-length = 0.5
+[sub_resource type="Animation" id=6]
+resource_name = "Intro_completa"
+length = 30.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Node2D:rotation_degrees")
+tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, -30.0 ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Caballero:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 29.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 790, 174 ), Vector2( 20000, 174 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="TileSet" id=5]
+0/name = "tilesets.png 0"
+0/texture = ExtResource( 33 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 192, 96, 96, 96 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [  ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "tilesets.png 1"
+1/texture = ExtResource( 33 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 384, 192 )
+1/tile_mode = 1
+1/autotile/bitmask_mode = 1
+1/autotile/bitmask_flags = [ Vector2( 6, 3 ), 432, Vector2( 6, 4 ), 438, Vector2( 6, 5 ), 54, Vector2( 7, 3 ), 504, Vector2( 7, 4 ), 511, Vector2( 7, 5 ), 63, Vector2( 8, 3 ), 216, Vector2( 8, 4 ), 219, Vector2( 8, 5 ), 27 ]
+1/autotile/icon_coordinate = Vector2( 7, 3 )
+1/autotile/tile_size = Vector2( 32, 32 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "tilesets.png 2"
+2/texture = ExtResource( 33 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 384, 192 )
+2/tile_mode = 1
+2/autotile/bitmask_mode = 1
+2/autotile/bitmask_flags = [ Vector2( 6, 3 ), 432, Vector2( 6, 4 ), 438, Vector2( 6, 5 ), 54, Vector2( 7, 3 ), 504, Vector2( 7, 4 ), 511, Vector2( 7, 5 ), 63, Vector2( 8, 3 ), 216, Vector2( 8, 4 ), 219, Vector2( 8, 5 ), 27 ]
+2/autotile/icon_coordinate = Vector2( 7, 3 )
+2/autotile/tile_size = Vector2( 32, 32 )
+2/autotile/spacing = 0
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 50, 48 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 26 ), ExtResource( 10 ), ExtResource( 20 ) ],
 "loop": true,
@@ -64,7 +152,7 @@ animations = [ {
 "name": "Caminar",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 2 ), ExtResource( 1 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 28 ) ],
+"frames": [ SubResource( 1 ), ExtResource( 1 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "Correr",
 "speed": 10.0
@@ -80,18 +168,35 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -30.0 ]
+}
+
 [sub_resource type="DynamicFont" id=4]
 size = 38
 font_data = ExtResource( 9 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 36 )
 
 [node name="Intro" type="AnimationPlayer" parent="."]
+anims/Intro_completa = SubResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1279.0
 margin_bottom = 719.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -101,15 +206,160 @@ __meta__ = {
 position = Vector2( 2997.52, -684.15 )
 texture = ExtResource( 6 )
 
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 0.133333, 0.960784, 0.0156863, 1 )
+tile_set = SubResource( 5 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 262192, 2, 196615, 393230, 2, 196614, 393231, 2, 196615, 393232, 2, 196615, 393233, 2, 196615, 393234, 2, 196615, 393235, 2, 196615, 393236, 2, 196615, 393237, 2, 196615, 393238, 2, 196615, 393239, 2, 196615, 393240, 2, 196615, 393241, 2, 196615, 393242, 2, 196615, 393243, 2, 196615, 393244, 2, 196615, 393245, 2, 196615, 393246, 2, 196615, 393247, 2, 196615, 393248, 2, 196615, 393249, 2, 196615, 393250, 2, 196615, 393251, 2, 196615, 393252, 2, 196615, 393253, 2, 196615, 393254, 2, 196615, 393255, 2, 196615, 393256, 2, 196615, 393257, 2, 196615, 393258, 2, 196615, 393259, 2, 196615, 393260, 2, 196615, 393261, 2, 196615, 393262, 2, 196615, 393263, 2, 196615, 393264, 2, 196615, 393265, 2, 196615, 393266, 2, 196615, 393267, 2, 196615, 393268, 2, 196615, 393269, 2, 196615, 393270, 2, 196615, 393271, 2, 196615, 393272, 2, 196615, 393273, 2, 196615, 393274, 2, 196615, 393275, 2, 196615, 393276, 2, 196615, 393277, 2, 196615, 393278, 2, 196615, 393279, 2, 196615, 393280, 2, 196615, 393281, 2, 196615, 393282, 2, 196615, 393283, 2, 196615, 393284, 2, 196615, 393285, 2, 196615, 393286, 2, 196615, 393287, 2, 196615, 393288, 2, 196615, 393289, 2, 196615, 393290, 2, 196615, 393291, 2, 196615, 393292, 2, 196615, 393293, 2, 196615, 393294, 2, 196615, 393295, 2, 196615, 393296, 2, 196615, 393297, 2, 196615, 393298, 2, 196615, 393299, 2, 196615, 393300, 2, 196615, 393301, 2, 196615, 393302, 2, 196615, 393303, 2, 196615, 393304, 2, 196615, 393305, 2, 196615, 393306, 2, 196615, 393307, 2, 196615, 393308, 2, 196615, 393309, 2, 196615, 393310, 2, 196615, 393311, 2, 196615, 393312, 2, 196615, 393313, 2, 196615, 393314, 2, 196615, 393315, 2, 196615, 393316, 2, 196615, 393317, 2, 196615, 393318, 2, 196615, 393319, 2, 196615, 393320, 2, 196615, 393321, 2, 196615, 393322, 2, 196615, 393323, 2, 196615, 393324, 2, 196615, 393325, 2, 196615, 393326, 2, 196615, 393327, 2, 196615, 393328, 2, 196615, 393329, 2, 196615, 393330, 2, 196615, 393331, 2, 196615, 393332, 2, 196615, 393333, 2, 196615, 393334, 2, 196615, 393335, 2, 196615, 393336, 2, 196615, 393337, 2, 196615, 393338, 2, 196615, 393339, 2, 196615, 393340, 2, 196615, 393341, 2, 196615, 393342, 2, 196615, 393343, 2, 196615, 393344, 2, 196615, 393345, 2, 196615, 393346, 2, 196615, 393347, 2, 196615, 393348, 2, 196615, 393349, 2, 196615, 393350, 2, 196615, 393351, 2, 196615, 393352, 2, 196615, 393353, 2, 196615, 393354, 2, 196615, 393355, 2, 196615, 393356, 2, 196615, 393357, 2, 196615, 393358, 2, 196615, 393359, 2, 196615, 393360, 2, 196615, 393361, 2, 196615, 393362, 2, 196615, 393363, 2, 196615, 393364, 2, 196615, 393365, 2, 196615, 393366, 2, 196615, 393367, 2, 196615, 393368, 2, 196615, 393369, 2, 196615, 393370, 2, 196615, 393371, 2, 196615, 393372, 2, 196615, 393373, 2, 196615, 393374, 2, 196615, 393375, 2, 196615, 393376, 2, 196615, 393377, 2, 196616, 458766, 2, 327686, 458767, 2, 327687, 458768, 2, 327687, 458769, 2, 327687, 458770, 2, 327687, 458771, 2, 327687, 458772, 2, 327687, 458773, 2, 327687, 458774, 2, 327687, 458775, 2, 327687, 458776, 2, 327687, 458777, 2, 327687, 458778, 2, 327687, 458779, 2, 327687, 458780, 2, 327687, 458781, 2, 327687, 458782, 2, 327687, 458783, 2, 327687, 458784, 2, 327687, 458785, 2, 327687, 458786, 2, 327687, 458787, 2, 327687, 458788, 2, 327687, 458789, 2, 327687, 458790, 2, 327687, 458791, 2, 327687, 458792, 2, 327687, 458793, 2, 327687, 458794, 2, 327687, 458795, 2, 327687, 458796, 2, 327687, 458797, 2, 327687, 458798, 2, 327687, 458799, 2, 327687, 458800, 2, 327687, 458801, 2, 327687, 458802, 2, 327687, 458803, 2, 327687, 458804, 2, 327687, 458805, 2, 327687, 458806, 2, 327687, 458807, 2, 327687, 458808, 2, 327687, 458809, 2, 327687, 458810, 2, 327687, 458811, 2, 327687, 458812, 2, 327687, 458813, 2, 327687, 458814, 2, 327687, 458815, 2, 327687, 458816, 2, 327687, 458817, 2, 327687, 458818, 2, 327687, 458819, 2, 327687, 458820, 2, 327687, 458821, 2, 327687, 458822, 2, 327687, 458823, 2, 327687, 458824, 2, 327687, 458825, 2, 327687, 458826, 2, 327687, 458827, 2, 327687, 458828, 2, 327687, 458829, 2, 327687, 458830, 2, 327687, 458831, 2, 327687, 458832, 2, 327687, 458833, 2, 327687, 458834, 2, 327687, 458835, 2, 327687, 458836, 2, 327687, 458837, 2, 327687, 458838, 2, 327687, 458839, 2, 327687, 458840, 2, 327687, 458841, 2, 327687, 458842, 2, 327687, 458843, 2, 327687, 458844, 2, 327687, 458845, 2, 327687, 458846, 2, 327687, 458847, 2, 327687, 458848, 2, 327687, 458849, 2, 327687, 458850, 2, 327687, 458851, 2, 327687, 458852, 2, 327687, 458853, 2, 327687, 458854, 2, 327687, 458855, 2, 327687, 458856, 2, 327687, 458857, 2, 327687, 458858, 2, 327687, 458859, 2, 327687, 458860, 2, 327687, 458861, 2, 327687, 458862, 2, 327687, 458863, 2, 327687, 458864, 2, 327687, 458865, 2, 327687, 458866, 2, 327687, 458867, 2, 327687, 458868, 2, 327687, 458869, 2, 327687, 458870, 2, 327687, 458871, 2, 327687, 458872, 2, 327687, 458873, 2, 327687, 458874, 2, 327687, 458875, 2, 327687, 458876, 2, 327687, 458877, 2, 327687, 458878, 2, 327687, 458879, 2, 327687, 458880, 2, 327687, 458881, 2, 327687, 458882, 2, 327687, 458883, 2, 327687, 458884, 2, 327687, 458885, 2, 327687, 458886, 2, 327687, 458887, 2, 327687, 458888, 2, 327687, 458889, 2, 327687, 458890, 2, 327687, 458891, 2, 327687, 458892, 2, 327687, 458893, 2, 327687, 458894, 2, 327687, 458895, 2, 327687, 458896, 2, 327687, 458897, 2, 327687, 458898, 2, 327687, 458899, 2, 327687, 458900, 2, 327687, 458901, 2, 327687, 458902, 2, 327687, 458903, 2, 327687, 458904, 2, 327687, 458905, 2, 327687, 458906, 2, 327687, 458907, 2, 327687, 458908, 2, 327687, 458909, 2, 327687, 458910, 2, 327687, 458911, 2, 327687, 458912, 2, 327687, 458913, 2, 327688 )
+
+[node name="Caballero" type="AnimatedSprite" parent="."]
+position = Vector2( 790, 174 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "Correr"
+frame = 1
+playing = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="Caballero"]
+scale = Vector2( 0.5, 0.5 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_top = 0
+drag_margin_v_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Caballero/Camera2D"]
+
+[node name="Fondo" type="ParallaxLayer" parent="Caballero/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1152, 0 )
+
+[node name="background" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background2" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 96, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background3" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background4" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 288, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background5" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 384, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background6" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 480, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background7" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 576, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background8" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 672, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background9" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 768, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background10" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 864, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background11" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 960, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="background12" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Fondo"]
+position = Vector2( 1056, 0 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="Medio" type="ParallaxLayer" parent="Caballero/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1152, 0 )
+
+[node name="mid-layer-01" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Medio"]
+texture = ExtResource( 34 )
+centered = false
+
+[node name="mid-layer-02" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Medio"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="mid-layer-03" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Medio"]
+position = Vector2( 368, 0 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="mid-layer-04" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Medio"]
+position = Vector2( 560, 0 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="mid-layer-05" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Medio"]
+position = Vector2( 752, 0 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="mid-layer-06" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Medio"]
+position = Vector2( 956, 0 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="Frente" type="ParallaxLayer" parent="Caballero/Camera2D/ParallaxBackground"]
+motion_mirroring = Vector2( 1152, 0 )
+
+[node name="trees" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Frente"]
+texture = ExtResource( 35 )
+centered = false
+
+[node name="trees2" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Frente"]
+position = Vector2( 288, 0 )
+texture = ExtResource( 35 )
+centered = false
+
+[node name="trees3" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Frente"]
+position = Vector2( 576, 0 )
+texture = ExtResource( 35 )
+centered = false
+
+[node name="trees4" type="Sprite" parent="Caballero/Camera2D/ParallaxBackground/Frente"]
+position = Vector2( 864, 0 )
+texture = ExtResource( 35 )
+centered = false
+
 [node name="Cabeza_dragon" type="Sprite" parent="."]
-position = Vector2( 1661.86, 53.5303 )
+position = Vector2( 1583.13, -440.204 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cabeza_dragon"]
-anims/Abrir_boca = SubResource( 1 )
+anims/Abrir_boca = SubResource( 3 )
 
 [node name="Node2D" type="Node2D" parent="Cabeza_dragon"]
 position = Vector2( -80, 12 )
@@ -127,23 +377,17 @@ texture = ExtResource( 5 )
 position = Vector2( -116, 44 )
 texture = ExtResource( 8 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 600, 250 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 3 )
-animation = "Esquiva"
-frame = 2
-playing = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="."]
-margin_left = 243.245
-margin_top = 416.306
-margin_right = 1060.24
-margin_bottom = 495.306
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 240.139
+margin_top = 563.515
+margin_right = 1057.14
+margin_bottom = 642.515
 custom_fonts/font = SubResource( 4 )
 text = "Text de descripchion of the primera parte 
 Here va la segunda line."
-percent_visible = 0.0
+percent_visible = 0.109091
 __meta__ = {
 "_edit_use_anchors_": false
 }
