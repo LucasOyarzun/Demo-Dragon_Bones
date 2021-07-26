@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dragon Sprite Parts.png-4c1220a325d72a1f935e155a360a9598.stex"
+path="res://.import/Dragon Sprite Parts.png-40678d6ba012cbfac12016b84b23e3de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dragon Sprite Parts.png"
-dest_files=[ "res://.import/Dragon Sprite Parts.png-4c1220a325d72a1f935e155a360a9598.stex" ]
+source_file="res://Assets/Dragon/Dragon Sprite Parts.png"
+dest_files=[ "res://.import/Dragon Sprite Parts.png-40678d6ba012cbfac12016b84b23e3de.stex" ]
 
 [params]
 

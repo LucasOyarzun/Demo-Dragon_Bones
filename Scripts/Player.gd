@@ -24,7 +24,7 @@ var crouched_factor = 0.6
 
 var on_floor = false
 
-var can_climb = false
+var can_climb = true
 var climbing = false
 
 var hp = 3
