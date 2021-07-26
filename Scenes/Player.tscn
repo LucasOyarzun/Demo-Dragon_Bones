@@ -1500,7 +1500,7 @@ states/Walk/node = SubResource( 36 )
 states/Walk/position = Vector2( -108, 404.822 )
 transitions = [ "Idle", "Walk", SubResource( 37 ), "Walk", "Idle", SubResource( 38 ), "Idle", "Start_Jump", SubResource( 39 ), "Walk", "Start_Jump", SubResource( 40 ), "Start_Jump", "Jump_Up", SubResource( 41 ), "Jump_Down", "End_Jump", SubResource( 42 ), "End_Jump", "Idle", SubResource( 43 ), "End_Jump", "Walk", SubResource( 44 ), "End_Jump", "Start_Jump", SubResource( 45 ), "Idle", "Start_Bend", SubResource( 46 ), "Walk", "Start_Bend", SubResource( 47 ), "End_Jump", "Start_Bend", SubResource( 48 ), "Start_Bend", "Idle_Bend", SubResource( 49 ), "Idle_Bend", "Bend_Walk", SubResource( 50 ), "Start_Bend", "Bend_Walk", SubResource( 51 ), "Bend_Walk", "Idle_Bend", SubResource( 52 ), "Bend_End", "Idle", SubResource( 53 ), "Bend_End", "Walk", SubResource( 54 ), "Idle_Bend", "Start_Jump", SubResource( 55 ), "Bend_Walk", "Start_Jump", SubResource( 56 ), "Start_Jump", "Jump_Down", SubResource( 57 ), "Jump_Up", "DoubleJump", SubResource( 58 ), "Jump_Down", "DoubleJump", SubResource( 59 ), "Start_Jump", "DoubleJump", SubResource( 60 ), "End_Jump", "DoubleJump", SubResource( 61 ), "Idle", "MeleeAttack", SubResource( 62 ), "Walk", "MeleeAttack", SubResource( 63 ), "DoubleJump", "Jump_Down", SubResource( 64 ), "Jump_Up", "Jump_Down", SubResource( 65 ), "Idle_Bend", "Bend_Attack", SubResource( 66 ), "Bend_Walk", "Bend_Attack", SubResource( 67 ), "Bend_Attack", "Bend_Walk", SubResource( 68 ), "Bend_Attack", "Idle_Bend", SubResource( 69 ), "Start_Bend", "Bend_Attack", SubResource( 70 ), "Bend_Walk", "Bend_End", SubResource( 71 ), "MeleeAttack", "MeleeAttackEnd", SubResource( 72 ), "MeleeAttackEnd", "Idle", SubResource( 73 ), "MeleeAttackEnd", "Walk", SubResource( 74 ), "DoubleJump", "Climb_Ready", SubResource( 75 ), "Jump_Up", "Climb_Ready", SubResource( 76 ), "Jump_Down", "Climb_Ready", SubResource( 77 ), "Idle", "Climb_Ready", SubResource( 78 ), "Walk", "Climb_Ready", SubResource( 79 ), "Bend_Walk", "Climb_Ready", SubResource( 80 ), "Idle_Bend", "Climb_Ready", SubResource( 81 ), "Climb_Ready", "Jump_Up", SubResource( 82 ), "Climb_Ready", "Start_Jump", SubResource( 83 ), "Climb_Ready", "Jump_Down", SubResource( 84 ), "Climb_Ready", "Idle", SubResource( 85 ), "Climb_Ready", "Bend_Walk", SubResource( 86 ), "Climb_Ready", "Walk", SubResource( 87 ), "Climb_Ready", "Climb_Up", SubResource( 88 ), "Climb_Up", "Climb_Ready", SubResource( 89 ), "Climb_Ready", "Climb_Attack", SubResource( 90 ), "Climb_Up", "Climb_Attack", SubResource( 91 ), "Climb_Attack", "Climb_Up", SubResource( 92 ), "Climb_Attack", "Climb_Ready", SubResource( 93 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -808.321, -275.711 )
+graph_offset = Vector2( -808.321, -20.7015 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=95]
 
@@ -1590,7 +1590,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=102]
-extents = Vector2( 9.94397, 30 )
+extents = Vector2( 2, 2 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -1640,7 +1640,6 @@ anims/flashes = SubResource( 98 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )
@@ -1698,7 +1697,7 @@ pitch_scale = 1.45
 [node name="Climb" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Climb"]
-position = Vector2( 24.114, 6 )
+position = Vector2( 16.1087, -6.56918 )
 shape = SubResource( 102 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

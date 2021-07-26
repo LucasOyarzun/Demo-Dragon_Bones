@@ -55,13 +55,14 @@ position = Vector2( 497, 275 )
 scale = Vector2( 7.84, 6.70833 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 3
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 958.034, 258.03 )
 scale = Vector2( 7.84, 6.70833 )
 frames = SubResource( 1 )
+frame = 4
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -423,7 +423,7 @@ texture = ExtResource( 10 )
 
 [node name="Background 8" type="Node2D" parent="Background"]
 modulate = Color( 0.686275, 0.192157, 0.192157, 1 )
-position = Vector2( 698, -3000 )
+position = Vector2( 700, -3000 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -514,6 +514,13 @@ scale = Vector2( 5, 6 )
 texture = ExtResource( 15 )
 offset = Vector2( -0.999969, 0 )
 
+[node name="stalagmite10" type="Sprite" parent="Dientes"]
+modulate = Color( 0.839216, 0.745098, 0.745098, 0.717647 )
+position = Vector2( 1883, -2944 )
+scale = Vector2( 5, 6 )
+texture = ExtResource( 15 )
+offset = Vector2( -0.999969, 0 )
+
 [node name="stalagmite4" type="Sprite" parent="Dientes"]
 modulate = Color( 0.839216, 0.745098, 0.745098, 0.717647 )
 position = Vector2( 1755, -2944 )
@@ -571,6 +578,16 @@ __meta__ = {
 [node name="stalagmite1" type="Sprite" parent="Dientes2"]
 modulate = Color( 0.839216, 0.745098, 0.745098, 0.717647 )
 position = Vector2( 1819, -3096 )
+scale = Vector2( 5, 6 )
+texture = ExtResource( 15 )
+offset = Vector2( -0.999969, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="stalagmite10" type="Sprite" parent="Dientes2"]
+modulate = Color( 0.839216, 0.745098, 0.745098, 0.717647 )
+position = Vector2( 1900, -3096 )
 scale = Vector2( 5, 6 )
 texture = ExtResource( 15 )
 offset = Vector2( -0.999969, 0 )
