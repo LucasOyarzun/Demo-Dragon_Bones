@@ -24,6 +24,10 @@ config/name="Dragon Bones"
 run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalVars="*res://Scripts/Herramientas/GlobalVars.gd"
+
 [display]
 
 window/size/width=1280
@@ -34,6 +38,7 @@ window/stretch/aspect="keep"
 [global]
 
 snap=false
+autoload=false
 
 [importer_defaults]
 

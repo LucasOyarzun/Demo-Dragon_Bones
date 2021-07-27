@@ -10,6 +10,7 @@ var blockinput= false
 onready var options= $MainMenu/Panel/VBoxContainer2/VBoxContainer
 
 func _ready() -> void:
+	print(GlobalVars.hp)
 	Main.visible=false
 	Title.visible=true
 	Title.get_node("CenterContainer/AnimationPlayer").play("parpadeo")

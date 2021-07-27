@@ -1,21 +1,21 @@
 extends KinematicBody2D
 
 var lineal_vel = Vector2()
-var speed_x = 100 + rand_range(0, 50) # Between 100 and 200
+export var speed_x = 100
 var speed_y = 500
 var gravity = 20
 
-var facing_right = false
+export var facing_right = false
 var waiting_before_turn_back = 0
 
 onready var playback = $AnimationTree.get("parameters/playback")
 var target_vel = -1
 var moving = false                  # Variable de si se mueve o no
 var timer_moving = 0                # Tiempo que lleva moviendose o quieto
-var moving_lapse = rand_range(1, 4) # Tiempo que se mueve
-var stay_lapse = 1.2                # Tiempo que se queda quieto
+export var moving_lapse = 3         # Tiempo que se mueve
+var stay_lapse = 1.8                # Tiempo que se queda quieto
 
-var fireball_lapse = 0.4            # Tiempo que se demorará en lanzar la bola de fuego
+export var fireball_lapse = 1.1            # Tiempo que se demorará en lanzar la bola de fuego
 var fireball_created = false        # Si es que ya lanzo la bola de fuego
 
 onready var area = $Area2D.connect("body_entered", self, "on_body_entered")
@@ -38,25 +38,38 @@ func _physics_process(delta: float) -> void:
 		
 	if not(moving):
 		lineal_vel.x = 0
+	if(moving_lapse>0):
+		if(timer_moving> fireball_lapse and moving == false and fireball_created == false) :   # Cuando decide lanzar la bola
+			# Lanza la bola de fuego
+			var fireball = Fireball.instance()           # Instanciamos la escena fireball
+			get_parent().add_child(fireball)           # Lo agregamos como hijo de main para que no se mueva con el worm
+			if facing_right:
+				fireball.global_position = global_position+Vector2(40, -10) # Posicion inicial la de este enemigo
+				fireball.rotation = 0
+			else:
+				fireball.global_position = global_position+Vector2(-40, -10) # Posicion inicial la de este enemigo
+				fireball.rotation = PI
+			
+			fireball_created = true
 	
-	if(timer_moving> fireball_lapse and moving == false and fireball_created == false) :   # Cuando decide lanzar la bola
-		# Lanza la bola de fuego
-		var fireball = Fireball.instance()           # Instanciamos la escena fireball
-		get_parent().add_child(fireball)           # Lo agregamos como hijo de main para que no se mueva con el worm
-		if facing_right:
-			fireball.global_position = global_position+Vector2(30, 0) # Posicion inicial la de este enemigo
-			fireball.rotation = 0
-		else:
-			fireball.global_position = global_position+Vector2(-30, 0) # Posicion inicial la de este enemigo
-			fireball.rotation = PI
-		
-		fireball_created = true
+	else:
+		if(timer_moving> fireball_lapse and fireball_created == false) :   # Cuando decide lanzar la bola
+			# Lanza la bola de fuego
+			var fireball = Fireball.instance()           # Instanciamos la escena fireball
+			get_parent().add_child(fireball)           # Lo agregamos como hijo de main para que no se mueva con el worm
+			if facing_right:
+				fireball.global_position = global_position+Vector2(40, -10) # Posicion inicial la de este enemigo
+				fireball.rotation = 0
+			else:
+				fireball.global_position = global_position+Vector2(-40, -10) # Posicion inicial la de este enemigo
+				fireball.rotation = PI
+			
+			fireball_created = true
 		
 	if(timer_moving> stay_lapse and moving == false):   # Cuando decide moverse
 		moving = true
 		timer_moving = 0
 	elif(timer_moving> moving_lapse and moving ==true): # Cuando decide quedarse quieto
-		moving_lapse = rand_range(1, 4)
 		moving = false
 		timer_moving = 0
 		fireball_created = false
@@ -75,7 +88,7 @@ func _physics_process(delta: float) -> void:
 		if abs(lineal_vel.x) > 10:
 			playback.travel("Walk")
 		else:
-			playback.travel("Idle")
+			playback.travel("Attack")
 
 func on_body_entered(body: Node):
 	if body.is_in_group("player"): # Si choca con el jugador

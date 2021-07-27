@@ -27,7 +27,6 @@ var on_floor = false
 var can_climb = true
 var climbing = false
 
-var hp = 3
 var offset_lifes = 50
 var lifes_list = []                 # Lista de vidas
 export (PackedScene) var sprite_hp  # Sprite de vidas
@@ -42,7 +41,7 @@ onready var playback = $AnimationTree.get("parameters/playback")
 var lava_subiendo_pos
 
 func _ready():
-	hp = 3
+	
 	$Invulnerability.connect("timeout", self, "on_timeout")
 	limite_pantalla = get_viewport_rect().size
 	create_lifes()
@@ -75,12 +74,12 @@ func _physics_process(delta: float) -> void:
 		airborne_time += delta
 
 	#Ataque
-	if hp !=1:
+	if GlobalVars.hp !=1:
 		if Input.is_action_just_pressed("attack"):
-			self.hp -= 1         # Disminuye la vida
-			if hp == 0:
+			GlobalVars.hp -= 1         # Disminuye la vida
+			if GlobalVars.hp == 0:
 				die()
-			lifes_list[hp].queue_free() # Quita la ultima vida
+			lifes_list[GlobalVars.hp].queue_free() # Quita la ultima vida
 			lifes_list.pop_back()
 			attacking = true
 
@@ -179,7 +178,7 @@ func _physics_process(delta: float) -> void:
 
 # Vida
 func create_lifes():
-	for i in hp: # Creamos las vidas iniciales
+	for i in GlobalVars.hp: # Creamos las vidas iniciales
 		var newLife = sprite_hp.instance()
 		get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
 		newLife.global_position.x +=offset_lifes * i
@@ -188,11 +187,11 @@ func create_lifes():
 func take_damage(damage):
 	if not can_take_damage:
 		return
-	self.hp -= damage           # Disminuye la vida
-	if hp == 0:
-		die()
-	lifes_list[hp].queue_free() # Quita la lutima vida
+	GlobalVars.hp -= damage           # Disminuye la vida
+	lifes_list[GlobalVars.hp].queue_free() # Quita la lutima vida
 	lifes_list.pop_back()
+	if GlobalVars.hp == 0:
+		die()
 	can_take_damage = false
 	$Invulnerability.start()
 	$FramesInv.play("flashes") # Frames de invulnerabilidad
@@ -208,17 +207,23 @@ func on_timeout():
 func add_life(pickup=false):
 	var newLife = sprite_hp.instance()
 	get_tree().get_nodes_in_group("gui")[0].add_child(newLife)
-	newLife.global_position.x += offset_lifes * (hp)
+	newLife.global_position.x += offset_lifes * (GlobalVars.hp)
 	lifes_list.append(newLife)
-	hp += 1         # Aumentamos la vida
+	GlobalVars.hp += 1         # Aumentamos la vida
 	if pickup:
 		$Sounds/PickUp.play()
 
 func die():
-	get_tree().reload_current_scene()
+	$FadeOut/FadeOutAnim.play("FadeOut")
+	
 
+func _on_FadeOutAnim_animation_finished(anim_name: String) ->void:
+	get_tree().reload_current_scene()
+	GlobalVars.hp = 3
+	$FadeOut/FadeOutColor.color = 00000000
+	
 func get_hp():
-	return self.hp
+	return GlobalVars.hp
 
 func set_jumps_number(number):
 	max_jumps = number
@@ -247,3 +252,6 @@ func _on_Climb_body_exited(body: Node) -> void:
 		else:
 			playback.travel("Jump_Down")
 		climbing = false
+
+
+
