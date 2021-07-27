@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Assets/Stage/wall1.png" type="Texture" id=1]
-
-[node name="Wall" type="StaticBody2D"]
-modulate = Color( 0.392157, 0.027451, 0.027451, 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
