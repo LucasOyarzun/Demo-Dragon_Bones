@@ -11,7 +11,7 @@ var max_jumps = 1
 var jumps = 0
 var doubleJump = false
 
-var max_airborne_time = 0.2
+var max_airborne_time = 0.15
 var airborne_time = 0
 
 var facing_right = true
@@ -24,8 +24,9 @@ var crouched_factor = 0.6
 
 var on_floor = false
 
-var can_climb = true
+var can_climb = false
 var climbing = false
+var climb_pressed = false
 
 var offset_lifes = 50
 var lifes_list = []                 # Lista de vidas
@@ -55,6 +56,16 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	lineal_vel = move_and_slide_with_snap(lineal_vel, snap, Vector2.UP)
 	
+	if $Climb.get_overlapping_bodies() != []:
+		if $Climb.get_overlapping_bodies()[0].is_in_group("map") and on_floor == false and can_climb and climb_pressed: #choca con el mapa
+			climbing = true
+			
+	# Climbing
+	if Input.is_action_just_pressed("climb") or Input.is_action_pressed("climb"):
+		climb_pressed = true
+	if Input.is_action_just_released("climb"):
+		climb_pressed = false
+		
 	if climbing == false:
 		lineal_vel.y += gravity*delta
 	
@@ -85,15 +96,34 @@ func _physics_process(delta: float) -> void:
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and jumps < max_jumps:
-		if on_floor or airborne_time < max_airborne_time:
+		if on_floor or airborne_time < max_airborne_time: # Primer salto
 			lineal_vel.y = -speed_y
 			snap = Vector2.ZERO
 			$Sounds/Jump.play()
-		if jumps == 1:
+		elif climbing: # Si esta escalando
+			snap = Vector2.ZERO
+			if facing_right:
+				
+				lineal_vel.x = -200
+			else:
+				lineal_vel.x = 200
+			lineal_vel.y = -speed_y
+			#snap = Vector2.ZERO
+			$Sounds/Jump.play()
+		else: #Si se deja caer, pero tiene doble salto
+			if jumps+1 < max_jumps:
+				lineal_vel.y = -speed_y
+				jumps +=1
+				doubleJump = true
+				playback.travel("DoubleJump")
+				snap = Vector2.ZERO
+				$Sounds/DoubleJump.play()
+		if jumps>=1:# Si ya saltó
 			lineal_vel.y = -speed_y
 			doubleJump = true
 			snap = Vector2.ZERO
 			$Sounds/DoubleJump.play()
+		
 		jumps += 1
 
 	# Dash 
@@ -141,7 +171,9 @@ func _physics_process(delta: float) -> void:
 			($CollisionShape2D.shape as CapsuleShape2D).height = 25
 		for child in $CeilingCheck.get_children():
 			child.enabled = crouched
-
+	
+	
+		
 	# Animations
 	if attacking:
 		if playback.get_current_node() in ["Bend_Walk","Idle_Bend"]:
@@ -227,6 +259,8 @@ func get_hp():
 
 func set_jumps_number(number):
 	max_jumps = number
+func set_can_climb(value):
+	can_climb = value
 
 func _input(event: InputEvent)-> void:
 	var just_pressed = event.is_pressed() and not event.is_echo()
@@ -242,8 +276,10 @@ func _on_MeleeHit_body_entered(body: Node) -> void:
 		body.take_damage()
 
 func _on_Climb_body_entered(body: Node) -> void:
-	if body.is_in_group("map") and on_floor == false and can_climb: #choca con el mapa
+	if body.is_in_group("map") and on_floor == false and can_climb and climb_pressed: #choca con el mapa
 		climbing = true
+
+
 
 func _on_Climb_body_exited(body: Node) -> void:
 	if body.is_in_group("map"): #choca con el mapa
