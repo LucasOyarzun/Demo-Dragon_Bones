@@ -28,6 +28,7 @@ var can_climb = false
 var climbing = false
 var climb_pressed = false
 
+var live = true
 var offset_lifes = 50
 var lifes_list = []                 # Lista de vidas
 export (PackedScene) var sprite_hp  # Sprite de vidas
@@ -246,13 +247,19 @@ func add_life(pickup=false):
 		$Sounds/PickUp.play()
 
 func die():
+	self.live = false
 	$FadeOut/FadeOutAnim.play("FadeOut")
 	
+func fade_out():
+	$FadeOut/FadeOutAnim.play("FadeOut")
 
 func _on_FadeOutAnim_animation_finished(anim_name: String) ->void:
-	get_tree().reload_current_scene()
-	GlobalVars.hp = 3
-	$FadeOut/FadeOutColor.color = 00000000
+	if live:
+		$FadeOut/FadeOutColor.color = 00000000
+	else:
+		get_tree().reload_current_scene()
+		GlobalVars.hp = 3
+		$FadeOut/FadeOutColor.color = 00000000
 	
 func get_hp():
 	return GlobalVars.hp

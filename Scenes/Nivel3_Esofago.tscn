@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Garras.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/cambiarcamara.gd" type="Script" id=2]
@@ -30,6 +30,21 @@ extents = Vector2( 51.0832, 150.627 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 176, 472 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="Nivel3_Esofago" type="Node2D"]
 script = ExtResource( 6 )
@@ -718,7 +733,7 @@ position = Vector2( 1024, -3144 )
 position = Vector2( 888, -3264 )
 
 [node name="Player" parent="." instance=ExtResource( 21 )]
-position = Vector2( 304, 112 )
+position = Vector2( -24, 480 )
 
 [node name="Cam" parent="Player" instance=ExtResource( 20 )]
 
@@ -777,8 +792,24 @@ script = ExtResource( 7 )
 position = Vector2( 2008, -3168 )
 shape = SubResource( 3 )
 
+[node name="Timer" type="Timer" parent="Nivel3_a_Final"]
+wait_time = 0.5
+
 [node name="Area2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 816, -816 )
+
+[node name="StartFade" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StartFade"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StartFade"]
+anims/Start = SubResource( 4 )
 
 [connection signal="body_entered" from="cambiarcamara" to="cambiarcamara" method="_on_cambiarcamara_body_entered"]
 [connection signal="body_entered" from="CambioDeMargenes" to="CambioDeMargenes" method="_on_CambioDeMargenes_body_entered"]

@@ -1653,6 +1653,7 @@ anims/flashes = SubResource( 98 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
+frame = 1
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )
