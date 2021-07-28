@@ -806,7 +806,7 @@ shape = SubResource( 3 )
 [node name="Timer" type="Timer" parent="Nivel3_a_Final"]
 wait_time = 0.5
 
-[node name="Area2D" parent="." instance=ExtResource( 1 )]
+[node name="Garras" parent="." instance=ExtResource( 1 )]
 position = Vector2( 816, -816 )
 
 [node name="StartFade" type="CanvasLayer" parent="."]

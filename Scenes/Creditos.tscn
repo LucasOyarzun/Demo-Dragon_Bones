@@ -22,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 13.4 ),
+"times": PoolRealArray( 0, 14 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 10, 700 ), Vector2( 10, -1100 ) ]
@@ -37,7 +37,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 660, 700 ), Vector2( 660, -1300 ) ]
+"values": [ Vector2( 660, 700 ), Vector2( 660, -1200 ) ]
 }
 
 [sub_resource type="DynamicFont" id=4]
@@ -68,7 +68,7 @@ anchor_bottom = 0.5
 margin_left = -630.0
 margin_top = -1460.0
 margin_right = 36.0173
-margin_bottom = 538.055
+margin_bottom = 538.108
 custom_fonts/font = SubResource( 1 )
 text = "Main Character
 
@@ -150,9 +150,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 20.0
-margin_top = -1526.67
+margin_top = -1560.0
 margin_right = 620.0
-margin_bottom = 877.333
+margin_bottom = 844.003
 custom_fonts/font = SubResource( 1 )
 text = "Stage Elements
 
@@ -185,9 +185,6 @@ Items
 
 Admurin's miscellaneous items
 admurin.itch.io
-
-Gloves
-www.deviantart.com/caynez
 
 
 
