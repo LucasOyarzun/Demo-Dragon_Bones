@@ -1727,6 +1727,8 @@ __meta__ = {
 [node name="FadeOutAnim" type="AnimationPlayer" parent="FadeOut"]
 anims/FadeOut = SubResource( 103 )
 
+[node name="TimerAgarre" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Sprite/MeleeHit" to="." method="_on_MeleeHit_body_entered"]
 [connection signal="body_entered" from="Climb" to="." method="_on_Climb_body_entered"]

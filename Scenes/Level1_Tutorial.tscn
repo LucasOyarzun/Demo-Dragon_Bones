@@ -21,7 +21,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 80 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Start"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
@@ -661,6 +661,6 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StartFade"]
-anims/Start = SubResource( 4 )
+anims/Start = SubResource( 2 )
 
 [editable path="Margen"]

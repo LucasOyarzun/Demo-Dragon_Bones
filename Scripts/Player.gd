@@ -43,7 +43,7 @@ onready var playback = $AnimationTree.get("parameters/playback")
 var lava_subiendo_pos
 
 func _ready():
-	
+	$TimerAgarre.connect("timeout", self, "recuperar_agarre")
 	$Invulnerability.connect("timeout", self, "on_timeout")
 	limite_pantalla = get_viewport_rect().size
 	create_lifes()
@@ -101,16 +101,15 @@ func _physics_process(delta: float) -> void:
 			lineal_vel.y = -speed_y
 			snap = Vector2.ZERO
 			$Sounds/Jump.play()
+			
 		elif climbing: # Si esta escalando
 			snap = Vector2.ZERO
-			if facing_right:
-				
-				lineal_vel.x = -200
-			else:
-				lineal_vel.x = 200
 			lineal_vel.y = -speed_y
-			#snap = Vector2.ZERO
+			$TimerAgarre.start()
+			$Climb/CollisionShape2D.disabled = true
 			$Sounds/Jump.play()
+			climbing =false
+			
 		else: #Si se deja caer, pero tiene doble salto
 			if jumps+1 < max_jumps:
 				lineal_vel.y = -speed_y
@@ -126,7 +125,15 @@ func _physics_process(delta: float) -> void:
 			$Sounds/DoubleJump.play()
 		
 		jumps += 1
-
+	
+	if Input.is_action_just_released("climb") and climbing:
+		if on_floor:
+			playback.travel("Idle")
+		else:
+			playback.travel("Jump_Down")
+		climbing = false
+		
+			
 	# Dash 
 	# hay que cambiar 
 	if Input.is_action_just_pressed("dash"):
@@ -209,6 +216,8 @@ func _physics_process(delta: float) -> void:
 			else:
 				playback.travel("Jump_Down")
 
+func recuperar_agarre():
+	$Climb/CollisionShape2D.disabled = false
 # Vida
 func create_lifes():
 	for i in GlobalVars.hp: # Creamos las vidas iniciales
@@ -285,7 +294,6 @@ func _on_MeleeHit_body_entered(body: Node) -> void:
 func _on_Climb_body_entered(body: Node) -> void:
 	if body.is_in_group("map") and on_floor == false and can_climb and climb_pressed: #choca con el mapa
 		climbing = true
-
 
 
 func _on_Climb_body_exited(body: Node) -> void:
