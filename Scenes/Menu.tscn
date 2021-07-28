@@ -2,7 +2,7 @@
 
 [ext_resource path="res://MinimalPixel v2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
-[ext_resource path="res://fonts/MinimalPixel v2.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/fonts/MinimalPixel v2.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scenes/Bat.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=6]

@@ -739,8 +739,14 @@ position = Vector2( 728, -1360 )
 
 [node name="GUI" parent="." instance=ExtResource( 22 )]
 
-[node name="death_genericskeletonpack" parent="." instance=ExtResource( 14 )]
-position = Vector2( -336, -184 )
+[node name="death_genericskeletonpack5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 778, -1904 )
+
+[node name="death_genericskeletonpack4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 120, -1624 )
+
+[node name="death_genericskeletonpack3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 116, -1240 )
 
 [node name="death_genericskeletonpack2" parent="." instance=ExtResource( 14 )]
 position = Vector2( 80, 166.804 )
@@ -779,10 +785,12 @@ shape = SubResource( 2 )
 
 [node name="Background_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -20.0
 autoplay = true
 
 [node name="BackGround_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -20.0
 autoplay = true
 
 [node name="Nivel3_a_Final" type="Area2D" parent="."]
