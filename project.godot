@@ -24,6 +24,10 @@ config/name="Dragon Bones"
 run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [autoload]
 
 GlobalVars="*res://Scripts/Herramientas/GlobalVars.gd"
@@ -131,4 +135,3 @@ menu={
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
-environment/default_environment="res://default_env.tres"

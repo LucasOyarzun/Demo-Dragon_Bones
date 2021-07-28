@@ -10,10 +10,10 @@
 [ext_resource path="res://Scenes/lava.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Bat.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/free-dungeon-platformer-pixel-art-tileset/PNG/Details/door.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Details/Free_dungeon_platformer/Theets/door.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/Margen.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/background.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Gothicvania Swamp files/Evironment/mid-layer-01.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Backgrounds/Gothicvania Swamp/background.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Backgrounds/Gothicvania Swamp/mid-layer-01.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/Cam.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scripts/cambiolvl1_2.gd" type="Script" id=17]
@@ -462,14 +462,17 @@ wait_time = 0.5
 
 [node name="Background_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
+volume_db = -20.0
 autoplay = true
 
 [node name="Background_sound2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
+volume_db = -20.0
 autoplay = true
 
 [node name="BackGround_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
+volume_db = -20.0
 autoplay = true
 
 [node name="StartFade" type="CanvasLayer" parent="."]
@@ -477,6 +480,10 @@ autoplay = true
 [node name="ColorRect" type="ColorRect" parent="StartFade"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 56.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = -8.0
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false

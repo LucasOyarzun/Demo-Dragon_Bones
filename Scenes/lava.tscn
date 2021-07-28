@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/free-dungeon-platformer-pixel-art-tileset/PNG/Tiles_lava/lava_tile4.png" type="Texture" id=1]
-[ext_resource path="res://Assets/free-dungeon-platformer-pixel-art-tileset/PNG/Tiles_lava/lava_tile3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Details/Free_dungeon_platformer/Lava/lava_tile4.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Details/Free_dungeon_platformer/Lava/lava_tile3.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/lava.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Gotas_Lava.tscn" type="PackedScene" id=4]
 

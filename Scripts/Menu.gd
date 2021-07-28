@@ -38,7 +38,7 @@ func _input(event):
 				Play:
 					start()
 				Credits:
-					pass
+					play_credits()
 				Exit:
 					exitgame()
 
@@ -61,6 +61,8 @@ func updatelabel():
 func start():
 	get_tree().change_scene("res://Scenes/Intro_scene.tscn")
 	
+func play_credits():
+	get_tree().change_scene("res://Scenes/Creditos.tscn")
 func exitgame():
 	get_tree().quit()
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Assets/Characters/Hell-Hound-Files/PNG/hell-hound-walk.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Characters/Hell-Hound-Files/PNG/hell-hound-idle.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Enemies/Hell-Hound-Files/hell-hound-walk.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Enemies/Hell-Hound-Files/hell-hound-idle.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Hellhound.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]

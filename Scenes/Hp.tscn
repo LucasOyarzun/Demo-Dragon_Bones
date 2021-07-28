@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Assets/ItemsMobA.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Details/Items/ItemsMobA.png" type="Texture" id=1]
 
 [node name="Sprite_Bones" type="Sprite" groups=[
 "vida",
