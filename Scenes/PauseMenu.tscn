@@ -15,6 +15,7 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+pause_mode = 2
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,6 +30,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+pause_mode = 2
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 393.0
@@ -44,6 +46,7 @@ valign = 1
 autowrap = true
 
 [node name="Continue" type="Button" parent="PanelContainer/VBoxContainer"]
+pause_mode = 2
 margin_top = 68.0
 margin_right = 386.0
 margin_bottom = 90.0
@@ -59,6 +62,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Retry"
 
 [node name="Exit_to_title" type="Button" parent="PanelContainer/VBoxContainer"]
+pause_mode = 2
 margin_top = 120.0
 margin_right = 386.0
 margin_bottom = 142.0

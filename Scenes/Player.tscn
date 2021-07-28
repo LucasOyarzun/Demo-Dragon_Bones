@@ -1656,7 +1656,6 @@ anims/flashes = SubResource( 100 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 1
 
 [node name="MeleeHit" type="Area2D" parent="Sprite"]
 scale = Vector2( 0.5, 0.5 )
@@ -1722,6 +1721,7 @@ shape = SubResource( 104 )
 [node name="FadeOutColor" type="ColorRect" parent="FadeOut"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
