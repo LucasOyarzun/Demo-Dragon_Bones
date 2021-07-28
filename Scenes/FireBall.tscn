@@ -7,8 +7,8 @@
 [ext_resource path="res://Assets/Sounds/Fireball_sound.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 8.0
-height = 16.0
+radius = 16.0
+height = 5.72205e-05
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -89,7 +89,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 15 )
-frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="."]

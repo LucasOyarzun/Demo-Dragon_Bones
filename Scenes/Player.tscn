@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=2]
+[gd_scene load_steps=125 format=2]
 
 [ext_resource path="res://Assets/Skeleton/walk.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Skeleton/ready.png" type="Texture" id=2]
@@ -1460,7 +1460,11 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=93]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=94]
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+
+[sub_resource type="AnimationNodeStateMachine" id=96]
 states/Bend_Attack/node = SubResource( 20 )
 states/Bend_Attack/position = Vector2( -645.009, 303.822 )
 states/Bend_End/node = SubResource( 21 )
@@ -1495,13 +1499,13 @@ states/Start_Jump/node = SubResource( 35 )
 states/Start_Jump/position = Vector2( -108, 60 )
 states/Walk/node = SubResource( 36 )
 states/Walk/position = Vector2( -108, 404.822 )
-transitions = [ "Idle", "Walk", SubResource( 37 ), "Walk", "Idle", SubResource( 38 ), "Idle", "Start_Jump", SubResource( 39 ), "Walk", "Start_Jump", SubResource( 40 ), "Start_Jump", "Jump_Up", SubResource( 41 ), "Jump_Down", "End_Jump", SubResource( 42 ), "End_Jump", "Idle", SubResource( 43 ), "End_Jump", "Walk", SubResource( 44 ), "End_Jump", "Start_Jump", SubResource( 45 ), "Idle", "Start_Bend", SubResource( 46 ), "Walk", "Start_Bend", SubResource( 47 ), "End_Jump", "Start_Bend", SubResource( 48 ), "Start_Bend", "Idle_Bend", SubResource( 49 ), "Idle_Bend", "Bend_Walk", SubResource( 50 ), "Start_Bend", "Bend_Walk", SubResource( 51 ), "Bend_Walk", "Idle_Bend", SubResource( 52 ), "Bend_End", "Idle", SubResource( 53 ), "Bend_End", "Walk", SubResource( 54 ), "Idle_Bend", "Start_Jump", SubResource( 55 ), "Bend_Walk", "Start_Jump", SubResource( 56 ), "Start_Jump", "Jump_Down", SubResource( 57 ), "Jump_Up", "DoubleJump", SubResource( 58 ), "Jump_Down", "DoubleJump", SubResource( 59 ), "Start_Jump", "DoubleJump", SubResource( 60 ), "End_Jump", "DoubleJump", SubResource( 61 ), "Idle", "MeleeAttack", SubResource( 62 ), "Walk", "MeleeAttack", SubResource( 63 ), "DoubleJump", "Jump_Down", SubResource( 64 ), "Jump_Up", "Jump_Down", SubResource( 65 ), "Idle_Bend", "Bend_Attack", SubResource( 66 ), "Bend_Walk", "Bend_Attack", SubResource( 67 ), "Bend_Attack", "Bend_Walk", SubResource( 68 ), "Bend_Attack", "Idle_Bend", SubResource( 69 ), "Start_Bend", "Bend_Attack", SubResource( 70 ), "Bend_Walk", "Bend_End", SubResource( 71 ), "MeleeAttack", "MeleeAttackEnd", SubResource( 72 ), "MeleeAttackEnd", "Idle", SubResource( 73 ), "MeleeAttackEnd", "Walk", SubResource( 74 ), "DoubleJump", "Climb_Ready", SubResource( 75 ), "Jump_Up", "Climb_Ready", SubResource( 76 ), "Jump_Down", "Climb_Ready", SubResource( 77 ), "Idle", "Climb_Ready", SubResource( 78 ), "Walk", "Climb_Ready", SubResource( 79 ), "Bend_Walk", "Climb_Ready", SubResource( 80 ), "Idle_Bend", "Climb_Ready", SubResource( 81 ), "Climb_Ready", "Jump_Up", SubResource( 82 ), "Climb_Ready", "Start_Jump", SubResource( 83 ), "Climb_Ready", "Jump_Down", SubResource( 84 ), "Climb_Ready", "Idle", SubResource( 85 ), "Climb_Ready", "Bend_Walk", SubResource( 86 ), "Climb_Ready", "Walk", SubResource( 87 ), "Climb_Ready", "Climb_Up", SubResource( 88 ), "Climb_Up", "Climb_Ready", SubResource( 89 ), "Climb_Ready", "Climb_Attack", SubResource( 90 ), "Climb_Up", "Climb_Attack", SubResource( 91 ), "Climb_Attack", "Climb_Up", SubResource( 92 ), "Climb_Attack", "Climb_Ready", SubResource( 93 ) ]
+transitions = [ "Idle", "Walk", SubResource( 37 ), "Walk", "Idle", SubResource( 38 ), "Idle", "Start_Jump", SubResource( 39 ), "Walk", "Start_Jump", SubResource( 40 ), "Start_Jump", "Jump_Up", SubResource( 41 ), "Jump_Down", "End_Jump", SubResource( 42 ), "End_Jump", "Idle", SubResource( 43 ), "End_Jump", "Walk", SubResource( 44 ), "End_Jump", "Start_Jump", SubResource( 45 ), "Idle", "Start_Bend", SubResource( 46 ), "Walk", "Start_Bend", SubResource( 47 ), "End_Jump", "Start_Bend", SubResource( 48 ), "Start_Bend", "Idle_Bend", SubResource( 49 ), "Idle_Bend", "Bend_Walk", SubResource( 50 ), "Start_Bend", "Bend_Walk", SubResource( 51 ), "Bend_Walk", "Idle_Bend", SubResource( 52 ), "Bend_End", "Idle", SubResource( 53 ), "Bend_End", "Walk", SubResource( 54 ), "Idle_Bend", "Start_Jump", SubResource( 55 ), "Bend_Walk", "Start_Jump", SubResource( 56 ), "Start_Jump", "Jump_Down", SubResource( 57 ), "Jump_Up", "DoubleJump", SubResource( 58 ), "Jump_Down", "DoubleJump", SubResource( 59 ), "Start_Jump", "DoubleJump", SubResource( 60 ), "End_Jump", "DoubleJump", SubResource( 61 ), "Idle", "MeleeAttack", SubResource( 62 ), "Walk", "MeleeAttack", SubResource( 63 ), "DoubleJump", "Jump_Down", SubResource( 64 ), "Jump_Up", "Jump_Down", SubResource( 65 ), "Idle_Bend", "Bend_Attack", SubResource( 66 ), "Bend_Walk", "Bend_Attack", SubResource( 67 ), "Bend_Attack", "Bend_Walk", SubResource( 68 ), "Bend_Attack", "Idle_Bend", SubResource( 69 ), "Start_Bend", "Bend_Attack", SubResource( 70 ), "Bend_Walk", "Bend_End", SubResource( 71 ), "MeleeAttack", "MeleeAttackEnd", SubResource( 72 ), "MeleeAttackEnd", "Idle", SubResource( 73 ), "MeleeAttackEnd", "Walk", SubResource( 74 ), "DoubleJump", "Climb_Ready", SubResource( 75 ), "Jump_Up", "Climb_Ready", SubResource( 76 ), "Jump_Down", "Climb_Ready", SubResource( 77 ), "Idle", "Climb_Ready", SubResource( 78 ), "Walk", "Climb_Ready", SubResource( 79 ), "Bend_Walk", "Climb_Ready", SubResource( 80 ), "Idle_Bend", "Climb_Ready", SubResource( 81 ), "Climb_Ready", "Jump_Up", SubResource( 82 ), "Climb_Ready", "Start_Jump", SubResource( 83 ), "Climb_Ready", "Jump_Down", SubResource( 84 ), "Climb_Ready", "Idle", SubResource( 85 ), "Climb_Ready", "Bend_Walk", SubResource( 86 ), "Climb_Ready", "Walk", SubResource( 87 ), "Climb_Ready", "Climb_Up", SubResource( 88 ), "Climb_Up", "Climb_Ready", SubResource( 89 ), "Climb_Ready", "Climb_Attack", SubResource( 90 ), "Climb_Up", "Climb_Attack", SubResource( 91 ), "Climb_Attack", "Climb_Up", SubResource( 92 ), "Climb_Attack", "Climb_Ready", SubResource( 93 ), "Walk", "Jump_Down", SubResource( 94 ), "End_Jump", "Jump_Down", SubResource( 95 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -808.321, -20.7015 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=95]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=97]
 
-[sub_resource type="Shader" id=96]
+[sub_resource type="Shader" id=98]
 code = "shader_type canvas_item;
 
 uniform vec4 color : hint_color;
@@ -1513,11 +1517,11 @@ void fragment(){
 	COLOR = vec4(color.rgb,image.a);
 	}"
 
-[sub_resource type="ShaderMaterial" id=97]
-shader = SubResource( 96 )
+[sub_resource type="ShaderMaterial" id=99]
+shader = SubResource( 98 )
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=98]
+[sub_resource type="Animation" id=100]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material")
 tracks/0/interp = 1
@@ -1528,13 +1532,13 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 97 ), null, SubResource( 97 ), null, SubResource( 97 ), null, SubResource( 97 ), null, SubResource( 97 ), null ]
+"values": [ SubResource( 99 ), null, SubResource( 99 ), null, SubResource( 99 ), null, SubResource( 99 ), null, SubResource( 99 ), null ]
 }
 
-[sub_resource type="RectangleShape2D" id=99]
+[sub_resource type="RectangleShape2D" id=101]
 extents = Vector2( 23.637, 25.9701 )
 
-[sub_resource type="Animation" id=100]
+[sub_resource type="Animation" id=102]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:position")
 tracks/0/interp = 1
@@ -1560,7 +1564,7 @@ tracks/1/keys = {
 "values": [ 24.0 ]
 }
 
-[sub_resource type="Animation" id=101]
+[sub_resource type="Animation" id=103]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:position")
 tracks/0/interp = 1
@@ -1586,11 +1590,10 @@ tracks/1/keys = {
 "values": [ 38.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=102]
+[sub_resource type="RectangleShape2D" id=104]
 extents = Vector2( 2, 2 )
 
-[sub_resource type="Animation" id=103]
-resource_name = "FadeOut"
+[sub_resource type="Animation" id=105]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("FadeOutColor:color")
@@ -1641,13 +1644,13 @@ anims/Start_Jump = SubResource( 18 )
 anims/Walk = SubResource( 19 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 94 )
+tree_root = SubResource( 96 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 95 )
+parameters/playback = SubResource( 97 )
 
 [node name="FramesInv" type="AnimationPlayer" parent="."]
-anims/flashes = SubResource( 98 )
+anims/flashes = SubResource( 100 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
@@ -1662,7 +1665,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/MeleeHit"]
 position = Vector2( 44.364, 9 )
-shape = SubResource( 99 )
+shape = SubResource( 101 )
 
 [node name="CeilingCheck" type="Node2D" parent="."]
 
@@ -1684,8 +1687,8 @@ cast_to = Vector2( 0, 12 )
 collision_mask = 3
 
 [node name="APCollisionShape" type="AnimationPlayer" parent="."]
-anims/crouched = SubResource( 100 )
-anims/standing = SubResource( 101 )
+anims/crouched = SubResource( 102 )
+anims/standing = SubResource( 103 )
 
 [node name="PauseMenu" parent="." instance=ExtResource( 7 )]
 
@@ -1712,7 +1715,7 @@ pitch_scale = 1.45
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Climb"]
 position = Vector2( 15.9418, -13.9108 )
-shape = SubResource( 102 )
+shape = SubResource( 104 )
 
 [node name="FadeOut" type="CanvasLayer" parent="."]
 
@@ -1725,7 +1728,7 @@ __meta__ = {
 }
 
 [node name="FadeOutAnim" type="AnimationPlayer" parent="FadeOut"]
-anims/FadeOut = SubResource( 103 )
+anims/FadeOut = SubResource( 105 )
 
 [node name="TimerAgarre" type="Timer" parent="."]
 

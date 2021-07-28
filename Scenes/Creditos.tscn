@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/fonts/monogram-extended.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Creditos.gd" type="Script" id=2]
@@ -11,6 +11,34 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 70
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade_out:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -10.0, -60.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Up"
@@ -66,9 +94,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -630.0
-margin_top = -1460.0
+margin_top = 340.0
 margin_right = 36.0173
-margin_bottom = 538.108
+margin_bottom = 2338.11
 custom_fonts/font = SubResource( 1 )
 text = "Main Character
 
@@ -150,9 +178,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 20.0
-margin_top = -1560.0
+margin_top = 340.0
 margin_right = 620.0
-margin_bottom = 844.003
+margin_bottom = 2744.0
 custom_fonts/font = SubResource( 1 )
 text = "Stage Elements
 
@@ -247,6 +275,7 @@ align = 1
 valign = 1
 
 [node name="Transition" type="AnimationPlayer" parent="."]
+anims/Fade_out = SubResource( 5 )
 anims/Up = SubResource( 3 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
@@ -277,3 +306,13 @@ __meta__ = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -10.0
+
+[node name="Fade_out" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="animation_finished" from="Transition" to="." method="_on_Transition_animation_finished"]

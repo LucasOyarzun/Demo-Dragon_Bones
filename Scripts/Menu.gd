@@ -10,7 +10,10 @@ var blockinput= false
 onready var options= $MainMenu/Panel/VBoxContainer2/VBoxContainer
 
 func _ready() -> void:
+	$ColorRect.color = 00000000
+	$Volumen.play("Subir")
 	$Musica.play()
+	
 	Main.visible=false
 	Title.visible=true
 	Title.get_node("CenterContainer/AnimationPlayer").play("parpadeo")
@@ -36,13 +39,8 @@ func _input(event):
 			$AudioStreamPlayer.play()
 			updatelabel()
 		if event.is_action_pressed("jump"):
-			match option:
-				Play:
-					start()
-				Credits:
-					play_credits()
-				Exit:
-					exitgame()
+			$AnimationPlayer.play("Fade_out")
+			
 
 func updatelabel():
 	for i in 3:
@@ -68,3 +66,14 @@ func play_credits():
 func exitgame():
 	get_tree().quit()
 
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Fade_out":
+		match option:
+				Play:
+					start()
+				Credits:
+					play_credits()
+				Exit:
+					exitgame()
