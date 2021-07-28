@@ -706,7 +706,7 @@ position = Vector2( 744, 312 )
 position = Vector2( 272, -896 )
 
 [node name="Bat4" parent="Enemies" instance=ExtResource( 17 )]
-position = Vector2( 392, -1120 )
+position = Vector2( 440, -1120 )
 
 [node name="Bat5" parent="Enemies" instance=ExtResource( 17 )]
 position = Vector2( 360, -1656 )
@@ -733,7 +733,7 @@ position = Vector2( 1024, -3144 )
 position = Vector2( 888, -3264 )
 
 [node name="Player" parent="." instance=ExtResource( 21 )]
-position = Vector2( 728, -1360 )
+position = Vector2( -20.1551, 488 )
 
 [node name="Cam" parent="Player" instance=ExtResource( 20 )]
 
@@ -745,11 +745,14 @@ position = Vector2( 778, -1904 )
 [node name="death_genericskeletonpack4" parent="." instance=ExtResource( 14 )]
 position = Vector2( 120, -1624 )
 
-[node name="death_genericskeletonpack3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 116, -1240 )
+[node name="death_genericskeletonpack7" parent="." instance=ExtResource( 14 )]
+position = Vector2( 90.9039, -792 )
 
-[node name="death_genericskeletonpack2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 80, 166.804 )
+[node name="death_genericskeletonpack3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 80, 168 )
+
+[node name="death_genericskeletonpack6" parent="." instance=ExtResource( 14 )]
+position = Vector2( 116, -1240 )
 
 [node name="Margen" parent="." instance=ExtResource( 16 )]
 

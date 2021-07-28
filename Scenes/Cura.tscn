@@ -7,7 +7,7 @@
 extents = Vector2( 7.77338, 8.96165 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.65875, 7.2785 )
+extents = Vector2( 1.92615, 1.76605 )
 
 [node name="Cura" type="KinematicBody2D"]
 position = Vector2( 505.073, 124.988 )
@@ -35,7 +35,7 @@ position = Vector2( -0.197388, -0.713291 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0652498, 2.21418 )
+position = Vector2( -0.122006, 6.64667 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
