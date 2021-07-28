@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://MinimalPixel v2.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://monogram-extended.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -21,30 +21,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelIzq" type="Label" parent="."]
+[node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -488.0
-margin_top = -263.0
-margin_right = -9.0
-margin_bottom = 264.0
+margin_left = -565.0
+margin_top = -252.0
+margin_right = -49.0
+margin_bottom = 243.0
 custom_fonts/font = SubResource( 1 )
-text = "Hola hola"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Main Character
+Skeleton     sanctumpixel.itch.io
+Warrior      sanctumpixel.itch.io
 
-[node name="LabelDer" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 45.1284
-margin_top = -261.318
-margin_right = 524.128
-margin_bottom = 265.682
+
+
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
