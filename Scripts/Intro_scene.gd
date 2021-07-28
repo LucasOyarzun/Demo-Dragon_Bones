@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	$Intro.play("Intro_completa")
+	$AudioStreamPlayer.play()
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):

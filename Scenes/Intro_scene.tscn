@@ -1,10 +1,11 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Assets/Skeleton/Alive/run_2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Skeleton/Alive/walk_1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Skeleton/Alive/jump_1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Dragon/Cabeza_arriba.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Dragon/cabeza_abajo_atras.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sounds/Intro_sound.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/Skeleton/Alive/run_1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Dragon/Cabeza_abajo_frente.png" type="Texture" id=8]
 [ext_resource path="res://Assets/fonts/MinimalPixel v2.ttf" type="DynamicFontData" id=9]
@@ -35,6 +36,7 @@
 [ext_resource path="res://Assets/Backgrounds/Gothicvania Swamp/mid-layer-01.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Backgrounds/Gothicvania Swamp/trees.png" type="Texture" id=35]
 [ext_resource path="res://Scripts/Intro_scene.gd" type="Script" id=36]
+[ext_resource path="res://Assets/fonts/monogram-extended.ttf" type="DynamicFontData" id=37]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Intro_completa"
@@ -332,6 +334,10 @@ tracks/0/keys = {
 "values": [ -30.0, 0.0 ]
 }
 
+[sub_resource type="DynamicFont" id=8]
+size = 34
+font_data = ExtResource( 37 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 36 )
 
@@ -364,7 +370,7 @@ scale = Vector2( 2, 2 )
 z_index = 2
 frames = SubResource( 4 )
 animation = "Correr"
-frame = 1
+frame = 4
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -581,6 +587,40 @@ margin_right = 477.0
 custom_fonts/font = SubResource( 5 )
 text = "But just that morning ... he forgot ... to wash his helmet."
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -253.0
+margin_top = -44.0
+color = Color( 0, 0, 0, 0.678431 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -251.0
+margin_top = -48.0
+margin_right = -4.0
+custom_fonts/font = SubResource( 8 )
+text = "Press Space to Skip"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

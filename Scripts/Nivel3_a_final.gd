@@ -12,4 +12,4 @@ func on_body_entered(body: Node):
 			body.add_life()
 
 func on_timer_out():
-	get_tree().change_scene("res://Scenes/Nivel3_Esofago.tscn")
+	get_tree().change_scene("res://Scenes/Final_scene.tscn")

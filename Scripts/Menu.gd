@@ -10,7 +10,7 @@ var blockinput= false
 onready var options= $MainMenu/Panel/VBoxContainer2/VBoxContainer
 
 func _ready() -> void:
-	print(GlobalVars.hp)
+	$Musica.play()
 	Main.visible=false
 	Title.visible=true
 	Title.get_node("CenterContainer/AnimationPlayer").play("parpadeo")
@@ -29,9 +29,11 @@ func _input(event):
 	else:
 		if event.is_action_pressed("ui_up"):
 			option=(option-1)%3
+			$AudioStreamPlayer.play()
 			updatelabel()
 		if event.is_action_pressed("ui_down"):
 			option=(option+1)%3
+			$AudioStreamPlayer.play()
 			updatelabel()
 		if event.is_action_pressed("jump"):
 			match option:
