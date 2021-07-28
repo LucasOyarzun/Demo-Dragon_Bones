@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	$Final.play("Final_completo")
+	$Intro.play("Intro_completa")
 	$AudioStreamPlayer.play()
 
 func _input(event):
@@ -12,4 +12,4 @@ func _on_Intro_animation_finished(anim_name):
 	skip_scene()
 	
 func skip_scene():
-	get_tree().change_scene("res://Scenes/Menu.tscn")
+	get_tree().change_scene("res://Scenes/Level1_Tutorial.tscn")
