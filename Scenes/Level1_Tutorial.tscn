@@ -739,9 +739,9 @@ autoplay = true
 [node name="ColorRect" type="ColorRect" parent="StartFade"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -0.0508423
+margin_left = -0.891754
 margin_top = 4.13504
-margin_right = -0.0507813
+margin_right = -0.891602
 margin_bottom = 4.13501
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
@@ -753,7 +753,6 @@ __meta__ = {
 anims/Start = SubResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-modulate = Color( 0.439216, 0.0823529, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 189.968
@@ -768,7 +767,6 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-modulate = Color( 0.439216, 0.0823529, 0.0823529, 1 )
 margin_left = 99.531
 margin_top = 612.0
 margin_right = 144.531
@@ -781,7 +779,6 @@ __meta__ = {
 }
 
 [node name="Label3" type="RichTextLabel" parent="."]
-modulate = Color( 0.439216, 0.0823529, 0.0823529, 1 )
 margin_left = 372.0
 margin_top = 292.0
 margin_right = 491.0
@@ -789,8 +786,8 @@ margin_bottom = 345.0
 custom_fonts/mono_font = SubResource( 5 )
 custom_fonts/normal_font = SubResource( 6 )
 bbcode_enabled = true
-bbcode_text = "[color=red][center][shake rate=10 level=10]your attack consume 
-Bones[/shake][/center][/color]"
+bbcode_text = "[center][shake rate=10 level=10]your attack consume 
+Bones[/shake][/center]"
 text = "your attack consume 
 Bones"
 __meta__ = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/fonts/monogram-extended.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Creditos.gd" type="Script" id=2]
@@ -8,11 +8,15 @@
 size = 32
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=6]
+size = 84
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 70
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Fade_out"
 length = 1.5
 tracks/0/type = "value"
@@ -40,9 +44,8 @@ tracks/1/keys = {
 "values": [ -10.0, -60.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Up"
-length = 15.0
+[sub_resource type="Animation" id=4]
+length = 24.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("LabelLeft:rect_position")
 tracks/0/interp = 1
@@ -50,10 +53,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 14 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 4, 21 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10, 700 ), Vector2( 10, -1100 ) ]
+"values": [ Vector2( 10, 800 ), Vector2( 10, 800 ), Vector2( 10, -1700 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("LabelRight:rect_position")
@@ -62,13 +65,25 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 15 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 4, 22 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 660, 700 ), Vector2( 660, -1200 ) ]
+"values": [ Vector2( 660, 800 ), Vector2( 660, 800 ), Vector2( 660, -1800 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Nombres:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.8, 4, 12, 22 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 336, 500 ), Vector2( 336, 50 ), Vector2( 336, 50 ), Vector2( 336, 5000 ), Vector2( 336, -500 ) ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 57
 font_data = ExtResource( 1 )
 
@@ -94,9 +109,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -630.0
-margin_top = 340.0
+margin_top = -2060.0
 margin_right = 36.0173
-margin_bottom = 2338.11
+margin_bottom = -61.802
 custom_fonts/font = SubResource( 1 )
 text = "Main Character
 
@@ -178,9 +193,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 20.0
-margin_top = 340.0
-margin_right = 620.0
-margin_bottom = 2744.0
+margin_top = -2160.0
+margin_right = 638.0
+margin_bottom = 1742.03
 custom_fonts/font = SubResource( 1 )
 text = "Stage Elements
 
@@ -258,6 +273,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Nombres" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -304.0
+margin_top = -500.0
+margin_right = 304.0
+margin_bottom = -70.9983
+custom_fonts/font = SubResource( 6 )
+text = "Developers
+
+Abraham Avila
+Lucas Oyarzun
+Benjamin Valenzuela
+
+
+
+
+
+
+
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_right = 1279.0
 margin_bottom = 102.0
@@ -273,10 +317,13 @@ custom_fonts/font = SubResource( 2 )
 text = "Credits"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Transition" type="AnimationPlayer" parent="."]
-anims/Fade_out = SubResource( 5 )
-anims/Up = SubResource( 3 )
+anims/Fade_out = SubResource( 3 )
+anims/Up = SubResource( 4 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 anchor_left = 1.0
@@ -297,7 +344,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -399.0
 margin_top = -48.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Press Space to Exit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -310,7 +357,7 @@ volume_db = -10.0
 [node name="Fade_out" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

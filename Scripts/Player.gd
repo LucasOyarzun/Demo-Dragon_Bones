@@ -265,6 +265,7 @@ func die():
 	
 func fade_out():
 	$FadeOut/FadeOutAnim.play("FadeOut")
+	yield($FadeOut/FadeOutAnim, "animation_finished")
 
 func _on_FadeOutAnim_animation_finished(anim_name: String) ->void:
 	if live:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Hellhound.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Assets/Sounds/BackGround.ogg" type="AudioStream" id=19]
 [ext_resource path="res://Assets/Sounds/BackGround_music.mp3" type="AudioStream" id=20]
 [ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=21]
+[ext_resource path="res://MinimalPixel v2.ttf" type="DynamicFontData" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 128 )
@@ -72,10 +73,28 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 22 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "instrutions"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Main" type="Node2D"]
@@ -529,3 +548,23 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StartFade"]
 anims/Start = SubResource( 3 )
+
+[node name="instructions" type="Node2D" parent="."]
+position = Vector2( 2555, 192 )
+
+[node name="Label" type="Label" parent="instructions"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -56.0
+margin_top = -16.0
+margin_right = 66.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 30 )
+custom_fonts/font = SubResource( 7 )
+text = "Press z again 
+To jump jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="instructions"]
+anims/instrutions = SubResource( 6 )

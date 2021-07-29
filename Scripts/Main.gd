@@ -9,7 +9,6 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# mantiene la posicion de la lava que sube
 	lava_subiendo_pos = get_node("Lava_subiendo").position.y
-	
 	camera.limit_bottom = min(lava_subiendo_pos, 700)
 	
 	
