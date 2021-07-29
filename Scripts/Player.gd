@@ -140,9 +140,9 @@ func _physics_process(delta: float) -> void:
 			
 	# Dash 
 	# hay que cambiar 
-	if Input.is_action_just_pressed("dash"):
-		lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed_x
-		snap = Vector2.ZERO
+	#if Input.is_action_just_pressed("dash"):
+	#	lineal_vel = (get_global_mouse_position() - global_position).normalized() * 2 * speed_x
+#		snap = Vector2.ZERO
 
 	# Movement
 	var ceiling = false

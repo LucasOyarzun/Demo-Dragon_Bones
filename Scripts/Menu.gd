@@ -6,16 +6,18 @@ var option = Play
 var title = true
 onready var Main = $MainMenu
 onready var Title = $TitleScreen
-var blockinput= false
+var blockinput= true
 onready var options= $MainMenu/Panel/VBoxContainer2/VBoxContainer
 
 func _ready() -> void:
 	$ColorRect.color = 00000000
 	$Volumen.play("Subir")
 	$Musica.play()
-	
+	$HollowGroup.play("Nueva Animación")
 	Main.visible=false
 	Title.visible=true
+	yield($HollowGroup, "animation_finished")
+	blockinput = false
 	Title.get_node("CenterContainer/AnimationPlayer").play("parpadeo")
 	updatelabel()
 
@@ -27,6 +29,7 @@ func _input(event):
 			blockinput=true 
 			title=false
 			$AnimationPlayer.play("Flashaso")
+			$flashazo.play()
 			yield($AnimationPlayer,"animation_finished")
 			blockinput=false
 	else:

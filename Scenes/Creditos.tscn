@@ -1,23 +1,23 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/fonts/monogram-extended.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Creditos.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sounds/Final_music.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/fonts/MinimalPixel v2.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 size = 84
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 70
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "Fade_out"
+[sub_resource type="Animation" id=4]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fade_out:color")
@@ -44,8 +44,8 @@ tracks/1/keys = {
 "values": [ -10.0, -60.0 ]
 }
 
-[sub_resource type="Animation" id=4]
-length = 24.0
+[sub_resource type="Animation" id=5]
+length = 26.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("LabelLeft:rect_position")
 tracks/0/interp = 1
@@ -82,10 +82,26 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 336, 500 ), Vector2( 336, 50 ), Vector2( 336, 50 ), Vector2( 336, 5000 ), Vector2( 336, -500 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Thanks:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 22, 23.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 323.901, 725.113 ), Vector2( 323.901, 725.113 ), Vector2( 323.901, 200 ) ]
+}
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 57
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 54
+font_data = ExtResource( 4 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -111,9 +127,9 @@ anchor_bottom = 0.5
 margin_left = -630.0
 margin_top = -2060.0
 margin_right = 36.0173
-margin_bottom = -61.802
+margin_bottom = 54.0
 custom_fonts/font = SubResource( 1 )
-text = "Main Character
+text = "Main Character Base Sprite
 
 Sword Skeleton
 sanctumpixel.itch.io
@@ -134,7 +150,7 @@ ansimuz.itch.io
 
 
 
-Enemies
+Enemies sprites
 
 Hell Hound 
 ansimuz.itch.io
@@ -172,6 +188,8 @@ opengameart.org/users/vishwajai
 Menu Rollover
 opengameart.org/users/sudocolon
 
+Fire & Evil Spell
+opengameart.org/users/qubodup
 
 
 
@@ -224,7 +242,7 @@ ansimuz.itch.io
 
 
 
-Items
+Items sprites
 
 Admurin's miscellaneous items
 admurin.itch.io
@@ -280,13 +298,15 @@ anchor_bottom = 1.0
 margin_left = -304.0
 margin_top = -500.0
 margin_right = 304.0
-margin_bottom = -70.9983
-custom_fonts/font = SubResource( 6 )
+margin_bottom = 289.0
+custom_fonts/font = SubResource( 2 )
 text = "Developers
 
 Abraham Avila
 Lucas Oyarzun
 Benjamin Valenzuela
+
+
 
 
 
@@ -313,7 +333,7 @@ __meta__ = {
 [node name="Credits" type="Label" parent="."]
 anchor_right = 1.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Credits"
 align = 1
 valign = 1
@@ -322,8 +342,8 @@ __meta__ = {
 }
 
 [node name="Transition" type="AnimationPlayer" parent="."]
-anims/Fade_out = SubResource( 3 )
-anims/Up = SubResource( 4 )
+anims/Fade_out = SubResource( 4 )
+anims/Up = SubResource( 5 )
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 anchor_left = 1.0
@@ -344,7 +364,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -399.0
 margin_top = -48.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Press Space to Exit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -358,6 +378,29 @@ volume_db = -10.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Thanks" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -316.099
+margin_top = -160.0
+margin_right = 373.901
+margin_bottom = 236.0
+custom_fonts/font = SubResource( 7 )
+text = "Thanks to
+
+Elias Zelada
+Beatriz Graboloza
+Eric Kirchgessner
+Gabriel G. Orrego
+"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
