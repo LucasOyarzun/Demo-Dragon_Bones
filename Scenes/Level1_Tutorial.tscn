@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Plataforms.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Cam.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Assets/Sounds/BackGround.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Assets/Sounds/BackGround_music.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Scripts/Level1_Tutorial.gd" type="Script" id=17]
+[ext_resource path="res://MinimalPixel v2.ttf" type="DynamicFontData" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 80 )
@@ -109,6 +110,15 @@ tracks/3/keys = {
 "update": 0,
 "values": [ -40.0, -20.0 ]
 }
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 18 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 18 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 18 )
 
 [node name="Level1_Tutorial" type="Node2D"]
 position = Vector2( -13.4848, -0.749161 )
@@ -729,6 +739,10 @@ autoplay = true
 [node name="ColorRect" type="ColorRect" parent="StartFade"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.0508423
+margin_top = 4.13504
+margin_right = -0.0507813
+margin_bottom = 4.13501
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
@@ -737,5 +751,50 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StartFade"]
 anims/Start = SubResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.439216, 0.0823529, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 189.968
+margin_top = 612.0
+margin_right = 234.968
+margin_bottom = 647.0
+custom_fonts/font = SubResource( 4 )
+text = "press x 
+to attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color( 0.439216, 0.0823529, 0.0823529, 1 )
+margin_left = 99.531
+margin_top = 612.0
+margin_right = 144.531
+margin_bottom = 647.0
+custom_fonts/font = SubResource( 4 )
+text = "press z 
+to jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="RichTextLabel" parent="."]
+modulate = Color( 0.439216, 0.0823529, 0.0823529, 1 )
+margin_left = 372.0
+margin_top = 292.0
+margin_right = 491.0
+margin_bottom = 345.0
+custom_fonts/mono_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[color=red][center][shake rate=10 level=10]your attack consume 
+Bones[/shake][/center][/color]"
+text = "your attack consume 
+Bones"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="Margen"]
