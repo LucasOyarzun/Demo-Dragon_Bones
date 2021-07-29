@@ -1,12 +1,14 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Assets/Fire Worm/Sprites/Fire Ball/Move.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Enemies/Fire Worm/Fire Ball/Move.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/FireBall.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Fire Worm/Sprites/Fire Ball/Explosion.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Enemies/Fire Worm/Fire Ball/Explosion.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sounds/Fireball_explosion_sound.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/Fireball_sound.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 8.0
-height = 16.0
+radius = 16.0
+height = 5.72205e-05
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -73,7 +75,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="FireBall" type="Area2D"]
+[node name="FireBall" type="Area2D" groups=[
+"bullet",
+]]
+pause_mode = 1
+collision_layer = 4
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -83,7 +90,19 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 15 )
-frame = 2
+
+frame = 1
+
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 4.92458
+
+[node name="Fireball_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -22.713
+autoplay = true
+attenuation = 6.9644

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bones_pickup.wav-1ba3971d465f7231e31aaec77fdaa4a3.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/bones_pickup.wav"
+dest_files=[ "res://.import/bones_pickup.wav-1ba3971d465f7231e31aaec77fdaa4a3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

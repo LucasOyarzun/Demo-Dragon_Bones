@@ -15,6 +15,8 @@ var timer_moving = 0
 var moving_lapse = rand_range(1, 6)
 var stay_lapse = 1.2
 
+var Cura = preload("res://Scenes/Cura.tscn")
+
 func _ready():
 	sprite.play()
 	$TurnBack.connect("timeout", self, "turn_back")
@@ -41,5 +43,6 @@ func turn_back():
 	facing_right = !(facing_right)
 	scale.x = -1
 	target_vel = -target_vel
+	
 func take_damage():
 	queue_free()

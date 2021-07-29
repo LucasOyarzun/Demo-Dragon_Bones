@@ -14,6 +14,8 @@ func on_body_entered(body: Node):
 	if body.is_in_group("player"): # Si choca con el jugador
 		var player: Player = body
 		player.die()
+	elif body.is_in_group("enemy") or body.is_in_group("bullet"):
+		body.queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
