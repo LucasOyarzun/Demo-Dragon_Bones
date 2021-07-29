@@ -90,7 +90,9 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 15 )
+
 frame = 1
+
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -101,5 +103,6 @@ attenuation = 4.92458
 
 [node name="Fireball_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+volume_db = -22.713
 autoplay = true
 attenuation = 6.9644

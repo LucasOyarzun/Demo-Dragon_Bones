@@ -12,7 +12,7 @@ func _input(event):
 
 	
 func skip_scene():
-	get_tree().change_scene("res://Scenes/Menu.tscn")
+	get_tree().change_scene("res://Scenes/Creditos.tscn")
 
 
 func _on_Final_animation_finished(anim_name):

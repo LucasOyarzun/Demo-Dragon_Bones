@@ -39,6 +39,7 @@ __meta__ = {
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -89,6 +90,7 @@ text = "Retry "
 
 [node name="Exit" type="RichTextLabel" parent="Menu/PanelContainer/VBoxContainer/VBoxContainer"]
 pause_mode = 2
+
 margin_top = 128.0
 margin_right = 900.0
 margin_bottom = 188.0
@@ -112,3 +114,4 @@ rotation = 0.523599
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menu"]
 stream = ExtResource( 5 )
 volume_db = -10.0
+
