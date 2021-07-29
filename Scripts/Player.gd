@@ -42,6 +42,8 @@ onready var playback = $AnimationTree.get("parameters/playback")
 # Lava position
 var lava_subiendo_pos
 
+var paused = false
+
 func _ready():
 	$TimerAgarre.connect("timeout", self, "recuperar_agarre")
 	$Invulnerability.connect("timeout", self, "on_timeout")
@@ -55,6 +57,8 @@ func _ready():
 	$Cam.limit_right = botright.global_position.x
 
 func _physics_process(delta: float) -> void:
+	if paused:
+		return
 	lineal_vel = move_and_slide_with_snap(lineal_vel, snap, Vector2.UP)
 	
 	if $Climb.get_overlapping_bodies() != []:
@@ -281,7 +285,9 @@ func set_can_climb(value):
 func _input(event: InputEvent)-> void:
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	if event.is_action_pressed("menu") and just_pressed:
+		paused = true
 		$PauseMenu.toggle()
+		
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name in ["MeleeAttack","Bend_Attack","Climb_Attack"]:

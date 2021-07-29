@@ -17,6 +17,7 @@ animations = [ {
 } ]
 
 [node name="Lava_subiendo" type="Area2D"]
+pause_mode = 1
 position = Vector2( 13.2266, 0.70752 )
 z_index = 118
 script = ExtResource( 1 )

@@ -32,6 +32,7 @@ extents = Vector2( 9.09261, 8.54011 )
 [node name="Bat" type="KinematicBody2D" groups=[
 "enemy",
 ]]
+pause_mode = 1
 collision_layer = 4
 script = ExtResource( 1 )
 

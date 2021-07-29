@@ -17,6 +17,7 @@ hue_variation = 0.03
 hue_variation_random = 1.0
 
 [node name="Gotas_Lava" type="Particles2D"]
+pause_mode = 1
 amount = 26
 lifetime = 2.0
 preprocess = 6.53

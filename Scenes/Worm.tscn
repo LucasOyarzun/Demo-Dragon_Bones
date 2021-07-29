@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.1838, 8.50281 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=2]
 resource_name = "Attack"
 length = 1.7
 loop = true
@@ -49,7 +49,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -89,7 +89,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -129,32 +129,33 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "Attack"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
 
-[sub_resource type="AnimationNodeStateMachine" id=8]
-states/Attack/node = SubResource( 12 )
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/Attack/node = SubResource( 5 )
 states/Attack/position = Vector2( 248, 83 )
-states/Walk/node = SubResource( 5 )
+states/Walk/node = SubResource( 6 )
 states/Walk/position = Vector2( 460, 83 )
-transitions = [ "Attack", "Walk", SubResource( 13 ), "Walk", "Attack", SubResource( 14 ) ]
+transitions = [ "Attack", "Walk", SubResource( 7 ), "Walk", "Attack", SubResource( 8 ) ]
 start_node = "Walk"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 17.9478, 8.66967 )
 
 [node name="Worm" type="KinematicBody2D" groups=[
 "enemy",
 ]]
+pause_mode = 1
 collision_layer = 4
 script = ExtResource( 1 )
 
@@ -166,18 +167,18 @@ position = Vector2( -4, -4 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 hframes = 9
-frame = 2
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 11 )
-anims/Idle = SubResource( 2 )
-anims/Walk = SubResource( 3 )
+anims/Attack = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Walk = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 8 )
+tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 9 )
+parameters/playback = SubResource( 10 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( -25, 0 )
@@ -191,7 +192,7 @@ cast_to = Vector2( -25, 0 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Re_entered_timer" type="Timer" parent="."]
 wait_time = 0.5

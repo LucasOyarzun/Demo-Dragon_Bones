@@ -78,6 +78,7 @@ animations = [ {
 [node name="FireBall" type="Area2D" groups=[
 "bullet",
 ]]
+pause_mode = 1
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 2 )
@@ -89,6 +90,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 15 )
+frame = 1
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
